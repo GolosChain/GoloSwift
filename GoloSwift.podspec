@@ -1,24 +1,21 @@
-Pod::Spec.new do |s|
-#1.
-s.name              =   "GoloSwift"
-#2.
-s.version           =   "1.0.0"
-#3.
-s.summary           =   "Swift framework for Golos.io"
-#4.
-s.homepage          =   "https://golos.io/"
-#5.
-s.license           =   "MIT"
-#6.
-s.author            =   "msm72"
-#7.
-s.platform          =   :ios, "10.0"
-#8.
-s.source            =   { :git => "URL", :tag => "1.0.0" }
-#9.
-s.source_files      =   "GoloSwift", "GoloSwift/**/*.{h,m,swift}"
-#10.
-s.frameworks        =   'BeyovaJSON'
-s.ios.dependency        'BeyovaJSON', '~> 0.0'
-s.requires_arc      =   true
+Pod::Spec.new do |spec|
+
+    spec.name               =   "GoloSwift"
+    spec.swift_version      =   "4"
+    spec.version            =   "1.0.2"
+    spec.summary            =   "Swift framework for Golos.io"
+    spec.homepage           =   "https://golos.io/"
+    spec.license            =   "MIT"
+    spec.author             =   "msm72"
+    spec.platform           =   :ios, "10.0"
+    spec.source             =   { :git => "https://github.com/Monserg/GoloSwift.git", :tag => "1.0.2" }
+    spec.source_files       =   "GoloSwift", "GoloSwift/**/*.{h,m,swift}"
+
+    # Cocoapods
+    spec.dependency 'Locksmith'
+    spec.dependency 'CryptoSwift'
+    spec.dependency 'secp256k1.swift'
+    spec.dependency 'BeyovaJSON', '~> 0.0'
+    spec.dependency 'Localize-Swift', '~> 2.0'
+
 end
