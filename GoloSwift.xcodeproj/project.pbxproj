@@ -464,6 +464,20 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"BeyovaJSON\"",
+					"-framework",
+					"\"CryptoSwift\"",
+					"-framework",
+					"\"Localize_Swift\"",
+					"-framework",
+					"\"Locksmith\"",
+					"-framework",
+					"\"secp256k1\"",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.golos.GoloSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
