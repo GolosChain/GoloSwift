@@ -1,0 +1,6 @@
+framework module Pods_GoloSwift {
+  umbrella header "Pods-GoloSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
