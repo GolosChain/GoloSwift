@@ -25,11 +25,11 @@
 		B1D9009C20AB2D6C00AECE51 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9009720AB2D6C00AECE51 /* Constants.swift */; };
 		B1D9009D20AB2D6C00AECE51 /* Numeric+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9009820AB2D6C00AECE51 /* Numeric+Extensions.swift */; };
 		B1D900A020AB316A00AECE51 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1D900A220AB316A00AECE51 /* Localizable.strings */; };
-		B1D900A520AB3DBE00AECE51 /* BeyovaJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900A420AB3DBE00AECE51 /* BeyovaJSON.framework */; };
-		B1D900A720AB3DCA00AECE51 /* Localize_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900A620AB3DCA00AECE51 /* Localize_Swift.framework */; };
-		B1D900A920AB3DCA00AECE51 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900A820AB3DCA00AECE51 /* Locksmith.framework */; };
-		B1D900AB20AB3DDA00AECE51 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900AA20AB3DDA00AECE51 /* CryptoSwift.framework */; };
-		B1D900AD20AB3DDA00AECE51 /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900AC20AB3DDA00AECE51 /* secp256k1.framework */; };
+		B1D900AF20AB3E9B00AECE51 /* BeyovaJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900AE20AB3E9B00AECE51 /* BeyovaJSON.framework */; };
+		B1D900B120AB3E9B00AECE51 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900B020AB3E9B00AECE51 /* CryptoSwift.framework */; };
+		B1D900B320AB3E9B00AECE51 /* Localize_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900B220AB3E9B00AECE51 /* Localize_Swift.framework */; };
+		B1D900B520AB3E9B00AECE51 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900B420AB3E9B00AECE51 /* Locksmith.framework */; };
+		B1D900B720AB3E9B00AECE51 /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900B620AB3E9B00AECE51 /* secp256k1.framework */; };
 		FCCA940BEFEC1AE44E9B6840 /* Pods_GoloSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A06354C27890305D67078F /* Pods_GoloSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +62,11 @@
 		B1D900A820AB3DCA00AECE51 /* Locksmith.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Locksmith.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D900AA20AB3DDA00AECE51 /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D900AC20AB3DDA00AECE51 /* secp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = secp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1D900AE20AB3E9B00AECE51 /* BeyovaJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeyovaJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1D900B020AB3E9B00AECE51 /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1D900B220AB3E9B00AECE51 /* Localize_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Localize_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1D900B420AB3E9B00AECE51 /* Locksmith.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Locksmith.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1D900B620AB3E9B00AECE51 /* secp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = secp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3F22598EC38832B26DF26C /* Pods-GoloSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,11 +75,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1D900AB20AB3DDA00AECE51 /* CryptoSwift.framework in Frameworks */,
-				B1D900AD20AB3DDA00AECE51 /* secp256k1.framework in Frameworks */,
-				B1D900A720AB3DCA00AECE51 /* Localize_Swift.framework in Frameworks */,
-				B1D900A920AB3DCA00AECE51 /* Locksmith.framework in Frameworks */,
-				B1D900A520AB3DBE00AECE51 /* BeyovaJSON.framework in Frameworks */,
+				B1D900AF20AB3E9B00AECE51 /* BeyovaJSON.framework in Frameworks */,
+				B1D900B120AB3E9B00AECE51 /* CryptoSwift.framework in Frameworks */,
+				B1D900B320AB3E9B00AECE51 /* Localize_Swift.framework in Frameworks */,
+				B1D900B520AB3E9B00AECE51 /* Locksmith.framework in Frameworks */,
+				B1D900B720AB3E9B00AECE51 /* secp256k1.framework in Frameworks */,
 				B1D9009020AB2CB100AECE51 /* SwiftBase58.framework in Frameworks */,
 				B1D9009120AB2CB100AECE51 /* SwiftGMP.framework in Frameworks */,
 				B1D9009220AB2CB100AECE51 /* SwiftHex.framework in Frameworks */,
@@ -88,6 +93,11 @@
 		10CD755145DBFBCABD1F23E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1D900AE20AB3E9B00AECE51 /* BeyovaJSON.framework */,
+				B1D900B020AB3E9B00AECE51 /* CryptoSwift.framework */,
+				B1D900B220AB3E9B00AECE51 /* Localize_Swift.framework */,
+				B1D900B420AB3E9B00AECE51 /* Locksmith.framework */,
+				B1D900B620AB3E9B00AECE51 /* secp256k1.framework */,
 				B1D900AA20AB3DDA00AECE51 /* CryptoSwift.framework */,
 				B1D900AC20AB3DDA00AECE51 /* secp256k1.framework */,
 				B1D900A620AB3DCA00AECE51 /* Localize_Swift.framework */,
