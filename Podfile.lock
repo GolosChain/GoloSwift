@@ -8,7 +8,7 @@ PODS:
 DEPENDENCIES:
   - BeyovaJSON (~> 0.0)
   - CryptoSwift
-  - Localize-Swift (~> 2.0)
+  - Localize-Swift
   - Locksmith
   - secp256k1.swift
 
@@ -27,6 +27,6 @@ SPEC CHECKSUMS:
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   secp256k1.swift: 3012a2bb09e183f43ac702125202c01c0bf55ea2
 
-PODFILE CHECKSUM: 5916fa40fa4a5af6118fcce393c637df1ffaae4d
+PODFILE CHECKSUM: fde9f170d47218c5c1fd3bc94b39d838c5705ba9
 
 COCOAPODS: 1.5.0.beta.1
