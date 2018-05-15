@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//import Localize_Swift
+import Localize_Swift
 
 public enum ErrorAPI: Error {
     case requestFailed(message: String)
@@ -20,28 +20,22 @@ public enum ErrorAPI: Error {
     var caseInfo: (title: String, message: String) {
         switch self {
         case .requestFailed(let message):
-//            return (title: "Request Failed".localized(), message: message)
-            return (title: "Request Failed", message: message)
-
+            return (title: "Request Failed".localized(), message: message)
+            
         case .invalidData(let message):
-//            return (title: "Invalid Data".localized(), message: message)
-            return (title: "Invalid Data", message: message)
-
+            return (title: "Invalid Data".localized(), message: message)
+            
         case .responseUnsuccessful(let message):
-//            return (title: "Response Unsuccessful".localized(), message: message)
-            return (title: "Response Unsuccessful", message: message)
-
+            return (title: "Response Unsuccessful".localized(), message: message)
+            
         case .jsonParsingFailure(let message):
-//            return (title: "JSON Parsing Failure".localized(), message: message)
-            return (title: "JSON Parsing Failure", message: message)
-
+            return (title: "JSON Parsing Failure".localized(), message: message)
+            
         case .jsonConversionFailure(let message):
-//            return (title: "JSON Conversion Failure".localized(), message: message)
-            return (title: "JSON Conversion Failure", message: message)
-
+            return (title: "JSON Conversion Failure".localized(), message: message)
+            
         case .signingECCKeychainPostingKeyFailure(let message):
-//            return (title: "Keychain Posting Key Failure".localized(), message: message)
-            return (title: "Keychain Posting Key Failure", message: message)
+            return (title: "Keychain Posting Key Failure".localized(), message: message)
         }
     }
 }
