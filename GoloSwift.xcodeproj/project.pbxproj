@@ -24,6 +24,7 @@
 		B1D9009B20AB2D6C00AECE51 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9009620AB2D6C00AECE51 /* Array+Extensions.swift */; };
 		B1D9009C20AB2D6C00AECE51 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9009720AB2D6C00AECE51 /* Constants.swift */; };
 		B1D9009D20AB2D6C00AECE51 /* Numeric+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9009820AB2D6C00AECE51 /* Numeric+Extensions.swift */; };
+		B1D900A020AB316A00AECE51 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1D900A220AB316A00AECE51 /* Localizable.strings */; };
 		FCCA940BEFEC1AE44E9B6840 /* Pods_GoloSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A06354C27890305D67078F /* Pods_GoloSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,8 @@
 		B1D9009620AB2D6C00AECE51 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		B1D9009720AB2D6C00AECE51 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B1D9009820AB2D6C00AECE51 /* Numeric+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Numeric+Extensions.swift"; sourceTree = "<group>"; };
+		B1D900A120AB316A00AECE51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B1D900A320AB317E00AECE51 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE3F22598EC38832B26DF26C /* Pods-GoloSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +107,7 @@
 				B1D9007B20AB259E00AECE51 /* Managers */,
 				B1D9007320AB250D00AECE51 /* GoloSwift.h */,
 				B1D9007420AB250D00AECE51 /* Info.plist */,
+				B1D900A220AB316A00AECE51 /* Localizable.strings */,
 			);
 			path = GoloSwift;
 			sourceTree = "<group>";
@@ -205,6 +209,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
 			);
 			mainGroup = B1D9006620AB250D00AECE51;
 			productRefGroup = B1D9007120AB250D00AECE51 /* Products */;
@@ -221,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1D900A020AB316A00AECE51 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,11 +276,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		B1D900A220AB316A00AECE51 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1D900A120AB316A00AECE51 /* en */,
+				B1D900A320AB317E00AECE51 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		B1D9007620AB250D00AECE51 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -323,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -338,6 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -380,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

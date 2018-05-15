@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  GoloSwift
+
+  Created by msm72 on 15.05.2018.
+  Copyright © 2018 golos. All rights reserved.
+*/
+
+
+// Error message
+"Developer error!"                          =   "Developer error!";
+"Request Failed"                            =   "Request Failed";
+"Invalid Data"                              =   "Invalid Data";
+"Response Unsuccessful"                     =   "Response Unsuccessful";
+"JSON Parsing Failure"                      =   "JSON Parsing Failure";
+"JSON Conversion Failure"                   =   "JSON Conversion Failure";
+
