@@ -10,7 +10,7 @@
 
 import Foundation
 
-enum LogEvent: String {
+public enum LogEvent: String {
     case error      =   "[‼️]"
     case info       =   "[ℹ️]"          // for guard & alert & route
     case debug      =   "[💬]"          // tested values & local notifications
@@ -19,7 +19,7 @@ enum LogEvent: String {
     case severe     =   "[🔥]"          // tokens & keys & init & deinit
 }
 
-class Logger {
+public class Logger {
     // MARK: - Properties
     static var dateFormat = "yyyy-MM-dd hh:mm:ssSSS"
     
