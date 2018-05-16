@@ -16,12 +16,6 @@ var headBlockNumber: UInt16             =   0
 var headBlockID: UInt32                 =   0
 var time: String                        =   ""
 
-// Operation values
-let voter: String                       =   "msm72"
-let author: String                      =   "yuri-vlad-second"
-let permlink: String                    =   "sdgsdgsdg234234"
-let weight: Int64                       =   10_000
-
 // Keys wifs
 let postingKey: String                  =   "5Jj6qFdJLGKFFFQbfTwv6JNQmXzCidnjgSFNYKhrgqhzigH4sFp"
 let chainID                             =   "782a3039b478c839e4cb0c941ff4eaeb7df40bdd68bd441afd444b9da763de12"          // Golos.io
