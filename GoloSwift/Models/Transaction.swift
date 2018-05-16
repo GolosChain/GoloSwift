@@ -11,7 +11,6 @@ import Foundation
 import secp256k1
 import Locksmith
 import CryptoSwift
-import SwiftBase58
 
 public typealias Byte = UInt8
 public typealias TransactionOperationType = [String: [String: Any]]
@@ -235,7 +234,8 @@ extension Transaction {
     /// Convert `Posting key` from String to [Byte]
     private func base58Decode(data: String) -> [Byte] {
         Logger.log(message: "\ntx - postingKeyString:\n\t\(data)\n", event: .debug)
-        let s: [Byte] = SwiftBase58.decode(data)
+        let s: [Byte] = Base58.bytesFromBase58(data)
+//        let s: [Byte] = SwiftBase58.decode(data)
         let dec = cutLastBytes(source: s, cutCount: 4)
         
         Logger.log(message: "\ntx - postingKeyData:\n\t\(dec.toHexString())\n", event: .debug)

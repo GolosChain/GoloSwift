@@ -16,9 +16,6 @@
 		B1D9008A20AB272400AECE51 /* ErrorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9008420AB272400AECE51 /* ErrorAPI.swift */; };
 		B1D9008B20AB272400AECE51 /* ResponseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9008520AB272400AECE51 /* ResponseAPI.swift */; };
 		B1D9008C20AB272400AECE51 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9008620AB272400AECE51 /* Transaction.swift */; };
-		B1D9009020AB2CB100AECE51 /* SwiftBase58.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D9008D20AB2CB100AECE51 /* SwiftBase58.framework */; };
-		B1D9009120AB2CB100AECE51 /* SwiftGMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D9008E20AB2CB100AECE51 /* SwiftGMP.framework */; };
-		B1D9009220AB2CB100AECE51 /* SwiftHex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D9008F20AB2CB100AECE51 /* SwiftHex.framework */; };
 		B1D9009920AB2D6C00AECE51 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9009420AB2D6C00AECE51 /* Date+Extensions.swift */; };
 		B1D9009A20AB2D6C00AECE51 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9009520AB2D6C00AECE51 /* String+Extensions.swift */; };
 		B1D9009B20AB2D6C00AECE51 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9009620AB2D6C00AECE51 /* Array+Extensions.swift */; };
@@ -49,9 +46,6 @@
 		B1D9008420AB272400AECE51 /* ErrorAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAPI.swift; sourceTree = "<group>"; };
 		B1D9008520AB272400AECE51 /* ResponseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseAPI.swift; sourceTree = "<group>"; };
 		B1D9008620AB272400AECE51 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		B1D9008D20AB2CB100AECE51 /* SwiftBase58.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftBase58.framework; path = Carthage/Build/iOS/SwiftBase58.framework; sourceTree = "<group>"; };
-		B1D9008E20AB2CB100AECE51 /* SwiftGMP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGMP.framework; path = Carthage/Build/iOS/SwiftGMP.framework; sourceTree = "<group>"; };
-		B1D9008F20AB2CB100AECE51 /* SwiftHex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHex.framework; path = Carthage/Build/iOS/SwiftHex.framework; sourceTree = "<group>"; };
 		B1D9009420AB2D6C00AECE51 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		B1D9009520AB2D6C00AECE51 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B1D9009620AB2D6C00AECE51 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -84,9 +78,6 @@
 				B1D900B320AB3E9B00AECE51 /* Localize_Swift.framework in Frameworks */,
 				B1D900B520AB3E9B00AECE51 /* Locksmith.framework in Frameworks */,
 				B1D900B720AB3E9B00AECE51 /* secp256k1.framework in Frameworks */,
-				B1D9009020AB2CB100AECE51 /* SwiftBase58.framework in Frameworks */,
-				B1D9009120AB2CB100AECE51 /* SwiftGMP.framework in Frameworks */,
-				B1D9009220AB2CB100AECE51 /* SwiftHex.framework in Frameworks */,
 				FCCA940BEFEC1AE44E9B6840 /* Pods_GoloSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,9 +98,6 @@
 				B1D900A620AB3DCA00AECE51 /* Localize_Swift.framework */,
 				B1D900A820AB3DCA00AECE51 /* Locksmith.framework */,
 				B1D900A420AB3DBE00AECE51 /* BeyovaJSON.framework */,
-				B1D9008D20AB2CB100AECE51 /* SwiftBase58.framework */,
-				B1D9008E20AB2CB100AECE51 /* SwiftGMP.framework */,
-				B1D9008F20AB2CB100AECE51 /* SwiftHex.framework */,
 				07A06354C27890305D67078F /* Pods_GoloSwift.framework */,
 			);
 			name = Frameworks;
@@ -214,7 +202,6 @@
 				B1D9006C20AB250D00AECE51 /* Frameworks */,
 				B1D9006D20AB250D00AECE51 /* Headers */,
 				B1D9006E20AB250D00AECE51 /* Resources */,
-				B1D900B820AB4A6B00AECE51 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -271,25 +258,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B1D900B820AB4A6B00AECE51 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftBase58.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftGMP.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftHex.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftBase58.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftGMP.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftHex.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
 		B3D91ADA03E87588BDEE3C18 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
