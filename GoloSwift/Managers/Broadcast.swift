@@ -19,7 +19,6 @@ public typealias RequestAPIStore    =   (type: RequestAPIType, completion: (Resp
 
 public class Broadcast {
     // MARK: - Properties
-    let test: String = "Hello, broadcast"
     static let shared = Broadcast()
     
     

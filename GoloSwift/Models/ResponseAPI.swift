@@ -11,26 +11,26 @@ import Foundation
 /// Response: Error Result
 public struct ResponseAPIResultError: Decodable {
     // MARK: - Properties
-    let error: ResponseAPIError
-    let id: Int64
-    let jsonrpc: String
+    public let error: ResponseAPIError
+    public let id: Int64
+    public let jsonrpc: String
 }
 
 /// Response: Error
 public struct ResponseAPIError: Decodable {
     // MARK: - Properties
     // In work
-    let code: Int64
-    let message: String
+    public let code: Int64
+    public let message: String
 }
 
 
 /// Response: Feed Result
 public struct ResponseAPIFeedResult: Decodable {
     // MARK: - Properties
-    let id: Int64
-    let jsonrpc: String
-    let result: [ResponseAPIFeed]
+    public let id: Int64
+    public let jsonrpc: String
+    public let result: [ResponseAPIFeed]
 }
 
 /// Response: Feed
@@ -38,16 +38,16 @@ public struct ResponseAPIFeed: Decodable {
     // MARK: - Properties
     // In work
     // swiftlint:disable identifier_name
-    let id: Int64
-    let body: String
-    let title: String
-    let author: String
-    let category: String
-    let permlink: String
-    let allow_votes: Bool
-    let allow_replies: Bool
-    let json_metadata: String?
-    let active_votes: [ResponseAPIActiveVote]
+    public let id: Int64
+    public let body: String
+    public let title: String
+    public let author: String
+    public let category: String
+    public let permlink: String
+    public let allow_votes: Bool
+    public let allow_replies: Bool
+    public let json_metadata: String?
+    public let active_votes: [ResponseAPIActiveVote]
 
     // In reserve
     /*
@@ -97,18 +97,18 @@ public struct ResponseAPIFeed: Decodable {
 public struct ResponseAPIActiveVote: Decodable {
     // MARK: - Properties
     // In work
-    let percent: Int16
-    let reputation: Conflicted
-    let rshares: Conflicted
-    let time: String
-    let voter: String
-    let weight: Conflicted
+    public let percent: Int16
+    public let reputation: Conflicted
+    public let rshares: Conflicted
+    public let time: String
+    public let voter: String
+    public let weight: Conflicted
 }
 
 
 /// [Multiple types](https://stackoverflow.com/questions/46759044/swift-structures-handling-multiple-types-for-a-single-property)
 public struct Conflicted: Codable {
-    let stringValue: String?
+    public let stringValue: String?
 
     // Where we determine what type the value is
     public init(from decoder: Decoder) throws {
@@ -134,9 +134,9 @@ public struct Conflicted: Codable {
 /// Response: User result
 public struct ResponseAPIUserResult: Decodable {
     // MARK: - Properties
-    let id: Int64
-    let jsonrpc: String
-    let result: [ResponseAPIUser]
+    public let id: Int64
+    public let jsonrpc: String
+    public let result: [ResponseAPIUser]
 }
 
 /// Response: User
@@ -144,10 +144,10 @@ public struct ResponseAPIUser: Decodable {
     // MARK: - Properties
     // In work
     // swiftlint:disable identifier_name
-    let id: Int64
-    let name: String
-    let post_count: Int64
-    let json_metadata: String?
+    public let id: Int64
+    public let name: String
+    public let post_count: Int64
+    public let json_metadata: String?
 
     // In reserve
     /*
@@ -264,9 +264,9 @@ public struct ResponseAPIUser: Decodable {
 /// Response: DynamicGlobalProperties Result
 public struct ResponseAPIDynamicGlobalPropertiesResult: Decodable {
     // MARK: - Properties
-    let id: Int64
-    let jsonrpc: String
-    let result: ResponseAPIDynamicGlobalProperty
+    public let id: Int64
+    public let jsonrpc: String
+    public let result: ResponseAPIDynamicGlobalProperty
 }
 
 
@@ -275,10 +275,10 @@ public struct ResponseAPIDynamicGlobalProperty: Decodable {
     // MARK: - Properties
     // In work
     // swiftlint:disable identifier_name
-    let id: Int64
-    let time: String                            // "2018-04-20T19:01:12"
-    let head_block_id: String
-    let head_block_number: Int64
+    public let id: Int64
+    public let time: String                            // "2018-04-20T19:01:12"
+    public let head_block_id: String
+    public let head_block_number: Int64
 
     // In reserve
     /*

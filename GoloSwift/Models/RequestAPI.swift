@@ -9,12 +9,12 @@
 import Foundation
 
 public struct RequestAPI: Codable {
-    let id: Int
-    let method: String
-    let jsonrpc: String
-    let params: [String]
+    public let id: Int
+    public let method: String
+    public let jsonrpc: String
+    public let params: [String]
 }
 
 public struct RequestParams: Codable {
-    var limit: Int
+    public var limit: Int
 }
