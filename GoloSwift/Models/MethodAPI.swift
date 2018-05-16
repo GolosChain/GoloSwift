@@ -10,7 +10,7 @@ import Foundation
 import BeyovaJSON
 
 /// Type of request parameters
-typealias RequestParametersType = (methodAPIType: MethodAPIType, paramsFirst: [String], paramsSecond: JSON?)
+public typealias RequestParametersType = (methodAPIType: MethodAPIType, paramsFirst: [String], paramsSecond: JSON?)
 
 /// API methods.
 public enum MethodAPIType {
@@ -34,7 +34,7 @@ public enum MethodAPIType {
 
     
     /// This method return request parameters from selected enum case.
-    func introduced() -> RequestParametersType {
+    public func introduced() -> RequestParametersType {
         switch self {
         case .getAccounts(let names):                       return (methodAPIType:      self,
                                                                     paramsFirst:        ["database_api", "get_accounts"],

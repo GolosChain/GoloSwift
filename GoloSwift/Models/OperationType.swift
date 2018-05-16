@@ -77,7 +77,7 @@ public enum OperationType {
     
     
     /// This method return request parameters from selected enum case.
-    func getFields() -> [Any] {
+    public func getFields() -> [Any] {
         /// Return array: [ operationName, operationCode, [ operationFieldKey: operationFieldValue ] ]
         switch self {
         case .vote(let operation):
@@ -104,7 +104,7 @@ public enum OperationType {
     }
     
     /// This method return sorted array of field key names
-    func getFieldNames(byTypeID typeID: Int) -> [String] {
+    public func getFieldNames(byTypeID typeID: Int) -> [String] {
         /// Return array: [ operationFieldKey ]
         switch typeID {
         case 0:

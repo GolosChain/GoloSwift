@@ -9,7 +9,7 @@
 import Foundation
 
 /// Response: Error Result
-struct ResponseAPIResultError: Decodable {
+public struct ResponseAPIResultError: Decodable {
     // MARK: - Properties
     let error: ResponseAPIError
     let id: Int64
@@ -17,7 +17,7 @@ struct ResponseAPIResultError: Decodable {
 }
 
 /// Response: Error
-struct ResponseAPIError: Decodable {
+public struct ResponseAPIError: Decodable {
     // MARK: - Properties
     // In work
     let code: Int64
@@ -26,7 +26,7 @@ struct ResponseAPIError: Decodable {
 
 
 /// Response: Feed Result
-struct ResponseAPIFeedResult: Decodable {
+public struct ResponseAPIFeedResult: Decodable {
     // MARK: - Properties
     let id: Int64
     let jsonrpc: String
@@ -34,7 +34,7 @@ struct ResponseAPIFeedResult: Decodable {
 }
 
 /// Response: Feed
-struct ResponseAPIFeed: Decodable {
+public struct ResponseAPIFeed: Decodable {
     // MARK: - Properties
     // In work
     // swiftlint:disable identifier_name
@@ -94,7 +94,7 @@ struct ResponseAPIFeed: Decodable {
 
 
 /// Response: Active Vote
-struct ResponseAPIActiveVote: Decodable {
+public struct ResponseAPIActiveVote: Decodable {
     // MARK: - Properties
     // In work
     let percent: Int16
@@ -107,11 +107,11 @@ struct ResponseAPIActiveVote: Decodable {
 
 
 /// [Multiple types](https://stackoverflow.com/questions/46759044/swift-structures-handling-multiple-types-for-a-single-property)
-struct Conflicted: Codable {
+public struct Conflicted: Codable {
     let stringValue: String?
 
     // Where we determine what type the value is
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container       =   try decoder.singleValueContainer()
 
         do {
@@ -124,7 +124,7 @@ struct Conflicted: Codable {
     }
 
     // We need to go back to a dynamic type, so based on the data we have stored, encode to the proper type
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container       =   encoder.singleValueContainer()
         try container.encode(stringValue)
     }
@@ -132,7 +132,7 @@ struct Conflicted: Codable {
 
 
 /// Response: User result
-struct ResponseAPIUserResult: Decodable {
+public struct ResponseAPIUserResult: Decodable {
     // MARK: - Properties
     let id: Int64
     let jsonrpc: String
@@ -140,7 +140,7 @@ struct ResponseAPIUserResult: Decodable {
 }
 
 /// Response: User
-struct ResponseAPIUser: Decodable {
+public struct ResponseAPIUser: Decodable {
     // MARK: - Properties
     // In work
     // swiftlint:disable identifier_name
@@ -262,7 +262,7 @@ struct ResponseAPIUser: Decodable {
 
 
 /// Response: DynamicGlobalProperties Result
-struct ResponseAPIDynamicGlobalPropertiesResult: Decodable {
+public struct ResponseAPIDynamicGlobalPropertiesResult: Decodable {
     // MARK: - Properties
     let id: Int64
     let jsonrpc: String
@@ -271,7 +271,7 @@ struct ResponseAPIDynamicGlobalPropertiesResult: Decodable {
 
 
 /// Response: DynamicGlobalProperty
-struct ResponseAPIDynamicGlobalProperty: Decodable {
+public struct ResponseAPIDynamicGlobalProperty: Decodable {
     // MARK: - Properties
     // In work
     // swiftlint:disable identifier_name

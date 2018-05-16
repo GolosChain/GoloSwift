@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct RequestAPI: Codable {
+public struct RequestAPI: Codable {
     let id: Int
     let method: String
     let jsonrpc: String
     let params: [String]
 }
 
-struct RequestParams: Codable {
+public struct RequestParams: Codable {
     var limit: Int
 }
