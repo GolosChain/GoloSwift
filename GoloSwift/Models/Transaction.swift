@@ -21,12 +21,12 @@ public struct Transaction {
     let ref_block_prefix: UInt32
     let expiration: String                              // '2016-08-09T10:06:15'
     var operations: [Any]
-    let extensions: [String?]
+    var extensions: [String]?
     var signatures: [String]
     
     
     // MARK: - Class Initialization
-    public init(withOperations operations: [Any], andExtensions extensions: [String?]) {
+    public init(withOperations operations: [Any], andExtensions extensions: [String]? = nil) {
         self.ref_block_num          =   headBlockNumber
         self.ref_block_prefix       =   headBlockID
         self.expiration             =   time
@@ -117,7 +117,7 @@ public struct Transaction {
         }
 
         // Extensions: add to buffer `the actual number of operations`
-        let extensions = self.extensions
+        let extensions = self.extensions ?? [String]()
         serializedBuffer += self.varint(int: extensions.count)
         Logger.log(message: "\nserializedBuffer + extensionsCount:\n\t\(serializedBuffer.toHexString())\n", event: .debug)
         
