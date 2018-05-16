@@ -126,6 +126,7 @@ public class Broadcast {
     public func decode(from jsonData: Data, byMethodAPIType methodAPIType: MethodAPIType) throws -> ResponseAPIType {
         do {
             switch methodAPIType {
+            // GET
             case .getAccounts(_):
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIUserResult.self, from: jsonData), errorAPI: nil)
                 
@@ -134,6 +135,10 @@ public class Broadcast {
                 
             case .getDiscussionsByHot(_), .getDiscussionsByCreated(_), .getDiscussionsByTrending(_), .getDiscussionsByPromoted(_):
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIFeedResult.self, from: jsonData), errorAPI: nil)
+                
+            // POST
+            case .verifyAuthorityVote(_):
+                return (responseAPI: try JSONDecoder().decode(ResponseAPIVerifyAuthorityResult.self, from: jsonData), errorAPI: nil)
             }
         } catch {
             Logger.log(message: "\(error)", event: .error)
@@ -142,6 +147,37 @@ public class Broadcast {
     }
 
     
+    /// API `get_dynamic_global_properties`
+    public func getDynamicGlobalProperties(completion: @escaping (Bool) -> Void) {
+        // API `get_dynamic_global_properties`
+        let requestAPIType = self.prepareGET(requestByMethodType: .getDynamicGlobalProperties())
+        Logger.log(message: "\nrequestAPIType =\n\t\(requestAPIType!)", event: .debug)
+        
+        // Network Layer (WebSocketManager)
+        DispatchQueue.main.async {
+            webSocketManager.sendRequest(withType: requestAPIType!) { (responseAPIType) in
+                Logger.log(message: "\nresponseAPIType:\n\t\(responseAPIType)", event: .debug)
+                
+                guard let responseAPI = responseAPIType.responseAPI, let responseAPIResult = responseAPI as? ResponseAPIDynamicGlobalPropertiesResult else {
+                    Logger.log(message: responseAPIType.errorAPI!.caseInfo.message, event: .error)
+                    completion(false)
+                    return
+                }
+                
+                // Get globalProperties (page 5)
+                let globalProperties: ResponseAPIDynamicGlobalProperty = responseAPIResult.result
+                Logger.log(message: "\nglobalProperties:\n\t\(globalProperties)", event: .debug)
+                
+                time                =   globalProperties.time.convert(toDateFormat: .expirationDateType).addingTimeInterval(60).convert(toStringFormat: .expirationDateType)
+                headBlockID         =   globalProperties.head_block_id.convert(toIntFromStartByte: 12, toEndByte: 16)
+                headBlockNumber     =   UInt16(globalProperties.head_block_number & 0xFFFF)
+                
+                completion(true)
+            }
+        }
+    }
+
+
     /// Generating a unique ID
     private func generateUniqueId() -> Int {
         var generatedID = 0

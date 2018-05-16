@@ -308,3 +308,14 @@ public struct ResponseAPIDynamicGlobalProperty: Decodable {
     */
     // swiftlint:enable identifier_name
 }
+
+
+/// Response: VerifyAuthorityResult
+struct ResponseAPIVerifyAuthorityResult: Decodable {
+    // MARK: - Properties
+    // MARK: - Properties
+    let id: Int64
+    let jsonrpc: String
+    let result: Bool?
+    let error: ResponseAPIError?
+}
