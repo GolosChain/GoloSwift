@@ -124,7 +124,7 @@ public class Broadcast {
      - Returns: Return `RequestAPIType` tuple.
      
      */
-    public static func decode(from jsonData: Data, byMethodAPIType methodAPIType: MethodAPIType) throws -> ResponseAPIType {
+    public func decode(from jsonData: Data, byMethodAPIType methodAPIType: MethodAPIType) throws -> ResponseAPIType {
         do {
             switch methodAPIType {
             case .getAccounts(_):
