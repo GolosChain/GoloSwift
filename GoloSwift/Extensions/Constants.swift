@@ -34,4 +34,5 @@ public let webSocket                    =   WebSocket(url: URL(string: "wss://ws
 public let webSocketManager             =   WebSocketManager()
 
 /// Websocket response max timeout, in seconds
-let webSocketTimeout                    =   60.0
+public let webSocketTimeout             =   60.0
+public let webSocketLimit               =   10
