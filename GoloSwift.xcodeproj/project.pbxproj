@@ -28,7 +28,6 @@
 		B1D900B520AB3E9B00AECE51 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900B420AB3E9B00AECE51 /* Locksmith.framework */; };
 		B1D900B720AB3E9B00AECE51 /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900B620AB3E9B00AECE51 /* secp256k1.framework */; };
 		B1D900BA20AB504100AECE51 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = B1D900B920AB504100AECE51 /* LICENSE.md */; };
-		B1D900C220ABFADA00AECE51 /* Base58.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D900C120ABFADA00AECE51 /* Base58.swift */; };
 		FCCA940BEFEC1AE44E9B6840 /* Pods_GoloSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A06354C27890305D67078F /* Pods_GoloSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +63,6 @@
 		B1D900B420AB3E9B00AECE51 /* Locksmith.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Locksmith.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D900B620AB3E9B00AECE51 /* secp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = secp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D900B920AB504100AECE51 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
-		B1D900C120ABFADA00AECE51 /* Base58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base58.swift; sourceTree = "<group>"; };
 		EE3F22598EC38832B26DF26C /* Pods-GoloSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,7 +136,6 @@
 		B1D9007B20AB259E00AECE51 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				B1D900C120ABFADA00AECE51 /* Base58.swift */,
 				B1D9007E20AB25D200AECE51 /* Broadcast.swift */,
 				B1D9007C20AB25CB00AECE51 /* Logger.swift */,
 			);
@@ -294,7 +291,6 @@
 				B1D9007D20AB25CB00AECE51 /* Logger.swift in Sources */,
 				B1D9008920AB272400AECE51 /* RequestAPI.swift in Sources */,
 				B1D9008B20AB272400AECE51 /* ResponseAPI.swift in Sources */,
-				B1D900C220ABFADA00AECE51 /* Base58.swift in Sources */,
 				B1D9007F20AB25D200AECE51 /* Broadcast.swift in Sources */,
 				B1D9009C20AB2D6C00AECE51 /* Constants.swift in Sources */,
 			);
