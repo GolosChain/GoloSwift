@@ -30,4 +30,10 @@ extension String {
     var hexBytes: [Byte] {
         return stride(from: 0, to: count, by: 2).compactMap { Byte(String(Array(self)[$0..<$0.advanced(by: 2)]), radix: 16) }
     }
+    
+    
+    /// Base58 decode
+    public var base58EncodedString: String {
+        return [Byte](utf8).base58EncodedString
+    }
 }
