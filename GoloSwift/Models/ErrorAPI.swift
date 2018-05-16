@@ -17,7 +17,7 @@ public enum ErrorAPI: Error {
     case jsonParsingFailure(message: String)
     case signingECCKeychainPostingKeyFailure(message: String)
 
-    var caseInfo: (title: String, message: String) {
+    public var caseInfo: (title: String, message: String) {
         switch self {
         case .requestFailed(let message):
             return (title: "Request Failed".localized(), message: message)
