@@ -25,6 +25,17 @@ public struct Transaction {
     var signatures: [String]
     
     
+    // MARK: - Class Initialization
+    public init(withOperations operations: [Any], andExtensions extensions: [String?]) {
+        self.ref_block_num          =   headBlockNumber
+        self.ref_block_prefix       =   headBlockID
+        self.expiration             =   time
+        self.operations             =   operations
+        self.extensions             =   extensions
+        self.signatures             =   [String]()
+    }
+
+    
     // MARK: - Custom Functions
     /// Service function to remove `operation code` from transaction
     private mutating func deleteOperationCode() {
