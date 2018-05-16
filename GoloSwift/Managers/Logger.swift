@@ -46,7 +46,7 @@ public class Logger {
     // line:        The line number of the log message.
     // column:      The same will happen for this parameter too.
     // funcName:    The default value of this parameter is the signature of the function from where the log function is getting called.
-    class func log(message: String, event: LogEvent, fileName: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
+    public class func log(message: String, event: LogEvent, fileName: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
         #if DEBUG
             print("\(Date().toString()) \(event.rawValue)[\(sourceFileName(filePath: fileName))]:\(line) \(column) \(funcName) -> \(message)")
         #endif
