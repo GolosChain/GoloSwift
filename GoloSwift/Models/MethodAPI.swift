@@ -59,7 +59,6 @@ public enum MethodAPIType {
         case .getDiscussionsByPromoted(let limit):          return (methodAPIType:      self,
                                                                     paramsFirst:        ["social_network", "get_discussions_by_promoted"],
                                                                     paramsSecond:       ["limit":limit])
-
         }
     }
 }

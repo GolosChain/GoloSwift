@@ -8,6 +8,7 @@
 //  https://golos.io/test/@yuri-vlad-second/sdgsdgsdg234234
 
 import Foundation
+import Starscream
 
 // Dynamic values
 // ResponseAPIDynamicGlobalProperty(id: 0, time: "2018-05-14T15:25:30", head_block_id: "00fad3ee54c33d7b5f62c3eca793cc3549ddfcc7", head_block_number: 16438254)
@@ -27,3 +28,10 @@ let chainID                             =   "782a3039b478c839e4cb0c941ff4eaeb7df
 
 // Singletons
 public let broadcast: Broadcast         =   Broadcast.shared
+
+// Websocket
+public let webSocket                    =   WebSocket(url: URL(string: "wss://ws.golos.io")!)
+public let webSocketManager             =   WebSocketManager()
+
+/// Websocket response max timeout, in seconds
+let webSocketTimeout                    =   60.0

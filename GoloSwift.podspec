@@ -16,6 +16,7 @@ Pod::Spec.new do |spec|
     spec.dependency 'CryptoSwift'
     spec.dependency 'secp256k1.swift'
     spec.dependency 'BeyovaJSON', '~> 0.0'
+    spec.dependency 'Starscream', '~> 3.0'
     spec.dependency 'Localize-Swift', '~> 2.0'
 
 end
