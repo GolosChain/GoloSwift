@@ -30,6 +30,7 @@
 		B1D900B320AB3E9B00AECE51 /* Localize_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900B220AB3E9B00AECE51 /* Localize_Swift.framework */; };
 		B1D900B520AB3E9B00AECE51 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900B420AB3E9B00AECE51 /* Locksmith.framework */; };
 		B1D900B720AB3E9B00AECE51 /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900B620AB3E9B00AECE51 /* secp256k1.framework */; };
+		B1D900BA20AB504100AECE51 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = B1D900B920AB504100AECE51 /* LICENSE.md */; };
 		FCCA940BEFEC1AE44E9B6840 /* Pods_GoloSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A06354C27890305D67078F /* Pods_GoloSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		B1D900B220AB3E9B00AECE51 /* Localize_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Localize_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D900B420AB3E9B00AECE51 /* Locksmith.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Locksmith.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D900B620AB3E9B00AECE51 /* secp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = secp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1D900B920AB504100AECE51 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		EE3F22598EC38832B26DF26C /* Pods-GoloSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 		B1D9006620AB250D00AECE51 = {
 			isa = PBXGroup;
 			children = (
+				B1D900B920AB504100AECE51 /* LICENSE.md */,
 				B1D9007220AB250D00AECE51 /* GoloSwift */,
 				B1D9007120AB250D00AECE51 /* Products */,
 				DFF030DD8D6B6B8D81046889 /* Pods */,
@@ -257,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1D900BA20AB504100AECE51 /* LICENSE.md in Resources */,
 				B1D900A020AB316A00AECE51 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
