@@ -30,7 +30,7 @@ public struct Transaction {
         self.ref_block_num          =   headBlockNumber
         self.ref_block_prefix       =   headBlockID
         self.expiration             =   time
-        self.operations             =   operations
+        self.operations             =   [operations]
         self.extensions             =   extensions
         self.signatures             =   [String]()
     }
