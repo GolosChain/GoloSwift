@@ -80,7 +80,7 @@ public class Broadcast {
      - Returns: Return `RequestAPIType` tuple.
      
      */
-    public func preparePOST(requestByMethodType methodType: MethodAPIType, byTransaction transaction: Transaction) -> RequestAPIType? {
+    public func preparePOST(requestByMethodType methodType: MethodAPIType, byTransaction transaction: Transaction) -> String? {
         Logger.log(message: "Success", event: .severe)
         
         let codeID                  =   generateUniqueId()
@@ -183,7 +183,7 @@ public class Broadcast {
             
 //            Logger.log(message: "\nEncoded JSON -> jsonChainString:\n\t\(jsonChainString)", event: .debug)
             
-            return (id: codeID, requestMessage: jsonChainString, startTime: Date(), methodAPIType: requestParamsType.methodAPIType)
+            return jsonChainString
         } catch {
             Logger.log(message: "Error: \(error.localizedDescription)", event: .error)
             return nil
