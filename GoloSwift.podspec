@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
     spec.license            =   { :type => 'MIT', :file => 'LICENSE.md' }
     spec.author             =   "msm72"
     spec.platform           =   :ios, "10.0"
-    spec.source             =   { :git => "https://github.com/GolosChain/GoloSwift", :tag => "1.1.0" }
+    spec.source             =   { :git => "https://github.com/GolosChain/GoloSwift.git", :tag => "1.1.0" }
     spec.source_files       =   "GoloSwift", "GoloSwift/**/*.{h,m,swift}"
 
     # Cocoapods
