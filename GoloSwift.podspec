@@ -2,13 +2,13 @@ Pod::Spec.new do |spec|
 
     spec.name               =   "GoloSwift"
     spec.swift_version      =   "4.0"
-    spec.version            =   "1.0.5"
+    spec.version            =   "1.1.0"
     spec.summary            =   "Swift framework for Golos.io"
     spec.homepage           =   "https://golos.io/"
     spec.license            =   { :type => 'MIT', :file => 'LICENSE.md' }
     spec.author             =   "msm72"
     spec.platform           =   :ios, "10.0"
-    spec.source             =   { :git => "https://github.com/Monserg/GoloSwift.git", :tag => "1.0.5" }
+    spec.source             =   { :git => "https://github.com/GolosChain/GoloSwift", :tag => "1.1.0" }
     spec.source_files       =   "GoloSwift", "GoloSwift/**/*.{h,m,swift}"
 
     # Cocoapods
