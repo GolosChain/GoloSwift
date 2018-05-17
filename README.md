@@ -16,21 +16,31 @@ Give examples
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+#### CocoaPods
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
 ```
-until finished
+$ gem install cocoapods
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+To integrate Alamofire into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+pod 'GoloSwift', :git => "https://github.com/Monserg/GoloSwift.git"
+end
+```
+
+Then, run the following command in `Terminal`:
+
+```
+$ pod update 'GoloSwift'
+```
 
 ## Running the tests
 
@@ -58,9 +68,13 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+*[Starscream](https://github.com/daltoniam/Starscream) - Websockets in swift for iOS and OSX
+*[BeyovaJSON](https://github.com/Beyova/BeyovaJSON) - BeyovaJSON allows any json for Coadable in Swift 4
+*[Locksmith](https://github.com/matthewpalmer/Locksmith) - A powerful, protocol-oriented library for working with the keychain in Swift
+*[Localize-Swift](https://github.com/marmelroy/Localize-Swift) - Swift friendly localization and i18n with in-app language switching
+*[CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift) - CryptoSwift is a growing collection of standard and secure cryptographic algorithms implemented in Swift
+*[secp256k1.swift](https://github.com/Boilertalk/secp256k1.swift) - secp256k1 bindings for Swift
+
 
 ## Contributing
 
