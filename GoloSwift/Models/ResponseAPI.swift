@@ -311,7 +311,7 @@ public struct ResponseAPIDynamicGlobalProperty: Decodable {
 
 
 /// Response: VerifyAuthorityResult
-struct ResponseAPIVerifyAuthorityResult: Decodable {
+public struct ResponseAPIVerifyAuthorityResult: Decodable {
     // MARK: - Properties
     // MARK: - Properties
     let id: Int64
