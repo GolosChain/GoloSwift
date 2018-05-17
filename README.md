@@ -32,7 +32,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'GoloSwift', :git => "https://github.com/GolosChain/GoloSwift.git"
+    pod 'GoloSwift', '~> 1.1'
 end
 ```
 
