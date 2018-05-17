@@ -314,8 +314,8 @@ public struct ResponseAPIDynamicGlobalProperty: Decodable {
 public struct ResponseAPIVerifyAuthorityResult: Decodable {
     // MARK: - Properties
     // MARK: - Properties
-    let id: Int64
-    let jsonrpc: String
-    let result: Bool?
-    let error: ResponseAPIError?
+    public let id: Int64
+    public let jsonrpc: String
+    public let result: Bool?
+    public let error: ResponseAPIError?
 }
