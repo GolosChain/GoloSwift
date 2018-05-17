@@ -32,7 +32,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'GoloSwift', :git => "https://github.com/Monserg/GoloSwift.git"
+    pod 'GoloSwift', :git => "https://github.com/GolosChain/GoloSwift.git"
 end
 ```
 
@@ -68,12 +68,12 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-*[Starscream](https://github.com/daltoniam/Starscream) - Websockets in Swift for iOS and OSX
-*[BeyovaJSON](https://github.com/Beyova/BeyovaJSON) - BeyovaJSON allows any json for Coadable in Swift 4
-*[Locksmith](https://github.com/matthewpalmer/Locksmith) - A powerful, protocol-oriented library for working with the keychain in Swift
-*[Localize-Swift](https://github.com/marmelroy/Localize-Swift) - Swift friendly localization and i18n with in-app language switching
-*[CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift) - CryptoSwift is a growing collection of standard and secure cryptographic algorithms implemented in Swift
-*[secp256k1.swift](https://github.com/Boilertalk/secp256k1.swift) - secp256k1 bindings for Swift
+* [Starscream](https://github.com/daltoniam/Starscream) - Websockets in Swift for iOS and OSX
+* [BeyovaJSON](https://github.com/Beyova/BeyovaJSON) - BeyovaJSON allows any json for Coadable in Swift 4
+* [Locksmith](https://github.com/matthewpalmer/Locksmith) - A powerful, protocol-oriented library for working with the keychain in Swift
+* [Localize-Swift](https://github.com/marmelroy/Localize-Swift) - Swift friendly localization and i18n with in-app language switching
+* [CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift) - CryptoSwift is a growing collection of standard and secure cryptographic algorithms implemented in Swift
+* [secp256k1.swift](https://github.com/Boilertalk/secp256k1.swift) - secp256k1 bindings for Swift
 
 
 ## Contributing
@@ -82,17 +82,17 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+For the versions available, see the [tags on this repository](https://github.com/GolosChain/GoloSwift/tags). 
 
 ## Authors
 
 * **Monastyrskyi Sergey** - *Initial work* - [Monserg](https://github.com/Monserg)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/GolosChain/GoloSwift/graphs/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/Monserg/GoloSwift/blob/master/LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/GolosChain/GoloSwift/blob/master/LICENSE.md) file for details
 
 ## Acknowledgments
 
