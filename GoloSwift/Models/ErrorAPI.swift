@@ -10,20 +10,20 @@ import Foundation
 import Localize_Swift
 
 public enum ErrorAPI: Error {
-    case requestFailed(message: String)
-    case jsonConversionFailure(message: String)
     case invalidData(message: String)
-    case responseUnsuccessful(message: String)
+    case requestFailed(message: String)
     case jsonParsingFailure(message: String)
+    case responseUnsuccessful(message: String)
+    case jsonConversionFailure(message: String)
     case signingECCKeychainPostingKeyFailure(message: String)
 
     public var caseInfo: (title: String, message: String) {
         switch self {
-        case .requestFailed(let message):
-            return (title: "Request Failed".localized(), message: message)
-            
         case .invalidData(let message):
             return (title: "Invalid Data".localized(), message: message)
+            
+        case .requestFailed(let message):
+            return (title: "Request Failed".localized(), message: message)
             
         case .responseUnsuccessful(let message):
             return (title: "Response Unsuccessful".localized(), message: message)

@@ -74,13 +74,52 @@ public class Broadcast {
     
     
     /**
-     Call any of `GET` API methods.
+     Execute any of `POST` API methods.
      
-     - Parameter method: The name of used API method with needed parameters.
-     - Returns: Return `RequestAPIType` tuple.
+     - Parameter operationType: Type of operation.
+     - Parameter completion: Blockchain response.
      
      */
-    public func preparePOST(requestByMethodType methodType: MethodAPIType, byTransaction transaction: Transaction) -> RequestAPIType? {
+    public func executePOST(byOperationType operationType: OperationType, completion: @escaping (ResponseAPIType?) -> Void) {
+        self.getDynamicGlobalProperties(completion: { success in
+            guard success else {
+                completion((responseAPI: nil, errorAPI: ErrorAPI.requestFailed(message: "Dynamic Global Properties Error")))
+                return
+            }
+            
+            // Create Operation
+            let operation: [Any] = operationType.getFields()
+//            Logger.log(message: "\noperation:\n\t\(operation)\n", event: .debug)
+            
+            // Create Transaction
+            var tx: Transaction = Transaction(withOperations: operation)
+//            Logger.log(message: "\ntransaction:\n\t\(tx)\n", event: .debug)
+            
+            // Transaction: serialize & SHA256 & ECC signing
+            let errorAPI = tx.serialize(byOperationType: operationType)
+            
+            guard errorAPI == nil else {
+                // Show alert error
+//                Logger.log(message: "\(errorAPI!.localizedDescription)", event: .error)
+                completion((responseAPI: nil, errorAPI: errorAPI!))
+                return
+            }
+            
+            // Create POST message
+            if let requestAPIType = broadcast.preparePOST(requestByMethodType: .verifyAuthorityVote, byTransaction: tx) {
+//                Logger.log(message: "\nrequestAPIType:\n\t\(requestAPIType.requestMessage)\n", event: .debug)
+                
+                // Send POST message to blockchain
+                webSocketManager.sendRequest(withType: requestAPIType, completion: { responseAPIType in
+                    completion(responseAPIType)
+                })
+            }
+        })
+    }
+    
+    
+    /// Prepare POST API request
+    private func preparePOST(requestByMethodType methodType: MethodAPIType, byTransaction transaction: Transaction) -> RequestAPIType? {
         Logger.log(message: "Success", event: .severe)
         
         let codeID                  =   generateUniqueId()
@@ -181,7 +220,7 @@ public class Broadcast {
                 ]}
              */
             
-//            Logger.log(message: "\nEncoded JSON -> jsonChainString:\n\t\(jsonChainString)", event: .debug)
+            Logger.log(message: "\nEncoded JSON -> jsonChainString:\n\t\(jsonChainString)", event: .debug)
             
             return (id: codeID, requestMessage: jsonChainString, startTime: Date(), methodAPIType: requestParamsType.methodAPIType)
         } catch {
@@ -224,25 +263,25 @@ public class Broadcast {
 
     
     /// API `get_dynamic_global_properties`
-    public func getDynamicGlobalProperties(completion: @escaping (Bool) -> Void) {
+    private func getDynamicGlobalProperties(completion: @escaping (Bool) -> Void) {
         // API `get_dynamic_global_properties`
         let requestAPIType = self.prepareGET(requestByMethodType: .getDynamicGlobalProperties())
-        Logger.log(message: "\nrequestAPIType =\n\t\(requestAPIType!)", event: .debug)
+//        Logger.log(message: "\nrequestAPIType =\n\t\(requestAPIType!)", event: .debug)
         
         // Network Layer (WebSocketManager)
         DispatchQueue.main.async {
             webSocketManager.sendRequest(withType: requestAPIType!) { (responseAPIType) in
-                Logger.log(message: "\nresponseAPIType:\n\t\(responseAPIType)", event: .debug)
+//                Logger.log(message: "\nresponseAPIType:\n\t\(responseAPIType)", event: .debug)
                 
                 guard let responseAPI = responseAPIType.responseAPI, let responseAPIResult = responseAPI as? ResponseAPIDynamicGlobalPropertiesResult else {
-                    Logger.log(message: responseAPIType.errorAPI!.caseInfo.message, event: .error)
+//                    Logger.log(message: responseAPIType.errorAPI!.caseInfo.message, event: .error)
                     completion(false)
                     return
                 }
                 
                 // Get globalProperties (page 5)
                 let globalProperties: ResponseAPIDynamicGlobalProperty = responseAPIResult.result
-                Logger.log(message: "\nglobalProperties:\n\t\(globalProperties)", event: .debug)
+//                Logger.log(message: "\nglobalProperties:\n\t\(globalProperties)", event: .debug)
                 
                 time                =   globalProperties.time.convert(toDateFormat: .expirationDateType).addingTimeInterval(60).convert(toStringFormat: .expirationDateType)
                 headBlockID         =   globalProperties.head_block_id.convert(toIntFromStartByte: 12, toEndByte: 16)

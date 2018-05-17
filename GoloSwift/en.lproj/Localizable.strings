@@ -14,4 +14,4 @@
 "Response Unsuccessful"                     =   "Response Unsuccessful";
 "JSON Parsing Failure"                      =   "JSON Parsing Failure";
 "JSON Conversion Failure"                   =   "JSON Conversion Failure";
-
+"Dynamic Global Properties Error"           =   "Request failed\ndynamic global properties";
