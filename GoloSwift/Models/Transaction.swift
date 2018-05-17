@@ -29,7 +29,7 @@ public struct Transaction {
     public init(withOperations operations: [Any], andExtensions extensions: [String]? = nil) {
         self.ref_block_num          =   headBlockNumber
         self.ref_block_prefix       =   headBlockID
-        self.expiration             =   "time"
+        self.expiration             =   time
         self.operations             =   [operations]
         self.extensions             =   extensions
         self.signatures             =   [String]()
