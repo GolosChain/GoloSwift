@@ -80,7 +80,7 @@ public class Broadcast {
      - Returns: Return `RequestAPIType` tuple.
      
      */
-    public func preparePOST(requestByMethodType methodType: MethodAPIType) -> RequestAPIType? {
+    public func preparePOST(requestByMethodType methodType: MethodAPIType, byTransaction transaction: Transaction) -> RequestAPIType? {
         Logger.log(message: "Success", event: .severe)
         
         let codeID                  =   generateUniqueId()
@@ -91,23 +91,99 @@ public class Broadcast {
                                                    jsonrpc:     "2.0",
                                                    params:      requestParamsType.paramsFirst)
         
-        let requestParams           =   requestParamsType.paramsSecond
-        
         do {
-            // Encode data
+            // Encode: requestAPI + transaction
             let jsonEncoder         =   JSONEncoder()
-            var jsonData            =   try jsonEncoder.encode(requestParams)
-            let jsonParamsString    =   "[\(String(data: jsonData, encoding: .utf8)!)]"
+            var jsonData            =   try jsonEncoder.encode(requestAPI)
+            let jsonAPIString       =   "\(String(data: jsonData, encoding: .utf8)!)"
+                .replacingOccurrences(of: "]}", with: ",")
+            var jsonChainString     =   jsonAPIString
+//            Logger.log(message: "\nEncoded JSON -> jsonChainString:\n\t\(jsonChainString)", event: .debug)
             
-            jsonData                =   try jsonEncoder.encode(requestAPI)
-            var jsonString          =   String(data: jsonData, encoding: .utf8)!.replacingOccurrences(of: "]}", with: ",\(jsonParamsString)]}")
-            jsonString              =   jsonString
-                .replacingOccurrences(of: "[[[", with: "[[")
-                .replacingOccurrences(of: "]]]", with: "]]")
-                .replacingOccurrences(of: "[\"nil\"]", with: "]")
-            Logger.log(message: "\nEncoded JSON -> String:\n\t " + jsonString, event: .debug)
+            // ref_block_num
+            jsonData                =   try jsonEncoder.encode(["ref_block_num": transaction.ref_block_num])
+            var jsonTxString        =   "[\(String(data: jsonData, encoding: .utf8)!)]"
+                .replacingOccurrences(of: "}]", with: ",")
+            jsonChainString         +=  jsonTxString
+//            Logger.log(message: "\nEncoded JSON -> jsonChainString:\n\t\(jsonChainString)", event: .debug)
             
-            return (id: codeID, requestMessage: jsonString, startTime: Date(), methodAPIType: requestParamsType.methodAPIType)
+            // ref_block_prefix
+            jsonData                =   try jsonEncoder.encode(["ref_block_prefix": transaction.ref_block_prefix])
+            jsonTxString            =   "\(String(data: jsonData, encoding: .utf8)!)"
+                .replacingOccurrences(of: "{", with: "")
+                .replacingOccurrences(of: "}", with: ",")
+            jsonChainString         +=  jsonTxString
+//            Logger.log(message: "\nEncoded JSON -> jsonChainString:\n\t\(jsonChainString)", event: .debug)
+            
+            // expiration
+            jsonData                =   try jsonEncoder.encode(["expiration": transaction.expiration])
+            jsonTxString            =   "\(String(data: jsonData, encoding: .utf8)!)"
+                .replacingOccurrences(of: "{", with: "")
+                .replacingOccurrences(of: "}", with: ",")
+            jsonChainString         +=  jsonTxString
+//            Logger.log(message: "\nEncoded JSON -> jsonChainString:\n\t\(jsonChainString)", event: .debug)
+            
+            // extensions
+            jsonData                =   try jsonEncoder.encode(["extensions": transaction.extensions ?? [String]()])
+            jsonTxString            =   "\(String(data: jsonData, encoding: .utf8)!)"
+                .replacingOccurrences(of: "{", with: "")
+                .replacingOccurrences(of: "}", with: ",")
+            jsonChainString         +=  jsonTxString
+//            Logger.log(message: "\nEncoded JSON -> jsonChainString:\n\t\(jsonChainString)", event: .debug)
+            
+            // signatures
+            jsonData                =   try jsonEncoder.encode(["signatures": transaction.signatures])
+            jsonTxString            =   "\(String(data: jsonData, encoding: .utf8)!)"
+                .replacingOccurrences(of: "{", with: "")
+                .replacingOccurrences(of: "}", with: ",\"operations\":[[")
+            jsonChainString         +=  jsonTxString
+//            Logger.log(message: "\nEncoded JSON -> jsonChainString:\n\t\(jsonChainString)", event: .debug)
+            
+            // operations
+            if  let array = transaction.operations[0] as? [Any],
+                let operationArray = array[2] as? [String: Any],
+                let operationName = array[0] as? String,
+                let operationTypeID = array[1] as? Int {
+                // operation name
+                jsonChainString     +=  "\"\(operationName)\",{"
+//                Logger.log(message: "\nEncoded JSON -> jsonChainString:\n\t\(jsonChainString)", event: .debug)
+                
+                let keyNames = OperationType.getFieldNames(byTypeID: operationTypeID)
+                
+                for (i, keyName) in keyNames.enumerated() {
+                    let value       =   operationArray.first(where: { $0.key == keyName })!.value
+                    
+                    // Casting Type
+                    if type(of: value) is String.Type {
+                        jsonData    =   try jsonEncoder.encode(["\(keyName)": "\(value)"])
+                    }
+                        
+                    else if type(of: value) is Int64.Type {
+                        jsonData    =   try jsonEncoder.encode(["\(keyName)": value as! Int64])
+                    }
+                    
+                    jsonTxString    =   "\(String(data: jsonData, encoding: .utf8)!)"
+                        .replacingOccurrences(of: "{", with: "")
+                    
+                    jsonTxString    =   jsonTxString.replacingOccurrences(of: "}", with: (i == keyNames.count - 1) ? "}]]}]]}" : ",")
+                    jsonChainString +=  jsonTxString
+//                    Logger.log(message: "\nEncoded JSON -> jsonChainString:\n\t\(jsonChainString)", event: .debug)
+                }
+            }
+            
+            // Example of request message
+            /*
+                {"id":1,"method":"call","jsonrpc":"2.0","params":["database_api","verify_authority",
+                    [{"ref_block_num":54254,"ref_block_prefix":2067645268,"expiration":"2018-05-14T15:25:30",
+                    "operations":[["vote",{"voter":"msm72","author":"yuri-vlad-second","permlink":"sdgsdgsdg234234","weight":10000}]],"extensions":[],
+                    "signatures":["1f0541ff3ca57f2d7b1bd7d6c9c5c7c1cbcebe16fd51840826f3670950b5ba90b0743edff772fb29fa8a40665bc19535658fd69831684a30384c0123c13da08be6"]
+                    }]
+                ]}
+             */
+            
+//            Logger.log(message: "\nEncoded JSON -> jsonChainString:\n\t\(jsonChainString)", event: .debug)
+            
+            return (id: codeID, requestMessage: jsonChainString, startTime: Date(), methodAPIType: requestParamsType.methodAPIType)
         } catch {
             Logger.log(message: "Error: \(error.localizedDescription)", event: .error)
             return nil
@@ -137,7 +213,7 @@ public class Broadcast {
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIFeedResult.self, from: jsonData), errorAPI: nil)
                 
             // POST
-            case .verifyAuthorityVote(_):
+            case .verifyAuthorityVote:
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIVerifyAuthorityResult.self, from: jsonData), errorAPI: nil)
             }
         } catch {

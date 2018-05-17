@@ -104,7 +104,7 @@ public enum OperationType {
     }
     
     /// This method return sorted array of field key names
-    public func getFieldNames(byTypeID typeID: Int) -> [String] {
+    public static func getFieldNames(byTypeID typeID: Int) -> [String] {
         /// Return array: [ operationFieldKey ]
         switch typeID {
         case 0:

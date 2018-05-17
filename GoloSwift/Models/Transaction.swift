@@ -92,7 +92,7 @@ public struct Transaction {
                 serializedBuffer += self.varint(int: operationTypeID)
                 Logger.log(message: "\nserializedBuffer - operationTypeID:\n\t\(serializedBuffer.toHexString())\n", event: .debug)
                 
-                let keyNames = operationType.getFieldNames(byTypeID: operationTypeID)
+                let keyNames = OperationType.getFieldNames(byTypeID: operationTypeID)
                 
                 // Operations: add to buffer `operation fields`
                 if let fields = operationArray[2] as? [String: Any] {
@@ -202,7 +202,7 @@ public struct Transaction {
         output65[0] = Byte(recoveryID + 4 + 27)                             // (byte)(recoveryId + 4 + 27)
         Logger.log(message: "\nsigningECC - output65-2:\n\t\(output65.toHexString())\n", event: .debug)
 
-        self.deleteOperationCode()
+//        self.deleteOperationCode()
         self.add(signature: output65.toHexString())
         Logger.log(message: "\ntx - ready:\n\t\(self)\n", event: .debug)
         

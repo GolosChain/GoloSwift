@@ -34,7 +34,7 @@ public enum MethodAPIType {
     
     
     /// Save `vote` to blockchain
-    case verifyAuthorityVote(operationType: [Any])
+    case verifyAuthorityVote
     
     
     /// This method return request parameters from selected enum case.
@@ -66,9 +66,9 @@ public enum MethodAPIType {
                                                                     paramsSecond:       ["limit":limit])
             
         // POST
-        case .verifyAuthorityVote(let operationType):       return (methodAPIType:      self,
+        case .verifyAuthorityVote:                          return (methodAPIType:      self,
                                                                     paramsFirst:        ["database_api", "verify_authority"],
-                                                                    paramsSecond:       [operationType])
+                                                                    paramsSecond:       ["vote"])
             
         }
     }
