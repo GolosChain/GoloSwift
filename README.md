@@ -68,7 +68,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-*[Starscream](https://github.com/daltoniam/Starscream) - Websockets in swift for iOS and OSX
+*[Starscream](https://github.com/daltoniam/Starscream) - Websockets in Swift for iOS and OSX
 *[BeyovaJSON](https://github.com/Beyova/BeyovaJSON) - BeyovaJSON allows any json for Coadable in Swift 4
 *[Locksmith](https://github.com/matthewpalmer/Locksmith) - A powerful, protocol-oriented library for working with the keychain in Swift
 *[Localize-Swift](https://github.com/marmelroy/Localize-Swift) - Swift friendly localization and i18n with in-app language switching
