@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B15FB43820AC3381000245CE /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FB43720AC3381000245CE /* WebSocketManager.swift */; };
+		B1953E1C20ADB05E00FE601E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B1953E1B20ADB05E00FE601E /* README.md */; };
 		B1D9007520AB250D00AECE51 /* GoloSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D9007320AB250D00AECE51 /* GoloSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1D9007D20AB25CB00AECE51 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9007C20AB25CB00AECE51 /* Logger.swift */; };
 		B1D9007F20AB25D200AECE51 /* Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9007E20AB25D200AECE51 /* Broadcast.swift */; };
@@ -37,6 +38,7 @@
 		07A06354C27890305D67078F /* Pods_GoloSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoloSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF523C6845228D4D791780A /* Pods-GoloSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.release.xcconfig"; sourceTree = "<group>"; };
 		B15FB43720AC3381000245CE /* WebSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
+		B1953E1B20ADB05E00FE601E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B1D9007020AB250D00AECE51 /* GoloSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoloSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D9007320AB250D00AECE51 /* GoloSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoloSwift.h; sourceTree = "<group>"; };
 		B1D9007420AB250D00AECE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				B1D900B920AB504100AECE51 /* LICENSE.md */,
+				B1953E1B20ADB05E00FE601E /* README.md */,
 				B1D9007220AB250D00AECE51 /* GoloSwift */,
 				B1D9007120AB250D00AECE51 /* Products */,
 				DFF030DD8D6B6B8D81046889 /* Pods */,
@@ -255,6 +258,7 @@
 			files = (
 				B1D900BA20AB504100AECE51 /* LICENSE.md in Resources */,
 				B1D900A020AB316A00AECE51 /* Localizable.strings in Resources */,
+				B1953E1C20ADB05E00FE601E /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
