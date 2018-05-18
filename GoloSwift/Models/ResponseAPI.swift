@@ -30,7 +30,8 @@ public struct ResponseAPIFeedResult: Decodable {
     // MARK: - Properties
     public let id: Int64
     public let jsonrpc: String
-    public let result: [ResponseAPIFeed]
+    public let result: [ResponseAPIFeed]?
+    public let error: ResponseAPIError?
 }
 
 /// Response: Feed
@@ -136,7 +137,8 @@ public struct ResponseAPIUserResult: Decodable {
     // MARK: - Properties
     public let id: Int64
     public let jsonrpc: String
-    public let result: [ResponseAPIUser]
+    public let result: [ResponseAPIUser]?
+    public let error: ResponseAPIError?
 }
 
 /// Response: User
@@ -266,7 +268,8 @@ public struct ResponseAPIDynamicGlobalPropertiesResult: Decodable {
     // MARK: - Properties
     public let id: Int64
     public let jsonrpc: String
-    public let result: ResponseAPIDynamicGlobalProperty
+    public let result: ResponseAPIDynamicGlobalProperty?
+    public let error: ResponseAPIError?
 }
 
 

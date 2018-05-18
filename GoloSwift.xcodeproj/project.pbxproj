@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B13F360820AEC30A003CA33D /* Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F360720AEC30A003CA33D /* Broadcast.swift */; };
 		B15FB43820AC3381000245CE /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FB43720AC3381000245CE /* WebSocketManager.swift */; };
 		B1953E1C20ADB05E00FE601E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B1953E1B20ADB05E00FE601E /* README.md */; };
 		B1D9007520AB250D00AECE51 /* GoloSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D9007320AB250D00AECE51 /* GoloSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1D9007D20AB25CB00AECE51 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9007C20AB25CB00AECE51 /* Logger.swift */; };
-		B1D9007F20AB25D200AECE51 /* Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9007E20AB25D200AECE51 /* Broadcast.swift */; };
 		B1D9008720AB272400AECE51 /* MethodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9008120AB272400AECE51 /* MethodAPI.swift */; };
-		B1D9008820AB272400AECE51 /* OperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9008220AB272400AECE51 /* OperationType.swift */; };
+		B1D9008820AB272400AECE51 /* OperationAPIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9008220AB272400AECE51 /* OperationAPIType.swift */; };
 		B1D9008920AB272400AECE51 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9008320AB272400AECE51 /* RequestAPI.swift */; };
 		B1D9008A20AB272400AECE51 /* ErrorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9008420AB272400AECE51 /* ErrorAPI.swift */; };
 		B1D9008B20AB272400AECE51 /* ResponseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9008520AB272400AECE51 /* ResponseAPI.swift */; };
@@ -37,15 +37,15 @@
 /* Begin PBXFileReference section */
 		07A06354C27890305D67078F /* Pods_GoloSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoloSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF523C6845228D4D791780A /* Pods-GoloSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.release.xcconfig"; sourceTree = "<group>"; };
+		B13F360720AEC30A003CA33D /* Broadcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broadcast.swift; sourceTree = "<group>"; };
 		B15FB43720AC3381000245CE /* WebSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 		B1953E1B20ADB05E00FE601E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B1D9007020AB250D00AECE51 /* GoloSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoloSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D9007320AB250D00AECE51 /* GoloSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoloSwift.h; sourceTree = "<group>"; };
 		B1D9007420AB250D00AECE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1D9007C20AB25CB00AECE51 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		B1D9007E20AB25D200AECE51 /* Broadcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broadcast.swift; sourceTree = "<group>"; };
 		B1D9008120AB272400AECE51 /* MethodAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodAPI.swift; sourceTree = "<group>"; };
-		B1D9008220AB272400AECE51 /* OperationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
+		B1D9008220AB272400AECE51 /* OperationAPIType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationAPIType.swift; sourceTree = "<group>"; };
 		B1D9008320AB272400AECE51 /* RequestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		B1D9008420AB272400AECE51 /* ErrorAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAPI.swift; sourceTree = "<group>"; };
 		B1D9008520AB272400AECE51 /* ResponseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseAPI.swift; sourceTree = "<group>"; };
@@ -107,6 +107,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B13F360620AEB6FA003CA33D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B1D9007320AB250D00AECE51 /* GoloSwift.h */,
+				B1D9007420AB250D00AECE51 /* Info.plist */,
+				B1D900A220AB316A00AECE51 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		B1D9006620AB250D00AECE51 = {
 			isa = PBXGroup;
 			children = (
@@ -133,9 +143,7 @@
 				B1D9009320AB2D5900AECE51 /* Extensions */,
 				B1D9008020AB270500AECE51 /* Models */,
 				B1D9007B20AB259E00AECE51 /* Managers */,
-				B1D9007320AB250D00AECE51 /* GoloSwift.h */,
-				B1D9007420AB250D00AECE51 /* Info.plist */,
-				B1D900A220AB316A00AECE51 /* Localizable.strings */,
+				B13F360620AEB6FA003CA33D /* Resources */,
 			);
 			path = GoloSwift;
 			sourceTree = "<group>";
@@ -144,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				B1D900C620AC02A600AECE51 /* Base58.swift */,
-				B1D9007E20AB25D200AECE51 /* Broadcast.swift */,
+				B13F360720AEC30A003CA33D /* Broadcast.swift */,
 				B1D9007C20AB25CB00AECE51 /* Logger.swift */,
 				B15FB43720AC3381000245CE /* WebSocketManager.swift */,
 			);
@@ -156,7 +164,7 @@
 			children = (
 				B1D9008420AB272400AECE51 /* ErrorAPI.swift */,
 				B1D9008120AB272400AECE51 /* MethodAPI.swift */,
-				B1D9008220AB272400AECE51 /* OperationType.swift */,
+				B1D9008220AB272400AECE51 /* OperationAPIType.swift */,
 				B1D9008320AB272400AECE51 /* RequestAPI.swift */,
 				B1D9008520AB272400AECE51 /* ResponseAPI.swift */,
 				B1D9008620AB272400AECE51 /* Transaction.swift */,
@@ -297,13 +305,13 @@
 				B1D9009B20AB2D6C00AECE51 /* Array+Extensions.swift in Sources */,
 				B1D9009920AB2D6C00AECE51 /* Date+Extensions.swift in Sources */,
 				B1D9008C20AB272400AECE51 /* Transaction.swift in Sources */,
-				B1D9008820AB272400AECE51 /* OperationType.swift in Sources */,
+				B1D9008820AB272400AECE51 /* OperationAPIType.swift in Sources */,
 				B1D9007D20AB25CB00AECE51 /* Logger.swift in Sources */,
+				B13F360820AEC30A003CA33D /* Broadcast.swift in Sources */,
 				B1D9008920AB272400AECE51 /* RequestAPI.swift in Sources */,
 				B1D9008B20AB272400AECE51 /* ResponseAPI.swift in Sources */,
 				B15FB43820AC3381000245CE /* WebSocketManager.swift in Sources */,
 				B1D900C720AC02A600AECE51 /* Base58.swift in Sources */,
-				B1D9007F20AB25D200AECE51 /* Broadcast.swift in Sources */,
 				B1D9009C20AB2D6C00AECE51 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,7 +465,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = GoloSwift/Info.plist;
+				INFOPLIST_FILE = GoloSwift/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -485,7 +493,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = GoloSwift/Info.plist;
+				INFOPLIST_FILE = GoloSwift/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

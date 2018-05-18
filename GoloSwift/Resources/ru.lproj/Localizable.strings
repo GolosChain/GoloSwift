@@ -10,6 +10,8 @@
 // Error message
 "Developer error!"                          =   "Ошибка разработчика!";
 "Request Failed"                            =   "Ошибка запроса";
+"GET Request Failed"                        =   "Ошибка GET запроса";
+"POST Request Failed"                       =   "Ошибка POST запроса";
 "Invalid Data"                              =   "Неверные данные";
 "Response Unsuccessful"                     =   "Ошибка обработки ответа сервера";
 "JSON Parsing Failure"                      =   "Ошибка анализа JSON структуры";

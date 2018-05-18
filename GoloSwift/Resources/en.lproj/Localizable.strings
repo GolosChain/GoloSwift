@@ -10,6 +10,8 @@
 // Error message
 "Developer error!"                          =   "Developer error!";
 "Request Failed"                            =   "Request Failed";
+"GET Request Failed"                        =   "GET Request Failed";
+"POST Request Failed"                       =   "POST Request Failed";
 "Invalid Data"                              =   "Invalid Data";
 "Response Unsuccessful"                     =   "Response Unsuccessful";
 "JSON Parsing Failure"                      =   "JSON Parsing Failure";
