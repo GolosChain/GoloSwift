@@ -1,9 +1,9 @@
 //
 //  WebsocketManager.swift
-//  Golos
+//  GoloSwift
 //
 //  Created by Grigory on 15/02/2018.
-//  Copyright © 2018 golos. All rights reserved.
+//  Copyright © 2018 Golos.io. All rights reserved.
 //
 
 import Foundation
@@ -95,9 +95,9 @@ extension WebSocketManager: WebSocketDelegate {
         
         if let jsonData = text.data(using: .utf8), let json = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves) as! [String: Any] {
             // Check error
-            self.validate(json: json, completion: { (codeID, hasError) in
+            self.validate(json: json, completion: { [weak self] (codeID, hasError) in
                 // Check request by sended ID
-                guard let requestAPIStore = self.requestsAPIStore[codeID] else {
+                guard let requestAPIStore = self?.requestsAPIStore[codeID] else {
                     return
                 }
                 
@@ -106,15 +106,15 @@ extension WebSocketManager: WebSocketDelegate {
                     
                     if hasError {
                         let responseAPIResultError = try jsonDecoder.decode(ResponseAPIResultError.self, from: jsonData)
-                        self.errorAPI = ErrorAPI.requestFailed(message: responseAPIResultError.error.message.components(separatedBy: "second.end(): ").last!)
+                        self?.errorAPI = ErrorAPI.requestFailed(message: responseAPIResultError.error.message.components(separatedBy: "second.end(): ").last!)
                     }
                         
                     responseAPIType = try broadcast.decode(from: jsonData, byMethodAPIType: requestAPIStore.type.methodAPIType)
                     // GolosBlockchainManager.decode(from: jsonData, byMethodAPIType: requestAPIStore.type.methodAPIType)
                     
                     guard let responseAPIResult = responseAPIType.responseAPI else {
-                        self.errorAPI = responseAPIType.errorAPI
-                        return requestAPIStore.completion((responseAPI: nil, errorAPI: self.errorAPI))
+                        self?.errorAPI = responseAPIType.errorAPI
+                        return requestAPIStore.completion((responseAPI: nil, errorAPI: self?.errorAPI))
                     }
 
 //                    Logger.log(message: "\nresponseAPIResult model:\n\t\(responseAPIResult)", event: .debug)
@@ -125,26 +125,26 @@ extension WebSocketManager: WebSocketDelegate {
                     
                     if timeout >= webSocketTimeout {
                         let newRequestAPIStore = (type: (id: requestAPIStore.type.id, requestMessage: requestAPIStore.type.requestMessage, startTime: Date(), methodAPIType: requestAPIStore.type.methodAPIType, errorAPI: requestAPIStore.type.errorAPI), completion: requestAPIStore.completion)
-                        self.requestsAPIStore[codeID] = newRequestAPIStore
-                        self.sendMessage(newRequestAPIStore.type.requestMessage!)
+                        self?.requestsAPIStore[codeID] = newRequestAPIStore
+                        self?.sendMessage(newRequestAPIStore.type.requestMessage!)
                     }
                         
                     // Check websocket timeout: handler completion
                     else {
                         // Remove requestStore
-                        self.requestsAPIStore[codeID] = nil
+                        self?.requestsAPIStore[codeID] = nil
                         
                         // Remove unique request ID
                         if let requestID = requestIDs.index(of: codeID) {
                             requestIDs.remove(at: requestID)
                         }
                         
-                        requestAPIStore.completion((responseAPI: responseAPIResult, errorAPI: self.errorAPI))
+                        requestAPIStore.completion((responseAPI: responseAPIResult, errorAPI: self?.errorAPI))
                     }
                 } catch {
                     Logger.log(message: "\nResponse Unsuccessful:\n\t\(error.localizedDescription)", event: .error)
-                    self.errorAPI = ErrorAPI.responseUnsuccessful(message: error.localizedDescription)
-                    requestAPIStore.completion((responseAPI: nil, errorAPI: self.errorAPI))
+                    self?.errorAPI = ErrorAPI.responseUnsuccessful(message: error.localizedDescription)
+                    requestAPIStore.completion((responseAPI: nil, errorAPI: self?.errorAPI))
                 }
             })
         }

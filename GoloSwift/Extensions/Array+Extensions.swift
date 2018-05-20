@@ -1,9 +1,9 @@
 //
 //  Array+Extensions.swift
-//  BlockchainTest
+//  GoloSwift
 //
 //  Created by msm72 on 10.05.2018.
-//  Copyright © 2018 golos. All rights reserved.
+//  Copyright © 2018 Golos.io. All rights reserved.
 //
 
 import Foundation

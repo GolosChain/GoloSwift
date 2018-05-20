@@ -1,9 +1,9 @@
 //
 //  Logger.swift
-//  CleanCase
+//  GoloSwift
 //
 //  Created by msm72 on 27.02.2018.
-//  Copyright © 2018 msm72. All rights reserved.
+//  Copyright © 2018 Golos.io. All rights reserved.
 //
 //  https://medium.com/@sauvik_dolui/developing-a-tiny-logger-in-swift-7221751628e6
 //

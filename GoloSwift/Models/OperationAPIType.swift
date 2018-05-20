@@ -1,9 +1,9 @@
 //
 //  Operations.swift
-//  BlockchainTest
+//  GoloSwift
 //
 //  Created by msm72 on 22.04.2018.
-//  Copyright © 2018 golos. All rights reserved.
+//  Copyright © 2018 Golos.io. All rights reserved.
 //
 //  Operation types & codes:
 //  https://github.com/GolosChain/golos/issues/259

@@ -1,9 +1,9 @@
 //
 //  ResponseAPI.swift
-//  Golos
+//  GoloSwift
 //
 //  Created by msm72 on 13.04.2018.
-//  Copyright © 2018 golos. All rights reserved.
+//  Copyright © 2018 Golos.io. All rights reserved.
 //
 
 import Foundation

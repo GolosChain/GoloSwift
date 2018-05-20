@@ -1,9 +1,9 @@
 //
 //  Constants.swift
-//  BlockchainTest
+//  GoloSwift
 //
 //  Created by msm72 on 07.05.2018.
-//  Copyright © 2018 golos. All rights reserved.
+//  Copyright © 2018 Golos.io. All rights reserved.
 //
 //  https://golos.io/test/@yuri-vlad-second/sdgsdgsdg234234
 
