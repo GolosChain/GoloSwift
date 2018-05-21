@@ -82,6 +82,18 @@ broadcast.executePOST(byOperationAPIType: operationType,
         })
 ```
 
+### Logger
+Simple, pretty and powerful logger for android
+
+Initialize:
+
+```
+Logger.log(message: "\nresponse Result = \(result)\n", event: .debug)
+```
+
+Output:
+<img src='https://github.com/orhanobut/logger/blob/master/art/logger_output.png'/>
+
 
 ## Running the tests
 
