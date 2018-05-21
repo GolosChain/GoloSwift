@@ -92,7 +92,7 @@ Logger.log(message: "\nresponse Result = \(result)\n", event: .debug)
 ```
 
 Output:
-<img src='https://github.com/orhanobut/logger/blob/master/art/logger_output.png'/>
+<img src='https://github.com/GolosChain/GoloSwift/blob/master/GoloSwift/Resources/Media.xcassets/screenshot-logger.imageset/screenshot-logger.png'/>
 
 
 ## Running the tests
