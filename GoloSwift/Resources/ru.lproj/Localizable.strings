@@ -17,3 +17,4 @@
 "JSON Parsing Failure"                      =   "Ошибка анализа JSON структуры";
 "JSON Conversion Failure"                   =   "Ошибка конвертации JSON структуры в модель";
 "Dynamic Global Properties Error"           =   "Ошибка запроса\nдинамических глобальных свойств";
+"Result not found"                          =   "Ответ сервера не найден";

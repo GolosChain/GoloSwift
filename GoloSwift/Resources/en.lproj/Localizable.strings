@@ -17,3 +17,4 @@
 "JSON Parsing Failure"                      =   "JSON Parsing Failure";
 "JSON Conversion Failure"                   =   "JSON Conversion Failure";
 "Dynamic Global Properties Error"           =   "Request failed\ndynamic global properties";
+"Result not found"                          =   "Result not found";

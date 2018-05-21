@@ -10,12 +10,18 @@ import Foundation
 
 /// Array of request unique IDs
 public var requestIDs               =   [Int]()
+
 /// Type of request API
 public typealias RequestAPIType     =   (id: Int, requestMessage: String?, startTime: Date, methodAPIType: MethodAPIType, errorAPI: ErrorAPI?)
+
 /// Type of response API
 public typealias ResponseAPIType    =   (responseAPI: Decodable?, errorAPI: ErrorAPI?)
+public typealias ResultAPIHandler   =   (Decodable) -> Void
+public typealias ErrorAPIHandler    =   (ErrorAPI) -> Void
+
 /// Type of stored request API
 public typealias RequestAPIStore    =   (type: RequestAPIType, completion: (ResponseAPIType) -> Void)
+
 
 public class Broadcast {
     // MARK: - Properties
@@ -31,6 +37,23 @@ public class Broadcast {
     
     
     // MARK: - Class Functions
+    /// Completion handler
+    func completion<Result>(onResult: @escaping (Result) -> Void, onError: @escaping (ErrorAPI) -> Void) -> ((Result?, ErrorAPI?) -> Void) {
+        return { (maybeResult, maybeError) in
+            if let result = maybeResult {
+                onResult(result)
+            }
+            
+            else if let error = maybeError {
+                onError(error)
+            }
+            
+            else {
+                onError(ErrorAPI.requestFailed(message: "Result not found"))
+            }
+        }
+    }
+    
     /**
      Execute any of `GET` API methods.
      
@@ -38,20 +61,26 @@ public class Broadcast {
      - Parameter completion: Blockchain response.
 
      */
-    public func executeGET(byMethodAPIType methodAPIType: MethodAPIType, completion: @escaping (ResponseAPIType?) -> Void) {
+    public func executeGET(byMethodAPIType methodAPIType: MethodAPIType, onResult: @escaping (Decodable) -> Void, onError: @escaping (ErrorAPI) -> Void) {
         // Create GET message to blockchain
         let requestAPIType = self.prepareGET(requestByMethodType: methodAPIType)
         
         guard let requestMessage = requestAPIType.requestMessage else {
-            completion((responseAPI: nil, errorAPI: ErrorAPI.requestFailed(message: "GET Request Failed")))
+            onError(ErrorAPI.requestFailed(message: "GET Request Failed"))
             return
         }
         
         Logger.log(message: "\nrequestAPIType:\n\t\(requestMessage)\n", event: .debug)
-            
+        
         // Send GET message to blockchain
         webSocketManager.sendRequest(withType: requestAPIType, completion: { responseAPIType in
-            completion(responseAPIType)
+            if let responseAPI = responseAPIType.responseAPI {
+                onResult(responseAPI)
+            }
+            
+            else {
+                onError(ErrorAPI.responseUnsuccessful(message: "Result not found"))
+            }
         })
     }
     
