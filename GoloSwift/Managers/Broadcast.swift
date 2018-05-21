@@ -128,11 +128,11 @@ public class Broadcast {
      - Parameter completion: Blockchain response.
      
      */
-    public func executePOST(byOperationAPIType operationAPIType: OperationAPIType, completion: @escaping (ResponseAPIType?) -> Void) {
+    public func executePOST(byOperationAPIType operationAPIType: OperationAPIType, onResult: @escaping (Decodable) -> Void, onError: @escaping (ErrorAPI) -> Void) {
         // API `get_dynamic_global_properties`
         self.getDynamicGlobalProperties(completion: { success in
             guard success else {
-                completion((responseAPI: nil, errorAPI: ErrorAPI.requestFailed(message: "Dynamic Global Properties Error")))
+                onError(ErrorAPI.requestFailed(message: "Dynamic Global Properties Error"))
                 return
             }
             
@@ -150,7 +150,7 @@ public class Broadcast {
             guard errorAPI == nil else {
                 // Show alert error
 //                Logger.log(message: "\(errorAPI!.localizedDescription)", event: .error)
-                completion((responseAPI: nil, errorAPI: errorAPI!))
+                onError(errorAPI!)
                 return
             }
             
@@ -159,13 +159,19 @@ public class Broadcast {
 //            Logger.log(message: "\nrequestAPIType:\n\t\(requestAPIType.requestMessage)\n", event: .debug)
             
             guard requestAPIType.errorAPI == nil else {
-                completion((responseAPI: nil, errorAPI: ErrorAPI.requestFailed(message: "POST Request Failed")))
+                onError(ErrorAPI.requestFailed(message: "POST Request Failed"))
                 return
             }
             
             // Send POST message to blockchain
             webSocketManager.sendRequest(withType: requestAPIType, completion: { responseAPIType in
-                completion(responseAPIType)
+                if let responseAPI = responseAPIType.responseAPI {
+                    onResult(responseAPI)
+                }
+                    
+                else {
+                    onError(ErrorAPI.responseUnsuccessful(message: "Result not found"))
+                }
             })
         })
     }
