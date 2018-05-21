@@ -1,5 +1,5 @@
 # GoloSwift
-<img align="right" src='https://github.com/orhanobut/logger/blob/master/art/logger-logo.png' width='128' height='128'/>
+<img align="right" src='https://github.com/GolosChain/GoloSwift/blob/master/GoloSwift/Resources/Media.xcassets/icon-app-60.imageset/icon-app-60%403x.png' width='128' height='128'/>
 
 Our framework is written in Swift 4 and is designed to work with the blockchain [Golos.io](https://golos.io/)
 
