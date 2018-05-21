@@ -7,6 +7,8 @@ Our framework is written in Swift 4 and is designed to work with the blockchain 
 
 ## Getting Started
 
+<img align="right" src='https://github.com/orhanobut/logger/blob/master/art/logger-logo.png' width='128' height='128'/>
+
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
