@@ -17,7 +17,9 @@ What things you need to install the software and how to install them
 Give examples
 ```
 
-## Installing
+## Installation
+
+[![Version](https://img.shields.io/cocoapods/v/Locksmith.svg?style=flat)](https://cocoapods.org/pods/GoloSwift)
 
 ### CocoaPods
 
