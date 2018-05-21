@@ -17,9 +17,9 @@ What things you need to install the software and how to install them
 Give examples
 ```
 
-### Installing
+## Installing
 
-#### CocoaPods
+### CocoaPods
 
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
@@ -45,9 +45,9 @@ Then, run the following command in `Terminal`:
 $ pod update 'GoloSwift'
 ```
 
-### Quick start
+## Quick start
 
-**Load data**
+### Load data
 
 ```
 // Create MethodAPIType
@@ -63,7 +63,7 @@ broadcast.executeGET(byMethodAPIType: methodAPIType,
         })
 ```
 
-**Save data**
+### Save data
 
 ```
 // Create OperationType
