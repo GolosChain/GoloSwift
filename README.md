@@ -2,6 +2,9 @@
 
 Our framework is written in Swift 4 and is designed to work with the blockchain [Golos.io](https://golos.io/)
 
+- [x] 📱 iOS 10.0+
+
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -41,6 +44,41 @@ Then, run the following command in `Terminal`:
 ```
 $ pod update 'GoloSwift'
 ```
+
+### Quick start
+
+**Load data**
+
+```
+// Create MethodAPIType
+let methodAPIType = MethodAPIType.getAccounts(names: ["inertia"])
+
+// API 'get_accounts'
+broadcast.executeGET(byMethodAPIType: methodAPIType,
+        onResult: { [weak self] result in
+            Logger.log(message: "\nresponse Result = \(result)\n", event: .debug)
+        },
+        onError: { [weak self] errorAPI in
+            Logger.log(message: "nresponse ErrorAPI = \(errorAPI.caseInfo.message)\n", event: .error)
+        })
+```
+
+**Save data**
+
+```
+// Create OperationType
+let operationType: OperationAPIType = OperationAPIType.vote(fields: (voter: voter, author: author, permlink: permlink, weight: weight))
+
+// POST Request
+broadcast.executePOST(byOperationAPIType: operationType,
+        onResult: { [weak self] result in
+            Logger.log(message: "\nresponse Result = \(result)\n", event: .debug)
+        },
+        onError: { [weak self] errorAPI in
+            Logger.log(message: "nresponse ErrorAPI = \(errorAPI.caseInfo.message)\n", event: .error)
+        })
+```
+
 
 ## Running the tests
 
