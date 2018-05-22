@@ -65,11 +65,13 @@ import GoloSwift
 ```
 
 In `Info.plist` file add next parameter:
-<img src='https://github.com/GolosChain/GoloSwift/blob/master/GoloSwift/Resources/Media.xcassets/screenshot-logger.imageset/screenshot-logger.png'/>
+
+<img src='https://github.com/GolosChain/GoloSwift/blob/master/GoloSwift/Resources/Media.xcassets/screenshot-plist.imageset/screenshot-plist.png'/>
+
 
 ### Initialization
 
-In AppDelegate's function application(application: didFinishLaunchingWithOptions:) create a global constant for the instance of the class Broadcast:
+In top of AppDelegate.swift file create a global constant for the instance of the class Broadcast:
 
 ```
 let broadcast: Broadcast = Broadcast.shared
