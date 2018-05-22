@@ -41,7 +41,7 @@ var appBuildConfig: AppBuildConfig      =   AppBuildConfig.Debug {
 }
 
 // Websocket
-var webSocket                           =   WebSocket(url: URL(string: "wss://ws.testnet.golos.io")!)
+public var webSocket                    =   WebSocket(url: URL(string: "wss://ws.testnet.golos.io")!)
 public let webSocketManager             =   WebSocketManager()
 
 /// Websocket response max timeout, in seconds
