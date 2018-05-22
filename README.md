@@ -52,17 +52,17 @@ $ pod update 'GoloSwift'
 
 ### Basics
 
-Framework support 3 Build Configurations:
-
-* Debug
-* Development
-* Release
-
 For start use framework in top of any files add next code:
 
 ```
 import GoloSwift
 ```
+
+Framework support 3 Build Configurations:
+
+* Debug
+* Development
+* Release
 
 In `Info.plist` file add next parameter:
 
