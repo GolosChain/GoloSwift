@@ -25,11 +25,29 @@ public typealias RequestAPIStore    =   (type: RequestAPIType, completion: (Resp
 
 public class Broadcast {
     // MARK: - Properties
-    static let shared = Broadcast()
+    public static let shared        =   Broadcast()
     
     
     // MARK: - Class Initialization
-    private init() {}
+    private init() {
+        let config = (Bundle.main.infoDictionary?["Config"] as? String)?.replacingOccurrences(of: "\\", with: "")
+        
+        if let name = config {
+            switch name.uppercased() {
+            case "DEBUG":
+                appBuildConfig      =   .Debug
+                
+            case "DEVELOPMENT":
+                appBuildConfig      =   .Development
+                
+            case "RELEASE":
+                appBuildConfig      =   .Release
+                
+            default:
+                appBuildConfig      =   .Debug
+            }
+        }
+    }
     
     deinit {
         Logger.log(message: "Success", event: .severe)
@@ -288,38 +306,6 @@ public class Broadcast {
         }
     }
     
-    
-    /**
-     Decode blockchain response.
-     
-     - Parameter jsonData: The `Data` of response.
-     - Parameter methodAPIType: The type of API method.
-     - Returns: Return `RequestAPIType` tuple.
-     
-     */
-    public func decode(from jsonData: Data, byMethodAPIType methodAPIType: MethodAPIType) throws -> ResponseAPIType {
-        do {
-            switch methodAPIType {
-            // GET
-            case .getAccounts(_):
-                return (responseAPI: try JSONDecoder().decode(ResponseAPIUserResult.self, from: jsonData), errorAPI: nil)
-                
-            case .getDynamicGlobalProperties():
-                return (responseAPI: try JSONDecoder().decode(ResponseAPIDynamicGlobalPropertiesResult.self, from: jsonData), errorAPI: nil)
-                
-            case .getDiscussionsByHot(_), .getDiscussionsByCreated(_), .getDiscussionsByTrending(_), .getDiscussionsByPromoted(_):
-                return (responseAPI: try JSONDecoder().decode(ResponseAPIFeedResult.self, from: jsonData), errorAPI: nil)
-                
-            // POST
-            case .verifyAuthorityVote:
-                return (responseAPI: try JSONDecoder().decode(ResponseAPIVerifyAuthorityResult.self, from: jsonData), errorAPI: nil)
-            }
-        } catch {
-            Logger.log(message: "\(error)", event: .error)
-            return (responseAPI: nil, errorAPI: ErrorAPI.jsonParsingFailure(message: error.localizedDescription))
-        }
-    }
-
     
     /// API `get_dynamic_global_properties`
     private func getDynamicGlobalProperties(completion: @escaping (Bool) -> Void) {

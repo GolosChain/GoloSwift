@@ -50,6 +50,31 @@ $ pod update 'GoloSwift'
 
 ## Quick start
 
+### Basics
+
+Framework support 3 Build Configurations:
+
+* Debug
+* Development
+* Release
+
+For start use framework in top of any files add next code:
+
+```
+import GoloSwift
+```
+
+In `Info.plist` file add next parameter:
+<img src='https://github.com/GolosChain/GoloSwift/blob/master/GoloSwift/Resources/Media.xcassets/screenshot-logger.imageset/screenshot-logger.png'/>
+
+### Initialization
+
+In AppDelegate's function application(application: didFinishLaunchingWithOptions:) create a global constant for the instance of the class Broadcast:
+
+```
+let broadcast: Broadcast = Broadcast.shared
+```
+
 ### Load data
 
 ```

@@ -70,6 +70,38 @@ public class WebSocketManager {
         Logger.log(message: json.description, event: .debug)
         completion(json["id"] as! Int, json["error"] != nil)
     }
+    
+    
+    /**
+     Decode blockchain response.
+     
+     - Parameter jsonData: The `Data` of response.
+     - Parameter methodAPIType: The type of API method.
+     - Returns: Return `RequestAPIType` tuple.
+     
+     */
+    func decode(from jsonData: Data, byMethodAPIType methodAPIType: MethodAPIType) throws -> ResponseAPIType {
+        do {
+            switch methodAPIType {
+            // GET
+            case .getAccounts(_):
+                return (responseAPI: try JSONDecoder().decode(ResponseAPIUserResult.self, from: jsonData), errorAPI: nil)
+                
+            case .getDynamicGlobalProperties():
+                return (responseAPI: try JSONDecoder().decode(ResponseAPIDynamicGlobalPropertiesResult.self, from: jsonData), errorAPI: nil)
+                
+            case .getDiscussionsByHot(_), .getDiscussionsByCreated(_), .getDiscussionsByTrending(_), .getDiscussionsByPromoted(_):
+                return (responseAPI: try JSONDecoder().decode(ResponseAPIFeedResult.self, from: jsonData), errorAPI: nil)
+                
+            // POST
+            case .verifyAuthorityVote:
+                return (responseAPI: try JSONDecoder().decode(ResponseAPIVerifyAuthorityResult.self, from: jsonData), errorAPI: nil)
+            }
+        } catch {
+            Logger.log(message: "\(error)", event: .error)
+            return (responseAPI: nil, errorAPI: ErrorAPI.jsonParsingFailure(message: error.localizedDescription))
+        }
+    }
 }
 
 
@@ -109,8 +141,7 @@ extension WebSocketManager: WebSocketDelegate {
                         self?.errorAPI = ErrorAPI.requestFailed(message: responseAPIResultError.error.message.components(separatedBy: "second.end(): ").last!)
                     }
                         
-                    responseAPIType = try broadcast.decode(from: jsonData, byMethodAPIType: requestAPIStore.type.methodAPIType)
-                    // GolosBlockchainManager.decode(from: jsonData, byMethodAPIType: requestAPIStore.type.methodAPIType)
+                    responseAPIType = (try self?.decode(from: jsonData, byMethodAPIType: requestAPIStore.type.methodAPIType))!
                     
                     guard let responseAPIResult = responseAPIType.responseAPI else {
                         self?.errorAPI = responseAPIType.errorAPI
