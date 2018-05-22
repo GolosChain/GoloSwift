@@ -24,31 +24,15 @@ var time: String                        =   ""
 
 // Keys wifs
 let postingKey: String                  =   "5Jj6qFdJLGKFFFQbfTwv6JNQmXzCidnjgSFNYKhrgqhzigH4sFp"
-var chainID: String                     =   "5876894a41e6361bde2e73278f07340f2eb8b41c2facd29099de9deef6cdb679"          // testnet `Golos.io`
+var chainID: String                     =   (appBuildConfig == AppBuildConfig.Release) ?    "782a3039b478c839e4cb0c941ff4eaeb7df40bdd68bd441afd444b9da763de12" :
+                                                                                            "5876894a41e6361bde2e73278f07340f2eb8b41c2facd29099de9deef6cdb679"
 
-var appBuildConfig: AppBuildConfig      =   AppBuildConfig.Debug {
-    didSet {
-        switch appBuildConfig {
-        case .Debug:
-            chainID                     =   "5876894a41e6361bde2e73278f07340f2eb8b41c2facd29099de9deef6cdb679"
-            webSocket                   =   WebSocket(url: URL(string: "wss://ws.testnet.golos.io")!)
-
-        default:
-            chainID                     =   "782a3039b478c839e4cb0c941ff4eaeb7df40bdd68bd441afd444b9da763de12"
-            webSocket                   =   WebSocket(url: URL(string: "wss://ws.golos.io")!)
-        }
-    }
-}
+var appBuildConfig: AppBuildConfig      =   AppBuildConfig.Debug
 
 // Websocket
-public var webSocket                    =   WebSocket(url: URL(string: "wss://ws.testnet.golos.io")!)
+public var webSocket                    =   WebSocket(url: URL(string: (appBuildConfig == AppBuildConfig.Release) ? "wss://ws.golos.io" : "wss://ws.testnet.golos.io")!)
 public let webSocketManager             =   WebSocketManager()
 
 /// Websocket response max timeout, in seconds
 public let webSocketTimeout             =   60.0
 public let webSocketLimit               =   10
-
-
-public func infoForKey(_ key: String) -> String? {
-    return (Bundle.main.infoDictionary?[key] as? String)?.replacingOccurrences(of: "\\", with: "")
-}

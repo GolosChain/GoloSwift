@@ -10,8 +10,8 @@ Pod::Spec.new do |spec|
     spec.author             =   "msm72"
     spec.source_files       =   "GoloSwift", "GoloSwift/**/*.{h,m,swift}"
 
-    spec.version            =   "1.1.4"
-    spec.source             =   { :git => "https://github.com/GolosChain/GoloSwift.git", :tag => "1.1.4" }
+    spec.version            =   "1.1.5"
+    spec.source             =   { :git => "https://github.com/GolosChain/GoloSwift.git", :tag => "1.1.5" }
 
     # Cocoapods
     spec.dependency 'Locksmith'
