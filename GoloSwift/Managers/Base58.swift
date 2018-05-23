@@ -120,4 +120,31 @@ public struct Base58 {
         
         return result
     }
+    
+    
+    /// Convert `Posting key` from String to [Byte]
+    public func base58Decode(data: String) -> [Byte] {
+        Logger.log(message: "\ntx - postingKeyString:\n\t\(data)\n", event: .debug)
+        let s: [Byte] = Base58.bytesFromBase58(data)
+        let dec = cutLastBytes(source: s, cutCount: 4)
+        
+        Logger.log(message: "\ntx - postingKeyData:\n\t\(dec.toHexString())\n", event: .debug)
+        return cutFirstBytes(source: dec, cutCount: 1)
+    }
+    
+    /// Service function
+    func cutLastBytes(source: [Byte], cutCount: Int) -> [Byte] {
+        var result = source
+        result.removeSubrange((source.count - cutCount)..<source.count)
+        
+        return result
+    }
+    
+    /// Service function
+    func cutFirstBytes(source: [Byte], cutCount: Int) -> [Byte] {
+        var result = source
+        result.removeSubrange(0..<cutCount)
+        
+        return result
+    }
 }

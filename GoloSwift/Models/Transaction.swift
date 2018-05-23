@@ -9,7 +9,6 @@
 
 import Foundation
 import secp256k1
-import Locksmith
 import CryptoSwift
 
 public typealias Byte = UInt8
@@ -140,31 +139,7 @@ public struct Transaction {
      
      */
     private mutating func signingECC(messageSHA256: [Byte]) -> ErrorAPI? {
-        // ECC signing: create `wifs` for store posting keys
-        let wifs = [postingKey]                                             // Value from Constants
-        
-        
-        // DELETE AFTER TEST
-        // Delete stored data from Keychain
-        do {
-            try Locksmith.deleteDataForUserAccount(userAccount: "UserDataInfo")
-            Logger.log(message: "Successfully delete Login data from Keychain.", event: .severe)
-        } catch {
-            Logger.log(message: "Delete Login data from Keychain error.", event: .error)
-        }
-        
-        // Save login data to Keychain
-        do {
-            let postingKey = self.base58Decode(data: wifs[0])
-            
-            try Locksmith.saveData(data: [ "login": "msm72", "secretKey": postingKey ], forUserAccount: "UserDataInfo")
-            Logger.log(message: "Successfully save Login data to Keychain.", event: .severe)
-        } catch {
-            Logger.log(message: "Save Login data to Keychain error.", event: .error)
-        }
-        
-        
-        guard let userDataInfo = Locksmith.loadDataForUserAccount(userAccount: "UserDataInfo"), let postingKey = userDataInfo["secretKey"] as? [Byte] else {
+        guard let userDataInfo = KeychainManager.loadData(forUserAccount: "UserDataInfo"), let postingKey = userDataInfo["secretKey"] as? [Byte] else {
             return ErrorAPI.signingECCKeychainPostingKeyFailure(message: "Posting key not found.")
         }
         
@@ -202,7 +177,6 @@ public struct Transaction {
         output65[0] = Byte(recoveryID + 4 + 27)                             // (byte)(recoveryId + 4 + 27)
         Logger.log(message: "\nsigningECC - output65-2:\n\t\(output65.toHexString())\n", event: .debug)
 
-//        self.deleteOperationCode()
         self.add(signature: output65.toHexString())
         Logger.log(message: "\ntx - ready:\n\t\(self)\n", event: .debug)
         
@@ -218,57 +192,11 @@ public struct Transaction {
                 !(signature.data.63 == 0)           &&
                 !((signature.data.62 & 0x80) > 0)
     }
-//
-//
-//    /// Service function from Ruby: https://github.com/inertia186/radiator/blob/master/lib/radiator/transaction.rb#L233
-//    private func isCanonical2(signature: secp256k1_ecdsa_recoverable_signature) -> Bool {
-//        return  !(
-//                    ((signature.data.0 & 0x80)  != 0)   ||  (signature.data.0 == 0)     ||
-//                    ((signature.data.1 & 0x80)  != 0)   ||
-//                    ((signature.data.32 & 0x80) != 0)   ||  (signature.data.32 == 0)    ||
-//                    ((signature.data.33 & 0x80) != 0)
-//                )
-//    }
-//
-//    /// Service function from C#: https://github.com/Chainers/Cryptography.ECDSA/blob/master/Sources/Cryptography.ECDSA/Secp256k1Manager.cs#L397
-//    private func isCanonical1(signature: secp256k1_ecdsa_recoverable_signature) -> Bool {
-//        return  !((signature.data.31 & 0x80) > 0)
-//                && !(signature.data.31 == 0 && !((signature.data.30 & 0x80) > 0))
-//                && !((signature.data.63 & 0x80) > 0)
-//                && !(signature.data.63 == 0 && !((signature.data.62 & 0x80) > 0))
-//    }
 }
 
 
 // MARK: - Transaction extension
 extension Transaction {
-    /// Convert `Posting key` from String to [Byte]
-    private func base58Decode(data: String) -> [Byte] {
-        Logger.log(message: "\ntx - postingKeyString:\n\t\(data)\n", event: .debug)
-        let s: [Byte] = Base58.bytesFromBase58(data)
-//        let s: [Byte] = SwiftBase58.decode(data)
-        let dec = cutLastBytes(source: s, cutCount: 4)
-        
-        Logger.log(message: "\ntx - postingKeyData:\n\t\(dec.toHexString())\n", event: .debug)
-        return cutFirstBytes(source: dec, cutCount: 1)
-    }
-    
-    /// Service function
-    private func cutLastBytes(source: [Byte], cutCount: Int) -> [Byte] {
-        var result = source
-        result.removeSubrange((source.count - cutCount)..<source.count)
-        
-        return result
-    }
-    
-    /// Service function
-    private func cutFirstBytes(source: [Byte], cutCount: Int) -> [Byte] {
-        var result = source
-        result.removeSubrange(0..<cutCount)
-        
-        return result
-    }
-    
     /// Convert Int -> [Byte]
     private func varint(int: Int) -> [Byte] {
         var bytes = [Byte]()

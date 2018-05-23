@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B12A577020B42101000CF8BF /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A576F20B42101000CF8BF /* KeychainManager.swift */; };
 		B13F360820AEC30A003CA33D /* Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F360720AEC30A003CA33D /* Broadcast.swift */; };
 		B149DA9220B2F6E4002E7D18 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B149DA9120B2F6E4002E7D18 /* Media.xcassets */; };
 		B15FB43820AC3381000245CE /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FB43720AC3381000245CE /* WebSocketManager.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		07A06354C27890305D67078F /* Pods_GoloSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoloSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF523C6845228D4D791780A /* Pods-GoloSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.release.xcconfig"; sourceTree = "<group>"; };
+		B12A576F20B42101000CF8BF /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B13F360720AEC30A003CA33D /* Broadcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broadcast.swift; sourceTree = "<group>"; };
 		B149DA9120B2F6E4002E7D18 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B15FB43720AC3381000245CE /* WebSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			children = (
 				B1D900C620AC02A600AECE51 /* Base58.swift */,
 				B13F360720AEC30A003CA33D /* Broadcast.swift */,
+				B12A576F20B42101000CF8BF /* KeychainManager.swift */,
 				B1D9007C20AB25CB00AECE51 /* Logger.swift */,
 				B15FB43720AC3381000245CE /* WebSocketManager.swift */,
 			);
@@ -309,6 +312,7 @@
 				B1D9009B20AB2D6C00AECE51 /* Array+Extensions.swift in Sources */,
 				B1D9009920AB2D6C00AECE51 /* Date+Extensions.swift in Sources */,
 				B1D9008C20AB272400AECE51 /* Transaction.swift in Sources */,
+				B12A577020B42101000CF8BF /* KeychainManager.swift in Sources */,
 				B1D9008820AB272400AECE51 /* OperationAPIType.swift in Sources */,
 				B1D9007D20AB25CB00AECE51 /* Logger.swift in Sources */,
 				B13F360820AEC30A003CA33D /* Broadcast.swift in Sources */,
@@ -388,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -423,7 +427,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Development;
 		};
@@ -480,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -538,7 +542,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -573,7 +577,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -613,7 +617,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
