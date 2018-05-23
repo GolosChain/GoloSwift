@@ -174,7 +174,7 @@ public class Broadcast {
             
             // Create POST message
             let requestAPIType = self.preparePOST(requestByMethodType: .verifyAuthorityVote, byTransaction: tx)
-            Logger.log(message: "\nrequestAPIType:\n\t\(requestAPIType.requestMessage)\n", event: .debug)
+            Logger.log(message: "\nrequestAPIType:\n\t\(requestAPIType.requestMessage!)\n", event: .debug)
             
             guard requestAPIType.errorAPI == nil else {
                 onError(ErrorAPI.requestFailed(message: "POST Request Failed"))
@@ -311,7 +311,7 @@ public class Broadcast {
     private func getDynamicGlobalProperties(completion: @escaping (Bool) -> Void) {
         // API `get_dynamic_global_properties`
         let requestAPIType = self.prepareGET(requestByMethodType: .getDynamicGlobalProperties())
-        Logger.log(message: "\nrequestAPIType =\n\t\(requestAPIType!)", event: .debug)
+        Logger.log(message: "\nrequestAPIType =\n\t\(requestAPIType)", event: .debug)
         
         // Network Layer (WebSocketManager)
         DispatchQueue.main.async {
