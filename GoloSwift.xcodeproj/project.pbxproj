@@ -33,6 +33,7 @@
 		B1D900B720AB3E9B00AECE51 /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D900B620AB3E9B00AECE51 /* secp256k1.framework */; };
 		B1D900BA20AB504100AECE51 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = B1D900B920AB504100AECE51 /* LICENSE.md */; };
 		B1D900C720AC02A600AECE51 /* Base58.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D900C620AC02A600AECE51 /* Base58.swift */; };
+		B1F046D220BD2EA600430FDD /* PostsFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F046D120BD2EA500430FDD /* PostsFeedType.swift */; };
 		FCCA940BEFEC1AE44E9B6840 /* Pods_GoloSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A06354C27890305D67078F /* Pods_GoloSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		B1D900B620AB3E9B00AECE51 /* secp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = secp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D900B920AB504100AECE51 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		B1D900C620AC02A600AECE51 /* Base58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base58.swift; sourceTree = "<group>"; };
+		B1F046D120BD2EA500430FDD /* PostsFeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsFeedType.swift; sourceTree = "<group>"; };
 		EE3F22598EC38832B26DF26C /* Pods-GoloSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +173,7 @@
 				B1D9008420AB272400AECE51 /* ErrorAPI.swift */,
 				B1D9008120AB272400AECE51 /* MethodAPI.swift */,
 				B1D9008220AB272400AECE51 /* OperationAPIType.swift */,
+				B1F046D120BD2EA500430FDD /* PostsFeedType.swift */,
 				B1D9008320AB272400AECE51 /* RequestAPI.swift */,
 				B1D9008520AB272400AECE51 /* ResponseAPI.swift */,
 				B1D9008620AB272400AECE51 /* Transaction.swift */,
@@ -313,6 +316,7 @@
 				B1D9009920AB2D6C00AECE51 /* Date+Extensions.swift in Sources */,
 				B1D9008C20AB272400AECE51 /* Transaction.swift in Sources */,
 				B12A577020B42101000CF8BF /* KeychainManager.swift in Sources */,
+				B1F046D220BD2EA600430FDD /* PostsFeedType.swift in Sources */,
 				B1D9008820AB272400AECE51 /* OperationAPIType.swift in Sources */,
 				B1D9007D20AB25CB00AECE51 /* Logger.swift in Sources */,
 				B13F360820AEC30A003CA33D /* Broadcast.swift in Sources */,

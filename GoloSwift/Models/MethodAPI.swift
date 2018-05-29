@@ -20,18 +20,9 @@ public enum MethodAPIType {
     /// Displays various information about the current status of the GOLOS network.
     case getDynamicGlobalProperties()
     
-    /// Displays a limited number of publications, sorted by popularity.
-    case getDiscussionsByHot(limit: Int)
-    
-    /// Displays a limited number of publications, starting with the newest.
-    case getDiscussionsByCreated(limit: Int)
-    
-    /// Displays a limited number of publications beginning with the most expensive of the award.
-    case getDiscussionsByTrending(limit: Int)
-    
-    /// Displays a limited number of publications sorted by an increased balance amount.
-    case getDiscussionsByPromoted(limit: Int)
-    
+    /// Displays a limited number of publications, sorted by type.
+    case getDiscussions(type: PostsFeedType, limit: Int)
+
     
     /// Save `vote` to blockchain
     case verifyAuthorityVote
@@ -49,21 +40,10 @@ public enum MethodAPIType {
                                                                     paramsFirst:        ["database_api", "get_dynamic_global_properties"],
                                                                     paramsSecond:       ["nil"])
             
-        case .getDiscussionsByHot(let limit):               return (methodAPIType:      self,
-                                                                    paramsFirst:        ["social_network", "get_discussions_by_hot"],
+        case .getDiscussions(let type, let limit):          return (methodAPIType:      self,
+                                                                    paramsFirst:        ["social_network", type.caseAPIParameters()],
                                                                     paramsSecond:       ["limit":limit])
-            
-        case .getDiscussionsByCreated(let limit):           return (methodAPIType:      self,
-                                                                    paramsFirst:        ["social_network", "get_discussions_by_created"],
-                                                                    paramsSecond:       ["limit":limit])
-            
-        case .getDiscussionsByTrending(let limit):          return (methodAPIType:      self,
-                                                                    paramsFirst:        ["social_network", "get_discussions_by_trending"],
-                                                                    paramsSecond:       ["limit":limit])
-            
-        case .getDiscussionsByPromoted(let limit):          return (methodAPIType:      self,
-                                                                    paramsFirst:        ["social_network", "get_discussions_by_promoted"],
-                                                                    paramsSecond:       ["limit":limit])
+
             
         // POST
         case .verifyAuthorityVote:                          return (methodAPIType:      self,
