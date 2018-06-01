@@ -115,12 +115,22 @@ public class Broadcast {
                                                    jsonrpc:     "2.0",
                                                    params:      requestParamsType.paramsFirst)
         
-        let requestParams           =   requestParamsType.paramsSecond
+        let requestParams           =   requestParamsType.paramsSecond as? RequestParameterAPI.Discussion
         
         do {
             // Encode data
             let jsonEncoder         =   JSONEncoder()
-            var jsonData            =   try jsonEncoder.encode(requestParams)
+            var jsonData            =   Data() //            =   try (jsonEncoder.encode(requestParams) as? methodType)
+
+            switch methodType {
+            case .getDiscussions(_):
+                jsonData            =   try jsonEncoder.encode(requestParams)
+
+            default:
+                break
+            }
+
+//            var jsonData            =   try (jsonEncoder.encode(requestParams) as? methodType)
             let jsonParamsString    =   "[\(String(data: jsonData, encoding: .utf8)!)]"
             
             jsonData                =   try jsonEncoder.encode(requestAPI)

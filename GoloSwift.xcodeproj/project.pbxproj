@@ -13,6 +13,7 @@
 		B15FB43820AC3381000245CE /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FB43720AC3381000245CE /* WebSocketManager.swift */; };
 		B1953E1C20ADB05E00FE601E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B1953E1B20ADB05E00FE601E /* README.md */; };
 		B1B169C420C10C0A005E1171 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B169C320C10C0A005E1171 /* Parser.swift */; };
+		B1B169C620C10DB6005E1171 /* RequestParameterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B169C520C10DB6005E1171 /* RequestParameterAPI.swift */; };
 		B1D9007520AB250D00AECE51 /* GoloSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D9007320AB250D00AECE51 /* GoloSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1D9007D20AB25CB00AECE51 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9007C20AB25CB00AECE51 /* Logger.swift */; };
 		B1D9008720AB272400AECE51 /* MethodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9008120AB272400AECE51 /* MethodAPI.swift */; };
@@ -47,6 +48,7 @@
 		B15FB43720AC3381000245CE /* WebSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 		B1953E1B20ADB05E00FE601E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B1B169C320C10C0A005E1171 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		B1B169C520C10DB6005E1171 /* RequestParameterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParameterAPI.swift; sourceTree = "<group>"; };
 		B1D9007020AB250D00AECE51 /* GoloSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoloSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D9007320AB250D00AECE51 /* GoloSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoloSwift.h; sourceTree = "<group>"; };
 		B1D9007420AB250D00AECE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				B1D9008220AB272400AECE51 /* OperationAPIType.swift */,
 				B1F046D320BD301900430FDD /* PostsFeedType.swift */,
 				B1D9008320AB272400AECE51 /* RequestAPI.swift */,
+				B1B169C520C10DB6005E1171 /* RequestParameterAPI.swift */,
 				B1D9008520AB272400AECE51 /* ResponseAPI.swift */,
 				B1D9008620AB272400AECE51 /* Transaction.swift */,
 			);
@@ -321,6 +324,7 @@
 				B1D9009920AB2D6C00AECE51 /* Date+Extensions.swift in Sources */,
 				B1D9008C20AB272400AECE51 /* Transaction.swift in Sources */,
 				B12A577020B42101000CF8BF /* KeychainManager.swift in Sources */,
+				B1B169C620C10DB6005E1171 /* RequestParameterAPI.swift in Sources */,
 				B1F046D420BD301A00430FDD /* PostsFeedType.swift in Sources */,
 				B1D9008820AB272400AECE51 /* OperationAPIType.swift in Sources */,
 				B1D9007D20AB25CB00AECE51 /* Logger.swift in Sources */,
@@ -428,7 +432,11 @@
 				INFOPLIST_FILE = GoloSwift/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.golos.GoloSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -575,7 +583,11 @@
 				INFOPLIST_FILE = GoloSwift/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.golos.GoloSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -600,7 +612,11 @@
 				INFOPLIST_FILE = GoloSwift/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
