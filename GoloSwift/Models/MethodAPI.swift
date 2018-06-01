@@ -95,7 +95,7 @@ public enum MethodAPIType {
         // {"id": 278, "method": "call", "jsonrpc": "2.0", "params": ["social_network", "get_all_content_replies", ["psk", "psk01061"]]}
         case .getAllContentReplies(let author, let permlink):       return (methodAPIType:      self,
                                                                             paramsFirst:        ["social_network", "get_all_content_replies"],
-                                                                            paramsSecond:       [author, permlink])
+                                                                            paramsSecond:       String(format: "%@, %@", author, permlink))
             
             
         // POST
