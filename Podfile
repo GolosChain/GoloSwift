@@ -4,7 +4,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'GoloSwift' do
 
-    pod 'Down'
     pod 'Locksmith'
     pod 'CryptoSwift'
     pod 'secp256k1.swift'

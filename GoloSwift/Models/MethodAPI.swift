@@ -36,7 +36,7 @@ public enum MethodAPIType {
         // GET
         case .getAccounts(let names):                       return (methodAPIType:      self,
                                                                     paramsFirst:        ["database_api", "get_accounts"],
-                                                                    paramsSecond:       nil)
+                                                                    paramsSecond:       [names])
             
         case .getDynamicGlobalProperties():                 return (methodAPIType:      self,
                                                                     paramsFirst:        ["database_api", "get_dynamic_global_properties"],
