@@ -86,7 +86,7 @@ public enum MethodAPIType {
             //                parametersBody["parent_author"]         =   parent_author
             //            }
             
-            let parameterAPI = (appBuildConfig == AppBuildConfig.Release) ? "social_network" : "tags"
+            let parameterAPI = (appBuildConfig == AppBuildConfig.Debug) ? "social_network" : "tags"
             
             return (methodAPIType:      self,
                     paramsFirst:        [parameterAPI, type.caseAPIParameters()],
@@ -95,7 +95,7 @@ public enum MethodAPIType {
         // {"id": 278, "method": "call", "jsonrpc": "2.0", "params": ["social_network", "get_all_content_replies", ["psk", "psk01061"]]}
         case .getAllContentReplies(let author, let permlink):       return (methodAPIType:      self,
                                                                             paramsFirst:        ["social_network", "get_all_content_replies"],
-                                                                            paramsSecond:       String(format: "%@, %@", author, permlink))
+                                                                            paramsSecond:       String(format: "\"%@\", \"%@\"", author, permlink))
             
             
         // POST

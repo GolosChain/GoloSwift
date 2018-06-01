@@ -127,8 +127,8 @@ public class Broadcast {
                 jsonData            =   try jsonEncoder.encode(requestParams as? RequestParameterAPI.Discussion)
 
             case .getAllContentReplies(_):
-                jsonData            =   try jsonEncoder.encode(requestParams as? String)
-                
+                jsonData            =   Data((requestParams as! String).utf8)
+
             default:
                 break
             }

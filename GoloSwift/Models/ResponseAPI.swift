@@ -347,18 +347,17 @@ public struct ResponseAPIAllContentReply: Decodable {
     public let parent_permlink: String
     public let title: String
     public let body: String
-    public let json_metadata: [String: String]
+    public let json_metadata: String
     public let last_update: String
     
     // In reserve
-    /* */
-
+    /*
     public let created: String
     public let active: String
     public let last_payout: String
     public let depth: Int
     public let children: Int
-    public let children_rshares2: Int
+    public let children_rshares2: String
     public let net_rshares: Int
     public let abs_rshares: Int
     public let vote_rshares: Int
@@ -389,5 +388,6 @@ public struct ResponseAPIAllContentReply: Decodable {
     public let promoted: String
     public let body_length: Int
     public let reblogged_by: [String]?
+     */
     // swiftlint:enable identifier_name
 }
