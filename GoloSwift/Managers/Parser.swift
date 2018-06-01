@@ -9,8 +9,8 @@
 import Foundation
 import Down
 
-class Parser {
-    func getPictureURL(from body: String) -> String? {
+public class Parser {
+    public func getPictureURL(from body: String) -> String? {
         let pattern     =   "(http(s?):)([/|.|\\w|\\s|-])*\\.(?:jpg|gif|png)(!d)?"
         
         let regex       =   try! NSRegularExpression(pattern: pattern)
@@ -24,7 +24,7 @@ class Parser {
         return (body as NSString).substring(with: match.range)
     }
     
-    func getDescription(from body: String) -> String {
+    public func getDescription(from body: String) -> String {
         let down = Down(markdownString: body)
         let html = try! down.toHTML()
         var cleanBody = html.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
@@ -42,7 +42,7 @@ class Parser {
         return cleanBody //String(cleanBody[...index])
     }
     
-    func repairBody(_ body: String) -> String {
+    public func repairBody(_ body: String) -> String {
         let mutableString = NSMutableString(string: body)
         let imageUrlPattern = "(https?:\\/\\/.*\\.(?:png|jpg))"
         let mdImagePattern = "!{0,1}(?:\\[.*\\])*\\({0,1}(https?:\\/\\/.*\\.(?:png|jpg))\\){0,1}"
