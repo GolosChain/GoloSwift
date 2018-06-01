@@ -322,3 +322,72 @@ public struct ResponseAPIVerifyAuthorityResult: Decodable {
     public let result: Bool?
     public let error: ResponseAPIError?
 }
+
+
+/// Response: AllContentReplies Result
+public struct ResponseAPIAllContentRepliesResult: Decodable {
+    // MARK: - Properties
+    public let id: Int64
+    public let jsonrpc: String
+    public let result: [ResponseAPIAllContentReply]?
+    public let error: ResponseAPIError?
+}
+
+
+/// Response: AllContentReply
+public struct ResponseAPIAllContentReply: Decodable {
+    // MARK: - Properties
+    // In work
+    // swiftlint:disable identifier_name
+    public let id: Int64
+    public let author: String
+    public let permlink: String
+    public let category: String
+    public let parent_author: String
+    public let parent_permlink: String
+    public let title: String
+    public let body: String
+    public let json_metadata: [String: String]
+    public let last_update: String
+    
+    // In reserve
+    /* */
+
+    public let created: String
+    public let active: String
+    public let last_payout: String
+    public let depth: Int
+    public let children: Int
+    public let children_rshares2: Int
+    public let net_rshares: Int
+    public let abs_rshares: Int
+    public let vote_rshares: Int
+    public let children_abs_rshares: Int
+    public let cashout_time: String
+    public let max_cashout_time: String
+    public let total_vote_weight: Int
+    public let reward_weight: Int
+    public let total_payout_value: String
+    public let curator_payout_value: String
+    public let author_rewards: Int
+    public let net_votes: Int
+    public let mode: String
+    public let root_comment: Int64
+    public let max_accepted_payout: String
+    public let percent_steem_dollars: Int64
+    public let allow_replies: Bool
+    public let allow_votes: Bool
+    public let allow_curation_rewards: Bool
+    public let beneficiaries: [String]?
+    public let url: String
+    public let root_title: String
+    public let pending_payout_value: String
+    public let total_pending_payout_value: String
+    public let active_votes: [String]?
+    public let replies: [String]?
+    public let author_reputation: String
+    public let promoted: String
+    public let body_length: Int
+    public let reblogged_by: [String]?
+    // swiftlint:enable identifier_name
+}

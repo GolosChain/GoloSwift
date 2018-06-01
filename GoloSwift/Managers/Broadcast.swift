@@ -115,7 +115,7 @@ public class Broadcast {
                                                    jsonrpc:     "2.0",
                                                    params:      requestParamsType.paramsFirst)
         
-        let requestParams           =   requestParamsType.paramsSecond as? RequestParameterAPI.Discussion
+        let requestParams           =   requestParamsType.paramsSecond
         
         do {
             // Encode data
@@ -124,7 +124,7 @@ public class Broadcast {
 
             switch methodType {
             case .getDiscussions(_):
-                jsonData            =   try jsonEncoder.encode(requestParams)
+                jsonData            =   try jsonEncoder.encode(requestParams as? RequestParameterAPI.Discussion)
 
             default:
                 break

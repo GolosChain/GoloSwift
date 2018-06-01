@@ -93,6 +93,10 @@ public class WebSocketManager {
             case .getDiscussions(_):
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIFeedResult.self, from: jsonData), errorAPI: nil)
                 
+            case .getAllContentReplies(_):
+                return (responseAPI: try JSONDecoder().decode(ResponseAPIAllContentRepliesResult.self, from: jsonData), errorAPI: nil)
+
+                
             // POST
             case .verifyAuthorityVote:
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIVerifyAuthorityResult.self, from: jsonData), errorAPI: nil)
