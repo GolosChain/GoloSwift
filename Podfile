@@ -1,9 +1,10 @@
-platform :ios, '10.0'
+platform :ios, '9.3'
 use_frameworks!
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'GoloSwift' do
 
+    pod 'Down'
     pod 'Locksmith'
     pod 'CryptoSwift'
     pod 'secp256k1.swift'

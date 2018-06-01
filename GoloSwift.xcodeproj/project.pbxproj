@@ -12,6 +12,7 @@
 		B149DA9220B2F6E4002E7D18 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B149DA9120B2F6E4002E7D18 /* Media.xcassets */; };
 		B15FB43820AC3381000245CE /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FB43720AC3381000245CE /* WebSocketManager.swift */; };
 		B1953E1C20ADB05E00FE601E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B1953E1B20ADB05E00FE601E /* README.md */; };
+		B1B169C420C10C0A005E1171 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B169C320C10C0A005E1171 /* Parser.swift */; };
 		B1D9007520AB250D00AECE51 /* GoloSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D9007320AB250D00AECE51 /* GoloSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1D9007D20AB25CB00AECE51 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9007C20AB25CB00AECE51 /* Logger.swift */; };
 		B1D9008720AB272400AECE51 /* MethodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9008120AB272400AECE51 /* MethodAPI.swift */; };
@@ -45,6 +46,7 @@
 		B149DA9120B2F6E4002E7D18 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B15FB43720AC3381000245CE /* WebSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 		B1953E1B20ADB05E00FE601E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B1B169C320C10C0A005E1171 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		B1D9007020AB250D00AECE51 /* GoloSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoloSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D9007320AB250D00AECE51 /* GoloSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoloSwift.h; sourceTree = "<group>"; };
 		B1D9007420AB250D00AECE51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		B1D900B920AB504100AECE51 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		B1D900C620AC02A600AECE51 /* Base58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base58.swift; sourceTree = "<group>"; };
 		B1F046D320BD301900430FDD /* PostsFeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsFeedType.swift; sourceTree = "<group>"; };
+		C49285FF39FCAFDFBD8C8D68 /* Pods-GoloSwift.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.development.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.development.xcconfig"; sourceTree = "<group>"; };
 		EE3F22598EC38832B26DF26C /* Pods-GoloSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +165,7 @@
 				B13F360720AEC30A003CA33D /* Broadcast.swift */,
 				B12A576F20B42101000CF8BF /* KeychainManager.swift */,
 				B1D9007C20AB25CB00AECE51 /* Logger.swift */,
+				B1B169C320C10C0A005E1171 /* Parser.swift */,
 				B15FB43720AC3381000245CE /* WebSocketManager.swift */,
 			);
 			path = Managers;
@@ -198,6 +202,7 @@
 			children = (
 				EE3F22598EC38832B26DF26C /* Pods-GoloSwift.debug.xcconfig */,
 				4BF523C6845228D4D791780A /* Pods-GoloSwift.release.xcconfig */,
+				C49285FF39FCAFDFBD8C8D68 /* Pods-GoloSwift.development.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				B13F360820AEC30A003CA33D /* Broadcast.swift in Sources */,
 				B1D9008920AB272400AECE51 /* RequestAPI.swift in Sources */,
 				B1D9008B20AB272400AECE51 /* ResponseAPI.swift in Sources */,
+				B1B169C420C10C0A005E1171 /* Parser.swift in Sources */,
 				B15FB43820AC3381000245CE /* WebSocketManager.swift in Sources */,
 				B1D900C720AC02A600AECE51 /* Base58.swift in Sources */,
 				B1D9009C20AB2D6C00AECE51 /* Constants.swift in Sources */,
@@ -409,7 +415,7 @@
 		};
 		B149DA9620B30374002E7D18 /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE3F22598EC38832B26DF26C /* Pods-GoloSwift.debug.xcconfig */;
+			baseConfigurationReference = C49285FF39FCAFDFBD8C8D68 /* Pods-GoloSwift.development.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -422,11 +428,7 @@
 				INFOPLIST_FILE = GoloSwift/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.golos.GoloSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -573,11 +575,7 @@
 				INFOPLIST_FILE = GoloSwift/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.golos.GoloSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -602,11 +600,7 @@
 				INFOPLIST_FILE = GoloSwift/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",

@@ -16,7 +16,7 @@ public enum PostsFeedType: String {
     case popular
     case promoted
     
-    func caseTitle() -> String {
+    public func caseTitle() -> String {
         switch self {
         case .new:          return "New".localized()
         case .actual:       return "Actual".localized()

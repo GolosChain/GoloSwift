@@ -36,7 +36,7 @@ public let webSocketManager             =   WebSocketManager()
 
 /// Websocket response max timeout, in seconds
 public let webSocketTimeout             =   60.0
-public let webSocketLimit               =   10
+public let webSocketLimit: UInt         =   10
 
 
 // Keys

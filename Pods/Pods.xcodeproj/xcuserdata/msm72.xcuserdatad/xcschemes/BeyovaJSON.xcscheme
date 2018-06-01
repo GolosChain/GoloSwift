@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BB18738C127B41B124A2F934D391F1B1"
+               BlueprintIdentifier = "C0FD7299DD71941BE933219ABF36B6BF"
                BlueprintName = "BeyovaJSON"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "BeyovaJSON.framework">
