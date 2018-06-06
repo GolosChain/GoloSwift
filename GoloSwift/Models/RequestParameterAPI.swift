@@ -18,8 +18,8 @@ public struct RequestParameterAPI {
         public let selectAuthors: [String]?
         public let selectLanguages: [String]?
         public let filterLanguages: [String]?
-        public let startAuthor: String?
-        public let startPermlink: String?
+        public let start_author: String?
+        public let start_permlink: String?
         public let parentAuthor: String?
         public let parentPermlink: String?
         
@@ -33,8 +33,8 @@ public struct RequestParameterAPI {
             self.selectAuthors      =   selectAuthors
             self.selectLanguages    =   selectLanguages
             self.filterLanguages    =   filterLanguages
-            self.startAuthor        =   startAuthor
-            self.startPermlink      =   startPermlink
+            self.start_author       =   startAuthor
+            self.start_permlink     =   startPermlink
             self.parentAuthor       =   parentAuthor
             self.parentPermlink     =   parentPermlink
         }
