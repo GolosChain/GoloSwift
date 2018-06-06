@@ -19,13 +19,13 @@ public struct RequestParameterAPI {
         public let selectLanguages: [String]?
         public let filterLanguages: [String]?
         public let startAuthor: String?
-        public let startPerlink: String?
+        public let startPermlink: String?
         public let parentAuthor: String?
-        public let parentPerlink: String?
+        public let parentPermlink: String?
         
         
         // MARK: - Initialization
-        public init(limit: UInt, truncateBody: UInt? = 1024, selectTags: [String]? = nil, filterTags: [String]? = nil, selectAuthors: [String]? = nil, selectLanguages: [String]? = nil, filterLanguages: [String]? = nil, startAuthor: String? = nil, startPerlink: String? = nil, parentAuthor: String? = nil, parentPerlink: String? = nil) {
+        public init(limit: UInt, truncateBody: UInt? = 1024, selectTags: [String]? = nil, filterTags: [String]? = nil, selectAuthors: [String]? = nil, selectLanguages: [String]? = nil, filterLanguages: [String]? = nil, startAuthor: String? = nil, startPermlink: String? = nil, parentAuthor: String? = nil, parentPermlink: String? = nil) {
             self.limit              =   limit
             self.truncate_body      =   truncateBody
             self.selectTags         =   selectTags
@@ -34,9 +34,9 @@ public struct RequestParameterAPI {
             self.selectLanguages    =   selectLanguages
             self.filterLanguages    =   filterLanguages
             self.startAuthor        =   startAuthor
-            self.startPerlink       =   startPerlink
+            self.startPermlink      =   startPermlink
             self.parentAuthor       =   parentAuthor
-            self.parentPerlink      =   parentPerlink
+            self.parentPermlink     =   parentPermlink
         }
     }
 }

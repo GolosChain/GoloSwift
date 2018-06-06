@@ -74,12 +74,12 @@ public enum MethodAPIType {
             //                parametersBody["start_author"]          =   start_author
             //            }
             //
-            //            if let start_perlink = startPerlink {
-            //                parametersBody["start_perlink"]         =   start_perlink
+            //            if let start_permlink = startPermlink {
+            //                parametersBody["start_permlink"]        =   start_permlink
             //            }
             //
-            //            if let parent_perlink = parentPerlink {
-            //                parametersBody["parent_perlink"]        =   parent_perlink
+            //            if let parent_permlink = parentPermlink {
+            //                parametersBody["parent_permlink"]        =   parent_permlink
             //            }
             //
             //            if let parent_author = parentAuthor {
