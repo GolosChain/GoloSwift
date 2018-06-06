@@ -38,6 +38,7 @@ public let webSocketManager             =   WebSocketManager()
 public let webSocketTimeout             =   60.0
 public let webSocketLimit: UInt         =   10
 
+public let loadDataLimit: UInt          =   10
 
 // Keys
 let loginKey                            =   "login"
