@@ -17,7 +17,8 @@ public typealias OperationCommentFields = (author: String, permlink: String, max
 public enum OperationAPIType {
     /// In Work
     case vote(fields: OperationVoteFields)
-    case comment(fields: OperationCommentFields)
+    case create(post: RequestParameterAPI.Post)
+//    case comment(fields: OperationCommentFields)
     
     
     /// In Reserve
@@ -89,15 +90,15 @@ public enum OperationAPIType {
                                     ]
                     ]
 
-        case .comment(let operation):
+        case .create(let post):
             return  [ "comment", 1, [
-                                        "author":                   operation.author,
-                                        "permlink":                 operation.permlink,
-                                        "maxAaccepted_payout":      operation.maxAaccepted_payout,
-                                        "percent_steem_dollars":    operation.percent_steem_dollars,
-                                        "allow_votes":              operation.allow_votes,
-                                        "allow_curation_rewards":   operation.allow_curation_rewards,
-                                        "extensions":               operation.extensions
+                                        "parent_author":        post.parentAuthor,
+                                        "parent_permlink":      post.parentPermlink,
+                                        "author":               post.author,
+                                        "permlink":             post.permlink,
+                                        "title":                post.title,
+                                        "body":                 post.body,
+                                        "json_metadata":        post.jsonMetadata
                                     ]
                     ]
         }
@@ -111,7 +112,7 @@ public enum OperationAPIType {
             return [ "voter", "author", "permlink", "weight" ]
 
         case 1:
-            return [ "author", "permlink", "maxAaccepted_payout", "percent_steem_dollars", "allow_votes", "allow_curation_rewards", "extensions" ]
+            return [ "parent_author", "parent_permlink", "author", "permlink", "title", "body", "json_metadata" ]
             
         default:
             break

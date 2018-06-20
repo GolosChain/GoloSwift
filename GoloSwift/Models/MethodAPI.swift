@@ -30,6 +30,15 @@ public enum MethodAPIType {
     /// Save `vote` to blockchain
     case verifyAuthorityVote
     
+    // Post: create, add comment & comment reply
+    case post(action: PostActionType, parameters: RequestParameterAPI.Post)
+
+    // Create new post comment
+//    case createPostComment(parameters: RequestParameterAPI.Discussion)
+//
+//    // Reply for post comment
+//    case replyPostComment(parameters: RequestParameterAPI.Discussion)
+
     
     /// This method return request parameters from selected enum case.
     func introduced() -> RequestParametersType {
@@ -102,7 +111,11 @@ public enum MethodAPIType {
         case .verifyAuthorityVote:                          return (methodAPIType:      self,
                                                                     paramsFirst:        ["database_api", "verify_authority"],
                                                                     paramsSecond:       nil)
-            
+
+        case .post(_, let parameters):                      return (methodAPIType:      self,
+                                                                    paramsFirst:        ["network_broadcast_api", "broadcast_transaction"],
+                                                                    paramsSecond:       parameters)
+
         }
     }
 }

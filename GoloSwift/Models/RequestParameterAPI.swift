@@ -39,5 +39,53 @@ public struct RequestParameterAPI {
             self.parentPermlink     =   parentPermlink
         }
     }
+    
+    public struct Post: Encodable {
+        // MARK: - Properties
+        public let parentAuthor: String
+        public var parentPermlink: String
+        public let author: String
+        public let title: String
+        public let body: String
+        public let jsonMetadata: [PostMetadata]
+
+        public var permlink: String {
+            set {
+                if parentAuthor.isEmpty {
+                    self.permlink   =   String(format: "%@-%@-%d", author, title.transliterationInLatin(), Int64(Date().timeIntervalSince1970))
+                }
+                
+                else {
+                    self.permlink   =   String(format: "re-%@-%@-%@-%d", parentAuthor, parentPermlink, author, Int64(Date().timeIntervalSince1970))
+                }
+            }
+            
+            get {
+                return self.permlink
+            }
+        }
+
+        // MARK: - Initialization
+        public init(parentAuthor: String, parentPermlink: String, author: String, title: String, body: String, jsonMetadata: [PostMetadata]) {
+            self.parentAuthor       =   parentAuthor
+            self.parentPermlink     =   parentPermlink
+            self.author             =   author
+            self.title              =   title
+            self.body               =   body
+            self.jsonMetadata       =   jsonMetadata
+        }
+    }
+    
+    public struct PostMetadata: Encodable {
+        // MARK: - Properties
+        public let tags: [String]
+        public var app: String      =   "golos.io/0.1"
+        public var format: String   =   "markdown"
+        
+        // MARK: - Initialization
+        public init(tags: [String]) {
+            self.tags               =   tags
+        }
+    }
 }
 

@@ -100,6 +100,9 @@ public class WebSocketManager {
             // POST
             case .verifyAuthorityVote:
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIVerifyAuthorityResult.self, from: jsonData), errorAPI: nil)
+            
+            case .post(_):
+                return (responseAPI: try JSONDecoder().decode(ResponseAPIVerifyAuthorityResult.self, from: jsonData), errorAPI: nil)
             }
         } catch {
             Logger.log(message: "\(error)", event: .error)
