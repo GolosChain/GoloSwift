@@ -95,7 +95,7 @@ public enum MethodAPIType {
             //                parametersBody["parent_author"]         =   parent_author
             //            }
             
-            let parameterAPI = (appBuildConfig == AppBuildConfig.Debug) ? "social_network" : "tags"
+            let parameterAPI = (appBuildConfig == AppBuildConfig.Debug) ? "tags" : "tags"
             
             return (methodAPIType:      self,
                     paramsFirst:        [parameterAPI, type.caseAPIParameters()],
