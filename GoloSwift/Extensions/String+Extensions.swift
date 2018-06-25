@@ -38,8 +38,21 @@ extension String {
     }
     
     
+    ///
+    func guessLanguage() -> String {
+        let length          =   self.utf16.count
+        let languageCode    =   CFStringTokenizerCopyBestStringLanguage(self as CFString, CFRange(location: 0, length: length)) as String? ?? ""
+        let locale          =   Locale(identifier: languageCode)
+        
+        return locale.localizedString(forLanguageCode: languageCode) ?? "Unknown"
+    }
+    
     /// Cyrillic -> Latin
     func transliterationInLatin() -> String {
+        guard guessLanguage().hasPrefix("Unknown") else {
+            return self
+        }
+        
         var newString: String = ""
         var latinChar: String
         
@@ -59,6 +72,6 @@ extension String {
         
         let convertDict     =   NSDictionary.init(objects: latinChars, forKeys: cyrillicChars as [NSCopying])
         
-        return  convertDict.value(forKey: char.lowercased()) as! String
+        return convertDict.value(forKey: char.lowercased()) as! String
     }
 }

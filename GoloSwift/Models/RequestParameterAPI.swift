@@ -48,7 +48,12 @@ public struct RequestParameterAPI {
         public var parentPermlink: String
         public let author: String
         public let title: String
-        public let body: String
+        public var body: String {
+            didSet {
+                self.permlink = ""
+            }
+        }
+        
         public let jsonMetadata: [CommentMetadata]
 
         public var permlink: String {
