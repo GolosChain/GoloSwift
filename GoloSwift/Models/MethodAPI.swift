@@ -31,7 +31,7 @@ public enum MethodAPIType {
     case verifyAuthorityVote
     
     // Post: create, add comment & comment reply
-    case post(action: PostActionType, parameters: RequestParameterAPI.Post)
+    case post(action: PostActionType, parameters: RequestParameterAPI.Comment)
 
     // Create new post comment
 //    case createPostComment(parameters: RequestParameterAPI.Discussion)

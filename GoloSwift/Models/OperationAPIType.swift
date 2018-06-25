@@ -17,7 +17,7 @@ public typealias OperationCommentFields = (author: String, permlink: String, max
 public enum OperationAPIType {
     /// In Work
     case vote(fields: OperationVoteFields)
-    case create(post: RequestParameterAPI.Post)
+    case create(post: RequestParameterAPI.Comment)
 //    case comment(fields: OperationCommentFields)
     
     

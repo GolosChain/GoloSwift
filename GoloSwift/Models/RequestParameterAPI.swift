@@ -42,7 +42,7 @@ public struct RequestParameterAPI {
         }
     }
     
-    public struct Post: Encodable {
+    public struct Comment: Encodable {
         // MARK: - Properties
         public let parentAuthor: String
         public var parentPermlink: String
