@@ -49,7 +49,7 @@ public struct RequestParameterAPI {
         public let author: String
         public let title: String
         public let body: String
-        public let jsonMetadata: [PostMetadata]
+        public let jsonMetadata: [CommentMetadata]
 
         public var permlink: String {
             set {
@@ -68,7 +68,7 @@ public struct RequestParameterAPI {
         }
 
         // MARK: - Initialization
-        public init(parentAuthor: String, parentPermlink: String, author: String, title: String, body: String, jsonMetadata: [PostMetadata]) {
+        public init(parentAuthor: String, parentPermlink: String, author: String, title: String, body: String, jsonMetadata: [CommentMetadata]) {
             self.parentAuthor       =   parentAuthor
             self.parentPermlink     =   parentPermlink
             self.author             =   author
@@ -78,7 +78,7 @@ public struct RequestParameterAPI {
         }
     }
     
-    public struct PostMetadata: Encodable {
+    public struct CommentMetadata: Encodable {
         // MARK: - Properties
         public let tags: [String]
         public var app: String      =   "golos.io/0.1"
@@ -87,6 +87,30 @@ public struct RequestParameterAPI {
         // MARK: - Initialization
         public init(tags: [String]) {
             self.tags               =   tags
+        }
+    }
+    
+    
+    public struct CommentOptions: Encodable {
+        // MARK: - Properties
+        public let author: String
+        public let permlink: String
+        public let max_accepted_payout: String
+        public let percent_steem_dollars: UInt
+        public let allow_votes: Bool
+        public let allow_curation_rewards: Bool
+        public let extensions: [String]
+        
+        
+        // MARK: - Initialization
+        public init(author: String, permlink: String, maxAcceptedPayout: String, percentSteemDollars: UInt, allowVotes: Bool, allowCurationRewards: Bool, extensions: [String]) {
+            self.author                 =   author
+            self.permlink               =   permlink
+            self.max_accepted_payout    =   maxAcceptedPayout
+            self.percent_steem_dollars  =   percentSteemDollars
+            self.allow_votes            =   allowVotes
+            self.allow_curation_rewards =   allowCurationRewards
+            self.extensions             =   extensions
         }
     }
 }
