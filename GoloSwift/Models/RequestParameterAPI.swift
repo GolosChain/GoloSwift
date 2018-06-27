@@ -15,7 +15,7 @@ public struct RequestParameterAPI {
         public let truncate_body: UInt?
         public let selectTags: [String]?
         public let filterTags: [String]?
-        public let selectAuthors: [String]?
+        public let select_authors: [String]?
         public let selectLanguages: [String]?
         public let filterLanguages: [String]?
         public let start_author: String?
@@ -31,7 +31,7 @@ public struct RequestParameterAPI {
             self.truncate_body      =   truncateBody
             self.selectTags         =   selectTags
             self.filterTags         =   filterTags
-            self.selectAuthors      =   selectAuthors
+            self.select_authors     =   selectAuthors
             self.selectLanguages    =   selectLanguages
             self.filterLanguages    =   filterLanguages
             self.start_author       =   startAuthor
