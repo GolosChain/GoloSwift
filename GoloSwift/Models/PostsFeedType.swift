@@ -30,7 +30,7 @@ public enum PostsFeedType: String {
     func caseAPIParameters() -> String {
         switch self {
         case .new:          return "get_discussions_by_created"
-        case .lenta:        return "get_discussions_by_created"
+        case .lenta:        return "get_discussions_by_blog"
         case .actual:       return "get_discussions_by_hot"
         case .popular:      return "get_discussions_by_trending"
         case .promoted:     return "get_discussions_by_promoted"
