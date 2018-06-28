@@ -120,9 +120,12 @@ public class Broadcast {
         do {
             // Encode data
             let jsonEncoder         =   JSONEncoder()
-            var jsonData            =   Data() //            =   try (jsonEncoder.encode(requestParams) as? methodType)
+            var jsonData            =   Data()
 
             switch methodType {
+            case .getAccounts(_):
+                jsonData            =   try jsonEncoder.encode(requestParams as? RequestParameterAPI.User)
+                
             case .getDiscussions(_):
                 jsonData            =   try jsonEncoder.encode(requestParams as? RequestParameterAPI.Discussion)
 
@@ -133,7 +136,6 @@ public class Broadcast {
                 break
             }
 
-//            var jsonData            =   try (jsonEncoder.encode(requestParams) as? methodType)
             let jsonParamsString    =   "[\(String(data: jsonData, encoding: .utf8)!)]"
             
             jsonData                =   try jsonEncoder.encode(requestAPI)
@@ -142,6 +144,9 @@ public class Broadcast {
                                             .replacingOccurrences(of: "[[[", with: "[[")
                                             .replacingOccurrences(of: "]]]", with: "]]")
                                             .replacingOccurrences(of: "[\"nil\"]", with: "]")
+                                            .replacingOccurrences(of: "{\"names\":", with: "")      // getAccounts
+                                            .replacingOccurrences(of: "]}]]", with: "]]]")          // getAccounts
+            
             Logger.log(message: "\nEncoded JSON -> String:\n\t " + jsonString, event: .debug)
             
             return (id: codeID, requestMessage: jsonString, startTime: Date(), methodAPIType: requestParamsType.methodAPIType, errorAPI: nil)

@@ -15,8 +15,8 @@ typealias RequestParametersType = (methodAPIType: MethodAPIType, paramsFirst: [S
 /// API methods.
 public enum MethodAPIType {
     /// Displays information about the users specified in the request.
-    case getAccounts(names: [String])
-    
+    case getAccounts(names: RequestParameterAPI.User)
+
     /// Displays various information about the current status of the GOLOS network.
     case getDynamicGlobalProperties()
     
@@ -44,9 +44,9 @@ public enum MethodAPIType {
     func introduced() -> RequestParametersType {
         switch self {
         // GET
-        case .getAccounts(let names):                       return (methodAPIType:      self,
+        case .getAccounts(let user):                        return (methodAPIType:      self,
                                                                     paramsFirst:        ["database_api", "get_accounts"],
-                                                                    paramsSecond:       [names])
+                                                                    paramsSecond:       user)
             
         case .getDynamicGlobalProperties():                 return (methodAPIType:      self,
                                                                     paramsFirst:        ["database_api", "get_dynamic_global_properties"],

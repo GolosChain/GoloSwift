@@ -9,6 +9,16 @@
 import UIKit
 
 public struct RequestParameterAPI {
+    public struct User: Encodable {
+        // MARK: - Properties
+        public let names: [String]
+        
+        // MARK: - Initialization
+        public init(names: [String]) {
+            self.names  =   names
+        }
+    }
+    
     public struct Discussion: Encodable {
         // MARK: - Properties
         public let limit: UInt
