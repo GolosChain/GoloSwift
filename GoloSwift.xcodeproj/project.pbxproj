@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B1422BFE20E7D0630060DC78 /* GoloCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1422BFD20E7D0630060DC78 /* GoloCrypto.framework */; };
 		B149DA9220B2F6E4002E7D18 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B149DA9120B2F6E4002E7D18 /* Media.xcassets */; };
 		B1953E1C20ADB05E00FE601E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B1953E1B20ADB05E00FE601E /* README.md */; };
 		B1D9007520AB250D00AECE51 /* GoloSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D9007320AB250D00AECE51 /* GoloSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,7 +25,6 @@
 		4BF523C6845228D4D791780A /* Pods-GoloSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.release.xcconfig"; sourceTree = "<group>"; };
 		B12A576F20B42101000CF8BF /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B13F360720AEC30A003CA33D /* Broadcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broadcast.swift; sourceTree = "<group>"; };
-		B1422BFD20E7D0630060DC78 /* GoloCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoloCrypto.framework; sourceTree = "<group>"; };
 		B149DA9120B2F6E4002E7D18 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B15FB43720AC3381000245CE /* WebSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 		B164F04A20E656DB00C5CDD3 /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1D900AF20AB3E9B00AECE51 /* BeyovaJSON.framework in Frameworks */,
-				B1422BFE20E7D0630060DC78 /* GoloCrypto.framework in Frameworks */,
 				B1D900B120AB3E9B00AECE51 /* CryptoSwift.framework in Frameworks */,
 				B1D900B320AB3E9B00AECE51 /* Localize_Swift.framework in Frameworks */,
 				B1D900B520AB3E9B00AECE51 /* Locksmith.framework in Frameworks */,
@@ -108,21 +105,12 @@
 		B13F360620AEB6FA003CA33D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B1422BFC20E7D0210060DC78 /* Frameworks */,
 				B1D9007320AB250D00AECE51 /* GoloSwift.h */,
 				B1D9007420AB250D00AECE51 /* Info.plist */,
 				B1D900A220AB316A00AECE51 /* Localizable.strings */,
 				B149DA9120B2F6E4002E7D18 /* Media.xcassets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		B1422BFC20E7D0210060DC78 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B1422BFD20E7D0630060DC78 /* GoloCrypto.framework */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		B1D9006620AB250D00AECE51 = {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GoloCrypto
 
 /// A Steem public key.
 public struct PublicKey: Equatable {

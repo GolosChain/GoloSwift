@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GoloCrypto
 
 internal extension Data {
     /// Base58 encoding and decoding options.

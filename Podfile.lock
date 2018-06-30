@@ -1,6 +1,7 @@
 PODS:
   - BeyovaJSON (0.0.7)
   - CryptoSwift (0.9.0)
+  - GoloCrypto (1.0.0)
   - Localize-Swift (2.0.0)
   - Locksmith (4.0.0)
   - secp256k1.swift (0.1.3)
@@ -9,6 +10,7 @@ PODS:
 DEPENDENCIES:
   - BeyovaJSON (~> 0.0)
   - CryptoSwift
+  - GoloCrypto (from `https://github.com/Monserg/GoloGrypto.git`)
   - Localize-Swift (~> 2.0)
   - Locksmith
   - secp256k1.swift
@@ -23,14 +25,24 @@ SPEC REPOS:
     - secp256k1.swift
     - Starscream
 
+EXTERNAL SOURCES:
+  GoloCrypto:
+    :git: https://github.com/Monserg/GoloGrypto.git
+
+CHECKOUT OPTIONS:
+  GoloCrypto:
+    :commit: a69981141b2ce0aa5c478c357b223afca8a0cc18
+    :git: https://github.com/Monserg/GoloGrypto.git
+
 SPEC CHECKSUMS:
   BeyovaJSON: 085c9fa886fa0b13e2964cc8c6965fab5bc7f90f
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
+  GoloCrypto: 9aa91a49cfd8d92aa46e574ce7e1f826dc34f5da
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   secp256k1.swift: 3012a2bb09e183f43ac702125202c01c0bf55ea2
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
 
-PODFILE CHECKSUM: 970ef225a0b7bd180883ba61874dc375e7117784
+PODFILE CHECKSUM: 2a3215d1b52806fc4d7649028248921ac2cef7b1
 
 COCOAPODS: 1.5.3
