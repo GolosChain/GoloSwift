@@ -1,7 +1,7 @@
 PODS:
   - BeyovaJSON (0.0.7)
   - CryptoSwift (0.9.0)
-  - GoloCrypto (1.0.5)
+  - GoloCrypto (1.0.6)
   - Localize-Swift (2.0.0)
   - Locksmith (4.0.0)
   - secp256k1.swift (0.1.3)
@@ -31,13 +31,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   GoloCrypto:
-    :commit: b8aaba37cf43208254e2855d98881e611f518aab
+    :commit: c40a95682df32420b70d45e43590d9ef096de124
     :git: https://github.com/Monserg/GoloGrypto.git
 
 SPEC CHECKSUMS:
   BeyovaJSON: 085c9fa886fa0b13e2964cc8c6965fab5bc7f90f
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
-  GoloCrypto: ceff0ab482e83dadbdda14e10a281dbc527877a2
+  GoloCrypto: 3f60e824b57ca657be702fb2cf4bd1f7a379257a
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   secp256k1.swift: 3012a2bb09e183f43ac702125202c01c0bf55ea2

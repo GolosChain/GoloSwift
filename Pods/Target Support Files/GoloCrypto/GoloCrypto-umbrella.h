@@ -10,14 +10,14 @@
 #endif
 #endif
 
-#import "GoloCrypto.h"
+#import "GoloCrypto-umbrella.h"
 #import "base58.h"
+#import "crypto.h"
 #import "hasher.h"
 #import "memzero.h"
 #import "options.h"
 #import "ripemd160.h"
 #import "sha2.h"
-#import "crypto.h"
 
 FOUNDATION_EXPORT double GoloCryptoVersionNumber;
 FOUNDATION_EXPORT const unsigned char GoloCryptoVersionString[];
