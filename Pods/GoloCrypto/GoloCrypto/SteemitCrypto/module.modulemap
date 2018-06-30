@@ -1,18 +1,11 @@
+// http://nsomar.com/project-and-private-headers-in-a-swift-and-objective-c-framework/
 module Crypto [system][extern_c] {
-    // http://nsomar.com/project-and-private-headers-in-a-swift-and-objective-c-framework/
-    
     header "base58.h"
-    header "base58.c"
     header "hasher.h"
-    header "hasher.c"
     header "sha2.h"
-    header "sha2.c"
     header "ripemd160.h"
-    header "ripemd160.c"
     header "options.h"
     header "memzero.h"
-    header "memzero.c"
     header "include/crypto.h"
-    
     export *
 }
