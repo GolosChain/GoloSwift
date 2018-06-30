@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import GoloSwiftPrivate
 
 internal extension Data {
     /// Base58 encoding and decoding options.

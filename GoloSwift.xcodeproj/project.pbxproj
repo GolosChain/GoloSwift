@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B149DA9220B2F6E4002E7D18 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B149DA9120B2F6E4002E7D18 /* Media.xcassets */; };
-		B194C04520E798AA00E09D1B /* hasher.h in Headers */ = {isa = PBXBuildFile; fileRef = B194C04320E798AA00E09D1B /* hasher.h */; };
-		B194C04920E798FE00E09D1B /* sha2.h in Headers */ = {isa = PBXBuildFile; fileRef = B194C04720E798FE00E09D1B /* sha2.h */; };
-		B194C04D20E7993600E09D1B /* ripemd160.h in Headers */ = {isa = PBXBuildFile; fileRef = B194C04B20E7993600E09D1B /* ripemd160.h */; };
-		B194C05220E799A200E09D1B /* memzero.h in Headers */ = {isa = PBXBuildFile; fileRef = B194C05020E799A200E09D1B /* memzero.h */; };
 		B1953E1C20ADB05E00FE601E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B1953E1B20ADB05E00FE601E /* README.md */; };
 		B1D9007520AB250D00AECE51 /* GoloSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D9007320AB250D00AECE51 /* GoloSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1D900A020AB316A00AECE51 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1D900A220AB316A00AECE51 /* Localizable.strings */; };
@@ -45,19 +41,6 @@
 		B164F07220E658AD00C5CDD3 /* memzero.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = memzero.c; sourceTree = "<group>"; };
 		B164F07320E658AD00C5CDD3 /* base58.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = base58.c; sourceTree = "<group>"; };
 		B164F07420E6598300C5CDD3 /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
-		B194C00A20E7948F00E09D1B /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		B194C04020E7981B00E09D1B /* base58.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base58.h; sourceTree = "<group>"; };
-		B194C04120E7987E00E09D1B /* base58.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = base58.c; sourceTree = "<group>"; };
-		B194C04320E798AA00E09D1B /* hasher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hasher.h; sourceTree = "<group>"; };
-		B194C04420E798AA00E09D1B /* hasher.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hasher.c; sourceTree = "<group>"; };
-		B194C04720E798FE00E09D1B /* sha2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sha2.h; sourceTree = "<group>"; };
-		B194C04820E798FE00E09D1B /* sha2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sha2.c; sourceTree = "<group>"; };
-		B194C04B20E7993600E09D1B /* ripemd160.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ripemd160.h; sourceTree = "<group>"; };
-		B194C04C20E7993600E09D1B /* ripemd160.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ripemd160.c; sourceTree = "<group>"; };
-		B194C04F20E7997D00E09D1B /* options.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = options.h; sourceTree = "<group>"; };
-		B194C05020E799A200E09D1B /* memzero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = memzero.h; sourceTree = "<group>"; };
-		B194C05120E799A200E09D1B /* memzero.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = memzero.c; sourceTree = "<group>"; };
-		B194C05520E799F500E09D1B /* crypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = crypto.h; sourceTree = "<group>"; };
 		B194C05820E79B8F00E09D1B /* SteemEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteemEncoder.swift; sourceTree = "<group>"; };
 		B1953E1B20ADB05E00FE601E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B1B169C520C10DB6005E1171 /* RequestParameterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParameterAPI.swift; sourceTree = "<group>"; };
@@ -135,7 +118,6 @@
 		B13F360620AEB6FA003CA33D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B194C02520E795A700E09D1B /* SteemitCrypto */,
 				B1D9007320AB250D00AECE51 /* GoloSwift.h */,
 				B1D9007420AB250D00AECE51 /* Info.plist */,
 				B1D900A220AB316A00AECE51 /* Localizable.strings */,
@@ -172,41 +154,6 @@
 			path = include;
 			sourceTree = "<group>";
 		};
-		B194BFEC20E7906200E09D1B /* ProjectModule */ = {
-			isa = PBXGroup;
-			children = (
-				B194C00A20E7948F00E09D1B /* module.modulemap */,
-			);
-			path = ProjectModule;
-			sourceTree = "<group>";
-		};
-		B194C02520E795A700E09D1B /* SteemitCrypto */ = {
-			isa = PBXGroup;
-			children = (
-				B194C04120E7987E00E09D1B /* base58.c */,
-				B194C04020E7981B00E09D1B /* base58.h */,
-				B194C04420E798AA00E09D1B /* hasher.c */,
-				B194C04320E798AA00E09D1B /* hasher.h */,
-				B194C05420E799E300E09D1B /* include */,
-				B194C05120E799A200E09D1B /* memzero.c */,
-				B194C05020E799A200E09D1B /* memzero.h */,
-				B194C04F20E7997D00E09D1B /* options.h */,
-				B194C04C20E7993600E09D1B /* ripemd160.c */,
-				B194C04B20E7993600E09D1B /* ripemd160.h */,
-				B194C04820E798FE00E09D1B /* sha2.c */,
-				B194C04720E798FE00E09D1B /* sha2.h */,
-			);
-			path = SteemitCrypto;
-			sourceTree = "<group>";
-		};
-		B194C05420E799E300E09D1B /* include */ = {
-			isa = PBXGroup;
-			children = (
-				B194C05520E799F500E09D1B /* crypto.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
 		B1D9006620AB250D00AECE51 = {
 			isa = PBXGroup;
 			children = (
@@ -230,7 +177,6 @@
 		B1D9007220AB250D00AECE51 /* GoloSwift */ = {
 			isa = PBXGroup;
 			children = (
-				B194BFEC20E7906200E09D1B /* ProjectModule */,
 				B1D9009320AB2D5900AECE51 /* Extensions */,
 				B1D9008020AB270500AECE51 /* Models */,
 				B1D9007B20AB259E00AECE51 /* Managers */,
@@ -299,11 +245,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B194C04920E798FE00E09D1B /* sha2.h in Headers */,
-				B194C05220E799A200E09D1B /* memzero.h in Headers */,
-				B194C04D20E7993600E09D1B /* ripemd160.h in Headers */,
 				B1D9007520AB250D00AECE51 /* GoloSwift.h in Headers */,
-				B194C04520E798AA00E09D1B /* hasher.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +440,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.golos.GoloSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/GoloSwift/ProjectModule";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -654,7 +595,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.golos.GoloSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/GoloSwift/ProjectModule";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -701,7 +641,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.golos.GoloSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/GoloSwift/ProjectModule";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
