@@ -31,7 +31,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   GoloCrypto:
-    :commit: f8750b2900ad5667c354b531b216a7322f21f74c
+    :commit: b8aaba37cf43208254e2855d98881e611f518aab
     :git: https://github.com/Monserg/GoloGrypto.git
 
 SPEC CHECKSUMS:
