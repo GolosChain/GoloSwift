@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B1422BFB20E7CEF60060DC78 /* GoloCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1422BFA20E7CEF60060DC78 /* GoloCrypto.framework */; };
+		B1422BFE20E7D0630060DC78 /* GoloCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1422BFD20E7D0630060DC78 /* GoloCrypto.framework */; };
 		B149DA9220B2F6E4002E7D18 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B149DA9120B2F6E4002E7D18 /* Media.xcassets */; };
 		B1953E1C20ADB05E00FE601E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B1953E1B20ADB05E00FE601E /* README.md */; };
 		B1D9007520AB250D00AECE51 /* GoloSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D9007320AB250D00AECE51 /* GoloSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,22 +26,10 @@
 		4BF523C6845228D4D791780A /* Pods-GoloSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.release.xcconfig"; sourceTree = "<group>"; };
 		B12A576F20B42101000CF8BF /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B13F360720AEC30A003CA33D /* Broadcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broadcast.swift; sourceTree = "<group>"; };
-		B1422BFA20E7CEF60060DC78 /* GoloCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoloCrypto.framework; path = ../../../../Desktop/GoloCrypto.framework; sourceTree = "<group>"; };
+		B1422BFD20E7D0630060DC78 /* GoloCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoloCrypto.framework; sourceTree = "<group>"; };
 		B149DA9120B2F6E4002E7D18 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B15FB43720AC3381000245CE /* WebSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 		B164F04A20E656DB00C5CDD3 /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
-		B164F06720E658AC00C5CDD3 /* ripemd160.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ripemd160.h; sourceTree = "<group>"; };
-		B164F06820E658AC00C5CDD3 /* sha2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sha2.c; sourceTree = "<group>"; };
-		B164F06920E658AC00C5CDD3 /* hasher.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hasher.c; sourceTree = "<group>"; };
-		B164F06A20E658AC00C5CDD3 /* memzero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = memzero.h; sourceTree = "<group>"; };
-		B164F06B20E658AC00C5CDD3 /* base58.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base58.h; sourceTree = "<group>"; };
-		B164F06D20E658AC00C5CDD3 /* crypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = crypto.h; sourceTree = "<group>"; };
-		B164F06E20E658AC00C5CDD3 /* options.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = options.h; sourceTree = "<group>"; };
-		B164F06F20E658AD00C5CDD3 /* hasher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hasher.h; sourceTree = "<group>"; };
-		B164F07020E658AD00C5CDD3 /* sha2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sha2.h; sourceTree = "<group>"; };
-		B164F07120E658AD00C5CDD3 /* ripemd160.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ripemd160.c; sourceTree = "<group>"; };
-		B164F07220E658AD00C5CDD3 /* memzero.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = memzero.c; sourceTree = "<group>"; };
-		B164F07320E658AD00C5CDD3 /* base58.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = base58.c; sourceTree = "<group>"; };
 		B164F07420E6598300C5CDD3 /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
 		B194C05820E79B8F00E09D1B /* SteemEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteemEncoder.swift; sourceTree = "<group>"; };
 		B1953E1B20ADB05E00FE601E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -86,8 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1422BFB20E7CEF60060DC78 /* GoloCrypto.framework in Frameworks */,
 				B1D900AF20AB3E9B00AECE51 /* BeyovaJSON.framework in Frameworks */,
+				B1422BFE20E7D0630060DC78 /* GoloCrypto.framework in Frameworks */,
 				B1D900B120AB3E9B00AECE51 /* CryptoSwift.framework in Frameworks */,
 				B1D900B320AB3E9B00AECE51 /* Localize_Swift.framework in Frameworks */,
 				B1D900B520AB3E9B00AECE51 /* Locksmith.framework in Frameworks */,
@@ -102,8 +90,6 @@
 		10CD755145DBFBCABD1F23E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B1422BFA20E7CEF60060DC78 /* GoloCrypto.framework */,
-				B164F06620E658AC00C5CDD3 /* Crypto */,
 				B1D900AE20AB3E9B00AECE51 /* BeyovaJSON.framework */,
 				B1D900B020AB3E9B00AECE51 /* CryptoSwift.framework */,
 				B1D900B220AB3E9B00AECE51 /* Localize_Swift.framework */,
@@ -122,6 +108,7 @@
 		B13F360620AEB6FA003CA33D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B1422BFC20E7D0210060DC78 /* Frameworks */,
 				B1D9007320AB250D00AECE51 /* GoloSwift.h */,
 				B1D9007420AB250D00AECE51 /* Info.plist */,
 				B1D900A220AB316A00AECE51 /* Localizable.strings */,
@@ -130,32 +117,12 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		B164F06620E658AC00C5CDD3 /* Crypto */ = {
+		B1422BFC20E7D0210060DC78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B164F06720E658AC00C5CDD3 /* ripemd160.h */,
-				B164F06820E658AC00C5CDD3 /* sha2.c */,
-				B164F06920E658AC00C5CDD3 /* hasher.c */,
-				B164F06A20E658AC00C5CDD3 /* memzero.h */,
-				B164F06B20E658AC00C5CDD3 /* base58.h */,
-				B164F06C20E658AC00C5CDD3 /* include */,
-				B164F06E20E658AC00C5CDD3 /* options.h */,
-				B164F06F20E658AD00C5CDD3 /* hasher.h */,
-				B164F07020E658AD00C5CDD3 /* sha2.h */,
-				B164F07120E658AD00C5CDD3 /* ripemd160.c */,
-				B164F07220E658AD00C5CDD3 /* memzero.c */,
-				B164F07320E658AD00C5CDD3 /* base58.c */,
+				B1422BFD20E7D0630060DC78 /* GoloCrypto.framework */,
 			);
-			name = Crypto;
-			path = GoloSwift/Resources/Crypto;
-			sourceTree = "<group>";
-		};
-		B164F06C20E658AC00C5CDD3 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				B164F06D20E658AC00C5CDD3 /* crypto.h */,
-			);
-			path = include;
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		B1D9006620AB250D00AECE51 = {
@@ -430,7 +397,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoloSwift/Resources/Frameworks",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = GoloSwift/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -585,7 +555,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoloSwift/Resources/Frameworks",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = GoloSwift/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -618,7 +591,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoloSwift/Resources/Frameworks",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = GoloSwift/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
