@@ -14,7 +14,7 @@ target 'GoloSwift' do
     pod 'Starscream', '~> 3.0'
 
     # GoloCrypto
-    pod 'GoloCrypto'
+    pod 'GoloCrypto', '~> 1.0'
 #    , :git => "https://github.com/Monserg/GoloGrypto.git"
 
 end
