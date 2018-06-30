@@ -1,25 +1,26 @@
 {
   "name": "GoloCrypto",
-  "version": "1.0.0",
-  "summary": "GoloCrypto",
+  "platforms": {
+    "ios": "9.3"
+  },
+  "swift_version": "4.0",
+  "summary": "Swift framework for Golos.io",
+  "homepage": "https://golos.io",
+  "social_media_url": "https://golos.io",
   "license": {
     "type": "MIT",
     "file": "LICENSE.md"
   },
-  "homepage": "https://github.com/Monserg/GoloGrypto.git",
   "authors": {
     "msm72": "msm72@yahoo.com"
   },
-  "social_media_url": "https://golos.io",
-  "platforms": {
-    "ios": "9.1"
-  },
-  "requires_arc": true,
+  "version": "1.0.2",
   "source": {
     "git": "https://github.com/Monserg/GoloGrypto.git",
-    "tag": "v1.0.0",
+    "tag": "1.0.2",
     "submodules": true
   },
+  "requires_arc": true,
   "source_files": [
     "GoloCrypto/**/*.{h,swift}",
     "GoloCrypto/SteemitCrypto/*.{c,h}",
