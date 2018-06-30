@@ -1,7 +1,7 @@
 platform :ios, '9.3'
 use_frameworks!
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/Monserg/GoloGrypto.git'
+#source 'https://github.com/Monserg/GoloGrypto.git'
 
 target 'GoloSwift' do
 
