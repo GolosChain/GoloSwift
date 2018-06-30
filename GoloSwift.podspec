@@ -16,6 +16,7 @@ Pod::Spec.new do |spec|
     # Cocoapods
     spec.dependency 'Locksmith'
     spec.dependency 'CryptoSwift'
+    spec.dependency 'GoloCrypto'
     spec.dependency 'secp256k1.swift'
     spec.dependency 'BeyovaJSON', '~> 0.0'
     spec.dependency 'Starscream', '~> 3.0'
