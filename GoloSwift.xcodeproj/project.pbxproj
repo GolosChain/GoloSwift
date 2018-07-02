@@ -26,6 +26,7 @@
 		B12A576F20B42101000CF8BF /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B12F43F320E9F0C1003FFF58 /* PrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
 		B12F440A20EA3AD1003FFF58 /* Secp256k1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secp256k1.swift; sourceTree = "<group>"; };
+		B12F440B20EA3C3D003FFF58 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		B13F360720AEC30A003CA33D /* Broadcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broadcast.swift; sourceTree = "<group>"; };
 		B149DA9120B2F6E4002E7D18 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B15FB43720AC3381000245CE /* WebSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
@@ -168,6 +169,7 @@
 				B1F046D320BD301900430FDD /* PostsFeedType.swift */,
 				B12F43F320E9F0C1003FFF58 /* PrivateKey.swift */,
 				B164F07420E6598300C5CDD3 /* PublicKey.swift */,
+				B12F440B20EA3C3D003FFF58 /* Random.swift */,
 				B1D9008320AB272400AECE51 /* RequestAPI.swift */,
 				B1B169C520C10DB6005E1171 /* RequestParameterAPI.swift */,
 				B1D9008520AB272400AECE51 /* ResponseAPI.swift */,
