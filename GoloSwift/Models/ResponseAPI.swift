@@ -8,36 +8,34 @@
 
 import Foundation
 
-/// Response: Error Result
+// MARK: -
 public struct ResponseAPIResultError: Decodable {
-    // MARK: - Properties
+    // MARK: - In work
     public let error: ResponseAPIError
     public let id: Int64
     public let jsonrpc: String
 }
 
-/// Response: Error
+// MARK: -
 public struct ResponseAPIError: Decodable {
-    // MARK: - Properties
-    // In work
+    // MARK: - In work
     public let code: Int64
     public let message: String
 }
 
 
-/// Response: Feed Result
+// MARK: -
 public struct ResponseAPIFeedResult: Decodable {
-    // MARK: - Properties
+    // MARK: - In work
     public let id: Int64
     public let jsonrpc: String
     public let result: [ResponseAPIFeed]?
     public let error: ResponseAPIError?
 }
 
-/// Response: Feed
+// MARK: -
 public struct ResponseAPIFeed: Decodable {
-    // MARK: - Properties
-    // In work
+    // MARK: - In work
     // swiftlint:disable identifier_name
     public let id: Int64
     public let body: String
@@ -50,7 +48,7 @@ public struct ResponseAPIFeed: Decodable {
     public let json_metadata: String?
     public let active_votes: [ResponseAPIActiveVote]
     
-    // In reserve
+    // MARK: - In reserve
     /*
      let abs_rshares: Conflicted
      let active: String
@@ -94,10 +92,9 @@ public struct ResponseAPIFeed: Decodable {
 }
 
 
-/// Response: Active Vote
+// MARK: -
 public struct ResponseAPIActiveVote: Decodable {
-    // MARK: - Properties
-    // In work
+    // MARK: - In work
     public let percent: Int16
     public let reputation: Conflicted
     public let rshares: Conflicted
@@ -132,9 +129,9 @@ public struct Conflicted: Codable {
 }
 
 
-/// Response: User result
+// MARK: -
 public struct ResponseAPIUserResult: Decodable {
-    // MARK: - Properties
+    // MARK: - In work
     public let id: Int64
     public let jsonrpc: String
     public let result: [ResponseAPIUser]?
@@ -142,10 +139,9 @@ public struct ResponseAPIUserResult: Decodable {
 }
 
 
-/// Response: User
+// MARK: -
 public struct ResponseAPIUser: Decodable {
-    // MARK: - Properties
-    // In work
+    // MARK: - In work
     // swiftlint:disable identifier_name
     public let id: Int64
     public let name: String
@@ -157,7 +153,7 @@ public struct ResponseAPIUser: Decodable {
     public let posting: ResponseAPIUserSecretKey?
     
     
-    // In reserve
+    // MARK: - In reserve
     /*
      let active_challenged: Bool
      let average_bandwidth: Conflicted
@@ -231,17 +227,18 @@ public struct ResponseAPIUser: Decodable {
 }
 
 
-/// Response: User Secret Key
+// MARK: -
 public struct ResponseAPIUserSecretKey: Decodable {
+    // MARK: - In work
     public let account_auths: [String]
     public let weight_threshold: Int64?
     public let key_auths: [[Conflicted]]
 }
 
 
-/// Response: DynamicGlobalProperties Result
+// MARK: -
 public struct ResponseAPIDynamicGlobalPropertiesResult: Decodable {
-    // MARK: - Properties
+    // MARK: - In work
     public let id: Int64
     public let jsonrpc: String
     public let result: ResponseAPIDynamicGlobalProperty?
@@ -249,17 +246,16 @@ public struct ResponseAPIDynamicGlobalPropertiesResult: Decodable {
 }
 
 
-/// Response: DynamicGlobalProperty
+// MARK: -
 public struct ResponseAPIDynamicGlobalProperty: Decodable {
-    // MARK: - Properties
-    // In work
+    // MARK: - In work
     // swiftlint:disable identifier_name
     public let id: Int64
     public let time: String                            // "2018-04-20T19:01:12"
     public let head_block_id: String
     public let head_block_number: Int64
     
-    // In reserve
+    // MARK: - In reserve
     /*
      let current_witness: String
      let total_pow: Int64
@@ -289,10 +285,9 @@ public struct ResponseAPIDynamicGlobalProperty: Decodable {
 }
 
 
-/// Response: VerifyAuthorityResult
+// MARK: -
 public struct ResponseAPIVerifyAuthorityResult: Decodable {
-    // MARK: - Properties
-    // MARK: - Properties
+    // MARK: - In work
     public let id: Int64
     public let jsonrpc: String
     public let result: Bool?
@@ -300,9 +295,9 @@ public struct ResponseAPIVerifyAuthorityResult: Decodable {
 }
 
 
-/// Response: AllContentReplies Result
+// MARK: -
 public struct ResponseAPIAllContentRepliesResult: Decodable {
-    // MARK: - Properties
+    // MARK: - In work
     public let id: Int64
     public let jsonrpc: String
     public let result: [ResponseAPIAllContentReply]?
@@ -310,10 +305,9 @@ public struct ResponseAPIAllContentRepliesResult: Decodable {
 }
 
 
-/// Response: AllContentReply
+// MARK: -
 public struct ResponseAPIAllContentReply: Decodable {
-    // MARK: - Properties
-    // In work
+    // MARK: - In work
     // swiftlint:disable identifier_name
     public let id: Int64
     public let author: String
@@ -326,7 +320,7 @@ public struct ResponseAPIAllContentReply: Decodable {
     public let json_metadata: String
     public let last_update: String
     
-    // In reserve
+    // MARK: - In reserve
     /*
      public let created: String
      public let active: String
