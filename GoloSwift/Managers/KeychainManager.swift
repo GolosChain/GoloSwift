@@ -10,16 +10,10 @@ import Locksmith
 import Foundation
 
 public class KeychainManager {
-    /// Create key name
-    private func createKey(_ type: PrivateKeyType, userName: String) -> String {
-        return String(format: "%@ - %f", userName, type.rawValue)
-    }
-    
-    
     /// Delete stored data from Keychain
     public static func deleteKey(byType type: PrivateKeyType, forUserName userName: String) -> Bool {
         do {
-            try Locksmith.deleteDataForUserAccount(userAccount: createKey(type, userName))
+            try Locksmith.deleteDataForUserAccount(userAccount: userName)
             Logger.log(message: "Successfully delete Login data from Keychain.", event: .severe)
             return true
         } catch {
@@ -30,27 +24,21 @@ public class KeychainManager {
     
     
     /// Load data from Keychain
-    public static func loadKey(byType type: PrivateKeyType, forUserName userName: String) -> [String: Any]? {
-        return Locksmith.loadDataForUserAccount(userAccount: createKey(type, userName))
+    static func loadPrivateKey(forUserName userName: String) -> String {
+        var privateKey: String = String()
+        
+        if let data = Locksmith.loadDataForUserAccount(userAccount: userName) {
+            privateKey = data["privateKey"] as! String
+        }
+        
+        return privateKey
     }
     
-//    static func loadPrivateKey(byType type: PrivateKeyType, andUserName userName: String) -> String {
-//        var privateKey: String = String()
-//
-//        if let data = Locksmith.loadDataForUserAccount(userAccount: createKey(type, userName)) {
-//            privateKey = data[secretKey] as! String
-//        }
-//
-//        return privateKey
-//    }
-
     
     /// Save login data to Keychain
-    public func save(_ key: String, withType type: PrivateKeyType, forUserName userName: String) -> Bool {
+    public static func save(_ key: String, forUserName userName: String) -> Bool {
         do {
-            let privateKey = Base58().base58Decode(data: (data[secretKey] as? String)!)
-            
-            try Locksmith.saveData(data: Data(key.utf8), forUserAccount: createKey(type, userName))
+            try Locksmith.saveData(data: [ "privateKey": key ], forUserAccount: userName)
             Logger.log(message: "Successfully save Login data to Keychain.", event: .severe)
             return true
         } catch {
