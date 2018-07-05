@@ -139,7 +139,7 @@ public struct Transaction {
      
      */
     private mutating func signingECC(messageSHA256: [Byte]) -> ErrorAPI? {
-        if let privateKeyString = KeychainManager.loadPrivateKey(forUserName: "") {
+        if let privateKeyString = KeychainManager.loadPrivateKey(forUserName: userName) {
             let privateKeyData: [Byte] = Base58().base58Decode(data: privateKeyString)
             
             Logger.log(message: "\nsigningECC - privateKey:\n\t\(privateKeyString)\n", event: .debug)
