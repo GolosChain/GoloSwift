@@ -24,11 +24,11 @@ public class KeychainManager {
     
     
     /// Load data from Keychain
-    static func loadPrivateKey(forUserName userName: String) -> String {
-        var privateKey: String = String()
+    public static func loadPrivateKey(forUserName userName: String) -> String? {
+        var privateKey: String?
         
         if let data = Locksmith.loadDataForUserAccount(userAccount: userName) {
-            privateKey = data["privateKey"] as! String
+            privateKey = data["privateKey"] as? String
         }
         
         return privateKey
@@ -38,7 +38,14 @@ public class KeychainManager {
     /// Save login data to Keychain
     public static func save(_ key: String, forUserName userName: String) -> Bool {
         do {
-            try Locksmith.saveData(data: [ "privateKey": key ], forUserAccount: userName)
+            if loadPrivateKey(forUserName: userName) == nil {
+                try Locksmith.saveData(data: [ "privateKey": key ], forUserAccount: userName)
+            }
+                
+            else {
+                try Locksmith.updateData(data: [ "privateKey": key ], forUserAccount: userName)
+            }
+            
             Logger.log(message: "Successfully save Login data to Keychain.", event: .severe)
             return true
         } catch {
