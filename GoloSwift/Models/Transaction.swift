@@ -22,16 +22,17 @@ public struct Transaction {
     var operations: [Any]
     var extensions: [String]?
     var signatures: [String]
-    
+    var userName: String
     
     // MARK: - Class Initialization
-    public init(withOperations operations: [Any], andExtensions extensions: [String]? = nil) {
+    public init(forUserName userName: String, withOperations operations: [Any], andExtensions extensions: [String]? = nil) {
         self.ref_block_num          =   headBlockNumber
         self.ref_block_prefix       =   headBlockID
         self.expiration             =   time
         self.operations             =   [operations]
         self.extensions             =   extensions
         self.signatures             =   [String]()
+        self.userName               =   userName
     }
     
     
@@ -139,7 +140,7 @@ public struct Transaction {
      
      */
     private mutating func signingECC(messageSHA256: [Byte]) -> ErrorAPI? {
-        if let privateKeyString = KeychainManager.loadPrivateKey(forUserName: userName) {
+        if let privateKeyString = KeychainManager.loadPrivateKey(forUserName: self.userName) {
             let privateKeyData: [Byte] = Base58().base58Decode(data: privateKeyString)
             
             Logger.log(message: "\nsigningECC - privateKey:\n\t\(privateKeyString)\n", event: .debug)
