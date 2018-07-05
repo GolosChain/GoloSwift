@@ -22,9 +22,6 @@ var headBlockNumber: UInt16             =   0
 var headBlockID: UInt32                 =   0
 var time: String                        =   ""
 
-// Keys wifs
-let postingKey: String                  =   KeychainManager.loadPostingKey(forUserAccount: userKey)
-
 var chainID: String                     =   (appBuildConfig == AppBuildConfig.Release) ?    "782a3039b478c839e4cb0c941ff4eaeb7df40bdd68bd441afd444b9da763de12" :
                                                                                             "5876894a41e6361bde2e73278f07340f2eb8b41c2facd29099de9deef6cdb679"
 
@@ -39,8 +36,3 @@ public let webSocketTimeout             =   60.0
 public let webSocketLimit: UInt         =   10
 
 public let loadDataLimit: UInt          =   10
-
-// Keys
-let loginKey                            =   "login"
-let secretKey                           =   "posting"
-let userKey                             =   "UserDataInfo"

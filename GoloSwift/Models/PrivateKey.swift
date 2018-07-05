@@ -3,6 +3,13 @@
 
 import Foundation
 
+public enum PrivateKeyType: Int {
+    case memo = 0
+    case owner
+    case active
+    case posting
+}
+
 /// A Steem private key.
 public struct PrivateKey: Equatable {
     private let secret: Data

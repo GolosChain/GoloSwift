@@ -6,14 +6,20 @@
 //  Copyright © 2018 golos. All rights reserved.
 //
 
-import Foundation
 import Locksmith
+import Foundation
 
 public class KeychainManager {
+    /// Create key name
+    private func createKey(_ type: PrivateKeyType, userName: String) -> String {
+        return String(format: "%@ - %f", userName, type.rawValue)
+    }
+    
+    
     /// Delete stored data from Keychain
-    public static func deleteData(forUserAccount userAccount: String) -> Bool {
+    public static func deleteKey(byType type: PrivateKeyType, forUserName userName: String) -> Bool {
         do {
-            try Locksmith.deleteDataForUserAccount(userAccount: userAccount)
+            try Locksmith.deleteDataForUserAccount(userAccount: createKey(type, userName))
             Logger.log(message: "Successfully delete Login data from Keychain.", event: .severe)
             return true
         } catch {
@@ -24,27 +30,27 @@ public class KeychainManager {
     
     
     /// Load data from Keychain
-    public static func loadData(forUserAccount userAccount: String) -> [String: Any]? {
-        return Locksmith.loadDataForUserAccount(userAccount: userAccount)
+    public static func loadKey(byType type: PrivateKeyType, forUserName userName: String) -> [String: Any]? {
+        return Locksmith.loadDataForUserAccount(userAccount: createKey(type, userName))
     }
     
-    static func loadPostingKey(forUserAccount userAccount: String) -> String {
-        var postingKey: String  =   "P5KbaLKyg7rWZNWHVNqewHqQwN7CamUfCpGqMm7872K7oieYwQsM"
-        
-        if let data = Locksmith.loadDataForUserAccount(userAccount: userAccount) {
-            postingKey = data[secretKey] as! String
-        }
-        
-        return postingKey
-    }
+//    static func loadPrivateKey(byType type: PrivateKeyType, andUserName userName: String) -> String {
+//        var privateKey: String = String()
+//
+//        if let data = Locksmith.loadDataForUserAccount(userAccount: createKey(type, userName)) {
+//            privateKey = data[secretKey] as! String
+//        }
+//
+//        return privateKey
+//    }
 
     
     /// Save login data to Keychain
-    public func save(_ data: [String: Any], forUserAccount userAccount: String) -> Bool {
+    public func save(_ key: String, withType type: PrivateKeyType, forUserName userName: String) -> Bool {
         do {
-            let postingKey = Base58().base58Decode(data: (data[secretKey] as? String)!)
+            let privateKey = Base58().base58Decode(data: (data[secretKey] as? String)!)
             
-            try Locksmith.saveData(data: [ loginKey: data[loginKey] as! String, secretKey: postingKey ], forUserAccount: userKey)
+            try Locksmith.saveData(data: Data(key.utf8), forUserAccount: createKey(type, userName))
             Logger.log(message: "Successfully save Login data to Keychain.", event: .severe)
             return true
         } catch {

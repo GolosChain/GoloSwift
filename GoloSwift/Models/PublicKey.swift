@@ -9,13 +9,6 @@
 import Foundation
 import GoloCrypto
 
-public enum KeyType {
-    case memo
-    case owner
-    case active
-    case posting
-}
-
 /// A Steem public key.
 public struct PublicKey: Equatable {
     /// Chain address prefix.
