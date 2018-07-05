@@ -33,7 +33,7 @@ public struct Transaction {
         self.extensions             =   extensions
         self.signatures             =   [String]()
     }
-
+    
     
     // MARK: - Custom Functions
     /// Service function to remove `operation code` from transaction
@@ -62,12 +62,12 @@ public struct Transaction {
         /// Create `serializedBuffer` with `chainID`
         var serializedBuffer: [Byte] = chainID.hexBytes
         Logger.log(message: "\nserializedBuffer + chainID:\n\t\(serializedBuffer.toHexString())\n", event: .debug)
-
+        
         // Add to buffer `ref_block_num` as `UInt16`
         let ref_block_num: UInt16 = self.ref_block_num
         serializedBuffer += ref_block_num.bytesReverse
         Logger.log(message: "\nserializedBuffer + ref_block_num:\n\t\(serializedBuffer.toHexString())\n", event: .debug)
-
+        
         // Add to buffer `ref_block_prefix` as `UInt32`
         let ref_block_prefix: UInt32 = self.ref_block_prefix
         serializedBuffer += ref_block_prefix.bytesReverse
@@ -114,7 +114,7 @@ public struct Transaction {
                 }
             }
         }
-
+        
         // Extensions: add to buffer `the actual number of operations`
         let extensions = self.extensions ?? [String]()
         serializedBuffer += self.varint(int: extensions.count)
@@ -127,7 +127,7 @@ public struct Transaction {
         // ECC signing
         let errorAPI = signingECC(messageSHA256: messageSHA256)
         Logger.log(message: "\nerrorAPI:\n\t\(errorAPI?.localizedDescription ?? "nil")\n", event: .debug)
-
+        
         return errorAPI
     }
     
@@ -139,46 +139,46 @@ public struct Transaction {
      
      */
     private mutating func signingECC(messageSHA256: [Byte]) -> ErrorAPI? {
-        guard let userDataInfo = KeychainManager.loadData(forUserAccount: "UserDataInfo"), let postingKey = userDataInfo["secretKey"] as? [Byte] else {
-            return ErrorAPI.signingECCKeychainPostingKeyFailure(message: "Posting key not found.")
-        }
-        
-        Logger.log(message: "\nsigningECC - postingKey:\n\t\(postingKey.toHexString())\n", event: .debug)
-        
-        var index: Int = 0
-        var extra: [Byte]?
-        var loopCounter: Byte = 0
-        var recoveryID: Int32 = 0
-        var isRecoverable: Bool = false
-        var signature = secp256k1_ecdsa_recoverable_signature()             // sig
-        let ctx: OpaquePointer = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN | SECP256K1_CONTEXT_VERIFY))
-        
-        while (!(isRecoverable && isCanonical(signature: signature))) {
-            if (loopCounter == 0xff) {
-                index += 1
-                loopCounter = 0
+        if let privateKeyString = KeychainManager.loadPrivateKey(forUserName: "") {
+            let privateKeyData: [Byte] = Base58().base58Decode(data: privateKeyString)
+            
+            Logger.log(message: "\nsigningECC - privateKey:\n\t\(privateKeyString)\n", event: .debug)
+            
+            var index: Int = 0
+            var extra: [Byte]?
+            var loopCounter: Byte = 0
+            var recoveryID: Int32 = 0
+            var isRecoverable: Bool = false
+            var signature = secp256k1_ecdsa_recoverable_signature()             // sig
+            let ctx: OpaquePointer = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN | SECP256K1_CONTEXT_VERIFY))
+            
+            while (!(isRecoverable && isCanonical(signature: signature))) {
+                if (loopCounter == 0xff) {
+                    index += 1
+                    loopCounter = 0
+                }
+                
+                if (loopCounter > 0) {
+                    extra = [Byte].add(randomElementsCount: 32)             // new bytes[32]
+                }
+                
+                loopCounter += 1
+                isRecoverable = (secp256k1_ecdsa_sign_recoverable(ctx, &signature, messageSHA256, privateKeyData, nil, extra) as NSNumber).boolValue
+                Logger.log(message: "\nsigningECC - extra:\n\t\(String(describing: extra?.toHexString()))\n", event: .debug)
+                Logger.log(message: "\nsigningECC - sig.data:\n\t\(signature.data))\n", event: .debug)
             }
-
-            if (loopCounter > 0) {
-                extra = [Byte].add(randomElementsCount: 32)             // new bytes[32]
-            }
-
-            loopCounter += 1
-            isRecoverable = (secp256k1_ecdsa_sign_recoverable(ctx, &signature, messageSHA256, postingKey, nil, extra) as NSNumber).boolValue
-            Logger.log(message: "\nsigningECC - extra:\n\t\(String(describing: extra?.toHexString()))\n", event: .debug)
-            Logger.log(message: "\nsigningECC - sig.data:\n\t\(signature.data))\n", event: .debug)
+            
+            var output65: [Byte] = [Byte].init(repeating: 0, count: 65)     // add(randomElementsCount: 65)         // new bytes[65]
+            secp256k1_ecdsa_recoverable_signature_serialize_compact(ctx, &output65[1], &recoveryID, &signature)
+            
+            // 4 - compressed | 27 - compact
+            Logger.log(message: "\nsigningECC - output65-1:\n\t\(output65.toHexString())\n", event: .debug)
+            output65[0] = Byte(recoveryID + 4 + 27)                             // (byte)(recoveryId + 4 + 27)
+            Logger.log(message: "\nsigningECC - output65-2:\n\t\(output65.toHexString())\n", event: .debug)
+            
+            self.add(signature: output65.toHexString())
+            Logger.log(message: "\ntx - ready:\n\t\(self)\n", event: .debug)
         }
-
-        var output65: [Byte] = [Byte].init(repeating: 0, count: 65)     // add(randomElementsCount: 65)         // new bytes[65]
-        secp256k1_ecdsa_recoverable_signature_serialize_compact(ctx, &output65[1], &recoveryID, &signature)
-
-        // 4 - compressed | 27 - compact
-        Logger.log(message: "\nsigningECC - output65-1:\n\t\(output65.toHexString())\n", event: .debug)
-        output65[0] = Byte(recoveryID + 4 + 27)                             // (byte)(recoveryId + 4 + 27)
-        Logger.log(message: "\nsigningECC - output65-2:\n\t\(output65.toHexString())\n", event: .debug)
-
-        self.add(signature: output65.toHexString())
-        Logger.log(message: "\ntx - ready:\n\t\(self)\n", event: .debug)
         
         return nil
     }
@@ -186,11 +186,11 @@ public struct Transaction {
     /// Service function from Python
     private func isCanonical(signature: secp256k1_ecdsa_recoverable_signature) -> Bool {
         return  !((signature.data.31 & 0x80) > 0)   &&
-                !(signature.data.31 == 0)           &&
-                !((signature.data.30 & 0x80) > 0)   &&
-                !((signature.data.63 & 0x80) > 0)   &&
-                !(signature.data.63 == 0)           &&
-                !((signature.data.62 & 0x80) > 0)
+            !(signature.data.31 == 0)           &&
+            !((signature.data.30 & 0x80) > 0)   &&
+            !((signature.data.63 & 0x80) > 0)   &&
+            !(signature.data.63 == 0)           &&
+            !((signature.data.62 & 0x80) > 0)
     }
 }
 
