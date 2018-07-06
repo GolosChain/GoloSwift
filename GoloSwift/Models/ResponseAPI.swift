@@ -153,7 +153,8 @@ public struct ResponseAPIUser: Decodable {
     public let owner: ResponseAPIUserSecretKey?
     public let active: ResponseAPIUserSecretKey?
     public let posting: ResponseAPIUserSecretKey?
-    
+    public let vesting_shares: String
+
     
     // MARK: - In reserve
     /*
@@ -216,7 +217,6 @@ public struct ResponseAPIUser: Decodable {
      let to_withdraw: Conflicted
      let transfer_history: [String]?
      let vesting_balance: String
-     let vesting_shares: String
      let vesting_withdraw_rate: String
      let vote_history: [Int64]?
      let voting_power: Int64
