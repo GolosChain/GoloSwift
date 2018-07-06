@@ -37,10 +37,10 @@ public struct Transaction {
     
     
     // MARK: - Custom Functions
-    public func setUserName(_ name: String) {
+    public mutating func setUserName(_ name: String) {
         self.userName               =   name
     }
-    
+
     /// Service function to remove `operation code` from transaction
     private mutating func deleteOperationCode() {
         for (i, operation) in self.operations.enumerated() {

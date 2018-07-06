@@ -110,14 +110,16 @@ public struct Conflicted: Codable {
     
     // Where we determine what type the value is
     public init(from decoder: Decoder) throws {
-        let container       =   try decoder.singleValueContainer()
+        let container           =   try decoder.singleValueContainer()
         
         do {
-            stringValue     =   try container.decode(String.self)
+            stringValue         =   try container.decode(String.self)
         } catch {
-            // Check for an integer
-            let intValue    =   try container.decode(Int64.self)
-            stringValue     =   "\(intValue)"
+            do {
+                stringValue     =   "\(try container.decode(Int64.self))"
+            } catch {
+                stringValue     =   ""
+            }
         }
     }
     
@@ -230,7 +232,7 @@ public struct ResponseAPIUser: Decodable {
 // MARK: -
 public struct ResponseAPIUserSecretKey: Decodable {
     // MARK: - In work
-    public let account_auths: [String]
+    public let account_auths: [Conflicted]
     public let weight_threshold: Int64?
     public let key_auths: [[Conflicted]]
 }
