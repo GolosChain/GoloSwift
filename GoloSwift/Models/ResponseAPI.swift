@@ -147,7 +147,7 @@ public struct ResponseAPIUser: Decodable {
     public let name: String
     public let post_count: Int64
     public let json_metadata: String?
-    public let memo: ResponseAPIUserSecretKey?
+    public let memo_key: String?
     public let owner: ResponseAPIUserSecretKey?
     public let active: ResponseAPIUserSecretKey?
     public let posting: ResponseAPIUserSecretKey?

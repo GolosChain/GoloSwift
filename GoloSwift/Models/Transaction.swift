@@ -22,21 +22,25 @@ public struct Transaction {
     var operations: [Any]
     var extensions: [String]?
     var signatures: [String]
-    var userName: String
+    var userName: String = ""
+    
     
     // MARK: - Class Initialization
-    public init(forUserName userName: String, withOperations operations: [Any], andExtensions extensions: [String]? = nil) {
+    public init(withOperations operations: [Any], andExtensions extensions: [String]? = nil) {
         self.ref_block_num          =   headBlockNumber
         self.ref_block_prefix       =   headBlockID
         self.expiration             =   time
         self.operations             =   [operations]
         self.extensions             =   extensions
         self.signatures             =   [String]()
-        self.userName               =   userName
     }
     
     
     // MARK: - Custom Functions
+    public func setUserName(_ name: String) {
+        self.userName               =   name
+    }
+    
     /// Service function to remove `operation code` from transaction
     private mutating func deleteOperationCode() {
         for (i, operation) in self.operations.enumerated() {
@@ -187,11 +191,11 @@ public struct Transaction {
     /// Service function from Python
     private func isCanonical(signature: secp256k1_ecdsa_recoverable_signature) -> Bool {
         return  !((signature.data.31 & 0x80) > 0)   &&
-            !(signature.data.31 == 0)           &&
-            !((signature.data.30 & 0x80) > 0)   &&
-            !((signature.data.63 & 0x80) > 0)   &&
-            !(signature.data.63 == 0)           &&
-            !((signature.data.62 & 0x80) > 0)
+                !(signature.data.31 == 0)           &&
+                !((signature.data.30 & 0x80) > 0)   &&
+                !((signature.data.63 & 0x80) > 0)   &&
+                !(signature.data.63 == 0)           &&
+                !((signature.data.62 & 0x80) > 0)
     }
 }
 
