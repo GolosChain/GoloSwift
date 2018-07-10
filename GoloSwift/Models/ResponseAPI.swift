@@ -47,7 +47,9 @@ public struct ResponseAPIFeed: Decodable {
     public let allow_replies: Bool
     public let json_metadata: String?
     public let active_votes: [ResponseAPIActiveVote]
-    
+    public let parent_permlink: String
+    public let parent_author: String?
+
     // "2018-04-13T10:19:54"
     public let created: String
 
@@ -75,8 +77,6 @@ public struct ResponseAPIFeed: Decodable {
      let mode: String
      let net_rshares: Conflicted
      let net_votes: Int64
-     let parent_author: String?
-     let parent_permlink: String
      let pending_payout_value: String
      let percent_steem_dollars: Int64
      let promoted: String
@@ -157,8 +157,6 @@ public struct ResponseAPIUser: Decodable {
     public let active: ResponseAPIUserSecretKey?
     public let posting: ResponseAPIUserSecretKey?
     public let vesting_shares: String
-    public let parent_permlink: String?
-    public let parent_author: String?
     
     
     // MARK: - In reserve
