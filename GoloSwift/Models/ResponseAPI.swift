@@ -157,7 +157,9 @@ public struct ResponseAPIUser: Decodable {
     public let active: ResponseAPIUserSecretKey?
     public let posting: ResponseAPIUserSecretKey?
     public let vesting_shares: String
-
+    public let parent_permlink: String?
+    public let parent_author: String?
+    
     
     // MARK: - In reserve
     /*
