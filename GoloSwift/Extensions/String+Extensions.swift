@@ -9,7 +9,7 @@
 import Foundation
 
 extension String {
-    func convert(toDateFormat dateFormatType: DateFormatType) -> Date {
+    public func convert(toDateFormat dateFormatType: DateFormatType) -> Date {
         let dateFormatter           =   DateFormatter()
         dateFormatter.dateFormat    =   dateFormatType.rawValue
         dateFormatter.timeZone      =   TimeZone(identifier: "UTC")
@@ -27,7 +27,7 @@ extension String {
         return UInt32(bigEndian: selectedBytesArrayData.withUnsafeBytes { $0.pointee })
     }
 
-    var hexBytes: [Byte] {
+    public var hexBytes: [Byte] {
         return stride(from: 0, to: count, by: 2).compactMap { Byte(String(Array(self)[$0..<$0.advanced(by: 2)]), radix: 16) }
     }
     

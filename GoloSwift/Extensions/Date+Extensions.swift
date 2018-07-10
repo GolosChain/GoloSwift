@@ -13,7 +13,7 @@ public enum DateFormatType: String {
 }
 
 extension Date {
-    func convert(toStringFormat dateFormatType: DateFormatType) -> String {
+    public func convert(toStringFormat dateFormatType: DateFormatType) -> String {
         let dateFormatter           =   DateFormatter()
         dateFormatter.dateFormat    =   dateFormatType.rawValue
         dateFormatter.timeZone      =   TimeZone(identifier: "UTC")
