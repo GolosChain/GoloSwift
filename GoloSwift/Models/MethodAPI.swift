@@ -26,8 +26,8 @@ public enum MethodAPIType {
     ///
     case getAllContentReplies(author: String, permlink: String)
     
-    /// Displays current user answers
-    case getUserAnswers(startAuthor: String, startPermlink: String?, limit: UInt, voteLimit: UInt)
+    /// Displays current user replies
+    case getUserReplies(startAuthor: String, startPermlink: String?, limit: UInt, voteLimit: UInt)
 
     /// Save `vote` to blockchain
     case verifyAuthorityVote
@@ -54,7 +54,7 @@ public enum MethodAPIType {
                                                                     paramsFirst:        ["database_api", "get_dynamic_global_properties"],
                                                                     paramsSecond:       nil)
             
-        case .getUserAnswers(let startAuthor, let startPermlink, let limit, let voteLimit):
+        case .getUserReplies(let startAuthor, let startPermlink, let limit, let voteLimit):
             var secondParameters: String
             
             if let permlink = startPermlink {
