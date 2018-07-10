@@ -366,3 +366,13 @@ public struct ResponseAPIAllContentReply: Decodable {
      */
     // swiftlint:enable identifier_name
 }
+
+
+// MARK: -
+public struct ResponseAPIAnswersResult: Decodable {
+    // MARK: - In work
+    public let id: Int64
+    public let jsonrpc: String
+    public let result: [ResponseAPIAllContentReply]?
+    public let error: ResponseAPIError?
+}

@@ -26,6 +26,8 @@ public enum MethodAPIType {
     ///
     case getAllContentReplies(author: String, permlink: String)
     
+    /// Displays current user answers
+    case getUserAnswers(parameters: RequestParameterAPI.Answer)
     
     /// Save `vote` to blockchain
     case verifyAuthorityVote
@@ -52,6 +54,10 @@ public enum MethodAPIType {
                                                                     paramsFirst:        ["database_api", "get_dynamic_global_properties"],
                                                                     paramsSecond:       nil)
             
+        case .getUserAnswers(let answer):                   return (methodAPIType:      self,
+                                                                    paramsFirst:        ["social_network", "get_replies_by_last_update"],
+                                                                    paramsSecond:       answer)
+
         case .getDiscussions(let type, let discussion):
             // {"id":72,"method":"call","jsonrpc":"2.0","params":["tags","get_discussions_by_hot",[{"limit":20,"truncate_body":1024,"filter_tags":["test","bm-open","bm-ceh23","bm-tasks","bm-taskceh1"]}]]}
             //            var parametersBody: JSON           =   [["limit": discussion.limit], ["truncate_body": discussion.truncateBody!]]
