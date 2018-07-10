@@ -133,13 +133,13 @@ public struct RequestParameterAPI {
     public struct Answer: Encodable {
         // MARK: - Properties
         public let start_author: String
-        public let start_permlink: String
+        public let start_permlink: String?
         public let limit: UInt
-        public let vote_limit: UInt
+        public let vote_limit: UInt?
         
         
         // MARK: - Initialization
-        public init(startAuthor: String, startPermlink: String, limit: UInt, voteLimit: UInt) {
+        public init(startAuthor: String, startPermlink: String?, limit: UInt, voteLimit: UInt? = 0) {
             self.start_author           =   startAuthor
             self.start_permlink         =   startPermlink
             self.limit                  =   limit
