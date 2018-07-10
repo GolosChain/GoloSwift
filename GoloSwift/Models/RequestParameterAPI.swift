@@ -139,7 +139,7 @@ public struct RequestParameterAPI {
         
         
         // MARK: - Initialization
-        public init(startAuthor: String, startPermlink: String?, limit: UInt, voteLimit: UInt? = 0) {
+        public init(startAuthor: String, startPermlink: String? = nil, limit: UInt, voteLimit: UInt? = 0) {
             self.start_author           =   startAuthor
             self.start_permlink         =   startPermlink
             self.limit                  =   limit
