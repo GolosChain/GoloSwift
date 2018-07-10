@@ -369,7 +369,7 @@ public struct ResponseAPIAllContentReply: Decodable {
 
 
 // MARK: -
-public struct ResponseAPIAnswersResult: Decodable {
+public struct ResponseAPIUserAnswersResult: Decodable {
     // MARK: - In work
     public let id: Int64
     public let jsonrpc: String
