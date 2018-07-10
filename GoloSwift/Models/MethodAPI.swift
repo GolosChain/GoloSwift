@@ -27,8 +27,8 @@ public enum MethodAPIType {
     case getAllContentReplies(author: String, permlink: String)
     
     /// Displays current user answers
-    case getUserAnswers(parameters: RequestParameterAPI.Answer)
-    
+    case getUserAnswers(startAuthor: String, startPermlink: String?, limit: UInt, voteLimit: UInt)
+
     /// Save `vote` to blockchain
     case verifyAuthorityVote
     
@@ -54,9 +54,20 @@ public enum MethodAPIType {
                                                                     paramsFirst:        ["database_api", "get_dynamic_global_properties"],
                                                                     paramsSecond:       nil)
             
-        case .getUserAnswers(let answer):                   return (methodAPIType:      self,
-                                                                    paramsFirst:        ["social_network", "get_replies_by_last_update"],
-                                                                    paramsSecond:       answer)
+        case .getUserAnswers(let startAuthor, let startPermlink, let limit, let voteLimit):
+            var secondParameters: String
+            
+            if let permlink = startPermlink {
+                secondParameters    =   String(format: "\"%@\",\"%@\",%i,%i", startAuthor, permlink, limit, voteLimit)
+            }
+                
+            else {
+                secondParameters    =   String(format: "\"%@\",\"\",%i,%i", startAuthor, limit, voteLimit)
+            }
+            
+            return (methodAPIType:      self,
+                    paramsFirst:        ["social_network", "get_replies_by_last_update"],
+                    paramsSecond:       secondParameters)
 
         case .getDiscussions(let type, let discussion):
             // {"id":72,"method":"call","jsonrpc":"2.0","params":["tags","get_discussions_by_hot",[{"limit":20,"truncate_body":1024,"filter_tags":["test","bm-open","bm-ceh23","bm-tasks","bm-taskceh1"]}]]}

@@ -130,8 +130,8 @@ public class Broadcast {
                 jsonData            =   try jsonEncoder.encode(requestParams as? RequestParameterAPI.Discussion)
 
             case .getUserAnswers(_):
-                jsonData            =   try jsonEncoder.encode(requestParams as? RequestParameterAPI.Answer)
-                
+                jsonData            =   Data((requestParams as! String).utf8)
+
             case .getAllContentReplies(_):
                 jsonData            =   Data((requestParams as! String).utf8)
 
