@@ -48,6 +48,10 @@ public struct ResponseAPIFeed: Decodable {
     public let json_metadata: String?
     public let active_votes: [ResponseAPIActiveVote]
     
+    // "2018-04-13T10:19:54"
+    public let created: String
+
+    
     // MARK: - In reserve
     /*
      let abs_rshares: Conflicted
@@ -62,7 +66,6 @@ public struct ResponseAPIFeed: Decodable {
      let children: Int
      let children_abs_rshares: Conflicted
      let children_rshares2: String
-     let created: String                     // "2018-04-13T10:19:54"
      let curator_payout_value: String
      let depth: Int
      let last_payout: String                 // "1970-01-01T00:00:00"
