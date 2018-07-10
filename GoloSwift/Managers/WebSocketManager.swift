@@ -90,14 +90,11 @@ public class WebSocketManager {
             case .getDynamicGlobalProperties():
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIDynamicGlobalPropertiesResult.self, from: jsonData), errorAPI: nil)
                 
-            case .getDiscussions(_):
+            case .getDiscussions(_), .getUserAnswers(_):
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIFeedResult.self, from: jsonData), errorAPI: nil)
                 
             case .getAllContentReplies(_):
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIAllContentRepliesResult.self, from: jsonData), errorAPI: nil)
-
-            case .getUserAnswers(_):
-                return (responseAPI: try JSONDecoder().decode(ResponseAPIUserAnswersResult.self, from: jsonData), errorAPI: nil)
 
                 
             // POST
