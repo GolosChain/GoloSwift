@@ -49,6 +49,7 @@ public struct ResponseAPIFeed: Decodable {
     public let active_votes: [ResponseAPIActiveVote]
     public let parent_permlink: String
     public let parent_author: String?
+    public let url: String
 
     // "2018-04-13T10:19:54"
     public let created: String
@@ -88,7 +89,6 @@ public struct ResponseAPIFeed: Decodable {
      let total_payout_value: String
      let total_pending_payout_value: String
      let total_vote_weight: Conflicted
-     let url: String
      let vote_rshares: Conflicted
      */
     // swiftlint:enable identifier_name
@@ -324,11 +324,11 @@ public struct ResponseAPIAllContentReply: Decodable {
     public let title: String
     public let body: String
     public let json_metadata: String
-    public let last_update: String
     
     
     // MARK: - In reserve
     /*
+     public let last_update: String
      public let created: String
      public let active: String
      public let last_payout: String
