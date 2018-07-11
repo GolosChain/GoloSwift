@@ -325,7 +325,8 @@ public struct ResponseAPIAllContentReply: Decodable {
     public let body: String
     public let json_metadata: String
     public let last_update: String
-    
+    public let active_votes: [String]?
+
     
     // MARK: - In reserve
     /*
@@ -359,7 +360,6 @@ public struct ResponseAPIAllContentReply: Decodable {
      public let root_title: String
      public let pending_payout_value: String
      public let total_pending_payout_value: String
-     public let active_votes: [String]?
      public let replies: [String]?
      public let author_reputation: String
      public let promoted: String
