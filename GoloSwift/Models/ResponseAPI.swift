@@ -57,39 +57,39 @@ public struct ResponseAPIFeed: Decodable {
     
     // MARK: - In reserve
     /*
-     let abs_rshares: Conflicted
-     let active: String
+     public let abs_rshares: Conflicted
+     public let active: String
      
-     let allow_curation_rewards: Bool
-     let author_reputation: Conflicted
-     let author_rewards: Int
+     public let allow_curation_rewards: Bool
+     public let author_reputation: Conflicted
+     public let author_rewards: Int
      //    beneficiaries =             ();       // ???
-     let body_length: Int64
-     let cashout_time: String                // "2018-04-20T10:19:54"
-     let children: Int
-     let children_abs_rshares: Conflicted
-     let children_rshares2: String
-     let curator_payout_value: String
-     let depth: Int
-     let last_payout: String                 // "1970-01-01T00:00:00"
-     let last_update: String                 // "2018-04-13T11:03:12"
-     let max_accepted_payout: String
-     let max_cashout_time: String            // "1969-12-31T23:59:59"
-     let mode: String
-     let net_rshares: Conflicted
-     let net_votes: Int64
-     let pending_payout_value: String
-     let percent_steem_dollars: Int64
-     let promoted: String
+     public let body_length: Int64
+     public let cashout_time: String                // "2018-04-20T10:19:54"
+     public let children: Int
+     public let children_abs_rshares: Conflicted
+     public let children_rshares2: String
+     public let curator_payout_value: String
+     public let depth: Int
+     public let last_payout: String                 // "1970-01-01T00:00:00"
+     public let last_update: String                 // "2018-04-13T11:03:12"
+     public let max_accepted_payout: String
+     public let max_cashout_time: String            // "1969-12-31T23:59:59"
+     public let mode: String
+     public let net_rshares: Conflicted
+     public let net_votes: Int64
+     public let pending_payout_value: String
+     public let percent_steem_dollars: Int64
+     public let promoted: String
      //    "reblogged_by" =             ();      // ???
      //    replies =             ();             // ???
-     let reward_weight: Int64
-     let root_comment: Int64
-     let root_title: String
-     let total_payout_value: String
-     let total_pending_payout_value: String
-     let total_vote_weight: Conflicted
-     let vote_rshares: Conflicted
+     public let reward_weight: Int64
+     public let root_comment: Int64
+     public let root_title: String
+     public let total_payout_value: String
+     public let total_pending_payout_value: String
+     public let total_vote_weight: Conflicted
+     public let vote_rshares: Conflicted
      */
     // swiftlint:enable identifier_name
 }
@@ -157,76 +157,76 @@ public struct ResponseAPIUser: Decodable {
     public let active: ResponseAPIUserSecretKey?
     public let posting: ResponseAPIUserSecretKey?
     public let vesting_shares: String
-    
+    public let reputation: Conflicted
+
     
     // MARK: - In reserve
     /*
-     let active_challenged: Bool
-     let average_bandwidth: Conflicted
-     let average_market_bandwidth: Conflicted
-     let balance: String
+     public let active_challenged: Bool
+     public let average_bandwidth: Conflicted
+     public let average_market_bandwidth: Conflicted
+     public let balance: String
      //    "blog_category" =     {
      //    };
      
-     let can_vote: Bool
-     let comment_count: Int64
-     let created: String                                 // "2017-10-09T21:10:21"
-     let curation_rewards: Int64
-     let delegated_vesting_shares: String
+     public let can_vote: Bool
+     public let comment_count: Int64
+     public let created: String                                 // "2017-10-09T21:10:21"
+     public let curation_rewards: Int64
+     public let delegated_vesting_shares: String
      //    "guest_bloggers" =     (
      //    );
-     let last_account_recovery: String                   // "1970-01-01T00:00:00"
-     let last_account_update: String                     // "2017-10-09T21:15:21"
-     let last_active_proved: String                      // "1970-01-01T00:00:00"
-     let last_bandwidth_update: String                   // "2018-04-18T08:25:03"
-     let last_market_bandwidth_update: String            // "2018-04-17T23:14:24"
-     let last_owner_proved: String                       // "1970-01-01T00:00:00"
-     let last_owner_update: String                       // "2017-10-09T21:15:21"
-     let last_post: String                               // "2018-04-17T14:21:51"
-     let last_root_post: String                          // "2018-04-17T14:16:42"
-     let last_vote_time: String                          // "2018-04-18T08:25:03"
-     let lifetime_bandwidth: String
-     let lifetime_vote_count: Int64
-     let market_history: [String]?
-     let memo_key: String
-     let mined: Bool
-     let new_average_bandwidth: String
-     let new_average_market_bandwidth: Conflicted
-     let next_vesting_withdrawal: String                 // "1969-12-31T23:59:59"
-     let other_history: [String]?
+     public let last_account_recovery: String                   // "1970-01-01T00:00:00"
+     public let last_account_update: String                     // "2017-10-09T21:15:21"
+     public let last_active_proved: String                      // "1970-01-01T00:00:00"
+     public let last_bandwidth_update: String                   // "2018-04-18T08:25:03"
+     public let last_market_bandwidth_update: String            // "2018-04-17T23:14:24"
+     public let last_owner_proved: String                       // "1970-01-01T00:00:00"
+     public let last_owner_update: String                       // "2017-10-09T21:15:21"
+     public let last_post: String                               // "2018-04-17T14:21:51"
+     public let last_root_post: String                          // "2018-04-17T14:16:42"
+     public let last_vote_time: String                          // "2018-04-18T08:25:03"
+     public let lifetime_bandwidth: String
+     public let lifetime_vote_count: Int64
+     public let market_history: [String]?
+     public let memo_key: String
+     public let mined: Bool
+     public let new_average_bandwidth: String
+     public let new_average_market_bandwidth: Conflicted
+     public let next_vesting_withdrawal: String                 // "1969-12-31T23:59:59"
+     public let other_history: [String]?
      
-     let owner_challenged: Bool
-     let post_bandwidth: Int64
-     let post_history: [String]?
+     public let owner_challenged: Bool
+     public let post_bandwidth: Int64
+     public let post_history: [String]?
      
-     let posting_rewards: Int64
-     let proxied_vsf_votes: [Conflicted]
-     let proxy: String?
-     let received_vesting_shares: String
-     let recovery_account: String
-     let reputation: Conflicted
-     let reset_account: String?
-     let savings_balance: String
-     let savings_sbd_balance: String
-     let savings_sbd_last_interest_payment: String           // "1970-01-01T00:00:00"
-     let savings_sbd_seconds: String
-     let savings_sbd_seconds_last_update: String             // "1970-01-01T00:00:00"
-     let savings_withdraw_requests: Int64
-     let sbd_balance: String
-     let sbd_last_interest_payment: String                   // "2018-04-08T09:06:42"
-     let sbd_seconds: String
-     let sbd_seconds_last_update: String                     // "2018-04-18T07:57:33"
-     let tags_usage: [String]?
-     let to_withdraw: Conflicted
-     let transfer_history: [String]?
-     let vesting_balance: String
-     let vesting_withdraw_rate: String
-     let vote_history: [Int64]?
-     let voting_power: Int64
-     let withdraw_routes: Int64
-     let withdrawn: Conflicted
-     let witness_votes: [String]?
-     let witnesses_voted_for: Int64
+     public let posting_rewards: Int64
+     public let proxied_vsf_votes: [Conflicted]
+     public let proxy: String?
+     public let received_vesting_shares: String
+     public let recovery_account: String
+     public let reset_account: String?
+     public let savings_balance: String
+     public let savings_sbd_balance: String
+     public let savings_sbd_last_interest_payment: String           // "1970-01-01T00:00:00"
+     public let savings_sbd_seconds: String
+     public let savings_sbd_seconds_last_update: String             // "1970-01-01T00:00:00"
+     public let savings_withdraw_requests: Int64
+     public let sbd_balance: String
+     public let sbd_last_interest_payment: String                   // "2018-04-08T09:06:42"
+     public let sbd_seconds: String
+     public let sbd_seconds_last_update: String                     // "2018-04-18T07:57:33"
+     public let tags_usage: [String]?
+     public let to_withdraw: Conflicted
+     public let transfer_history: [String]?
+     public let vesting_balance: String
+     public let vesting_withdraw_rate: String
+     public let vote_history: [Int64]?
+     public let voting_power: Int64
+     public let withdraw_routes: Int64
+     public let withdrawn: Conflicted
+     public let witness_votes: [String]?
+     public let witnesses_voted_for: Int64
      */
     // swiftlint:enable identifier_name
 }
@@ -263,29 +263,29 @@ public struct ResponseAPIDynamicGlobalProperty: Decodable {
     
     // MARK: - In reserve
     /*
-     let current_witness: String
-     let total_pow: Int64
-     let num_pow_witnesses: Int64
-     let virtual_supply: String
-     let current_supply: String
-     let confidential_supply: String
-     let current_sbd_supply: String
-     let confidential_sbd_supply: String
-     let total_vesting_fund_steem: String
-     let total_vesting_shares: String
-     let total_reward_fund_steem: String
-     let total_reward_shares2: String
-     let sbd_interest_rate: Int64
-     let sbd_print_rate: Int64
-     let average_block_size: Int64
-     let maximum_block_size: Int64
-     let current_aslot: Int64
-     let recent_slots_filled: String
-     let participation_count: Int64
-     let last_irreversible_block_num: Int64
-     let max_virtual_bandwidth: String
-     let current_reserve_ratio: Int64
-     let vote_regeneration_per_day: Int64
+     public let current_witness: String
+     public let total_pow: Int64
+     public let num_pow_witnesses: Int64
+     public let virtual_supply: String
+     public let current_supply: String
+     public let confidential_supply: String
+     public let current_sbd_supply: String
+     public let confidential_sbd_supply: String
+     public let total_vesting_fund_steem: String
+     public let total_vesting_shares: String
+     public let total_reward_fund_steem: String
+     public let total_reward_shares2: String
+     public let sbd_interest_rate: Int64
+     public let sbd_print_rate: Int64
+     public let average_block_size: Int64
+     public let maximum_block_size: Int64
+     public let current_aslot: Int64
+     public let recent_slots_filled: String
+     public let participation_count: Int64
+     public let last_irreversible_block_num: Int64
+     public let max_virtual_bandwidth: String
+     public let current_reserve_ratio: Int64
+     public let vote_regeneration_per_day: Int64
      */
     // swiftlint:enable identifier_name
 }
