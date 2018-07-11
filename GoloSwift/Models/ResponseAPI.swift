@@ -158,6 +158,11 @@ public struct ResponseAPIUser: Decodable {
     public let posting: ResponseAPIUserSecretKey?
     public let vesting_shares: String
     public let reputation: Conflicted
+    public let can_vote: Bool
+    public let comment_count: Int64
+    
+    // "2017-10-09T21:10:21"
+    public let created: String
 
     
     // MARK: - In reserve
@@ -169,9 +174,6 @@ public struct ResponseAPIUser: Decodable {
      //    "blog_category" =     {
      //    };
      
-     public let can_vote: Bool
-     public let comment_count: Int64
-     public let created: String                                 // "2017-10-09T21:10:21"
      public let curation_rewards: Int64
      public let delegated_vesting_shares: String
      //    "guest_bloggers" =     (
@@ -189,7 +191,6 @@ public struct ResponseAPIUser: Decodable {
      public let lifetime_bandwidth: String
      public let lifetime_vote_count: Int64
      public let market_history: [String]?
-     public let memo_key: String
      public let mined: Bool
      public let new_average_bandwidth: String
      public let new_average_market_bandwidth: Conflicted
