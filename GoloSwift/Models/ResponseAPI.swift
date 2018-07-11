@@ -50,6 +50,9 @@ public struct ResponseAPIFeed: Decodable {
     public let parent_permlink: String
     public let parent_author: String?
     public let url: String?
+    public let author_reputation: Conflicted
+    public let pending_payout_value: String
+    public let total_payout_value: String
 
     // "2018-04-13T10:19:54"
     public let created: String
@@ -61,7 +64,6 @@ public struct ResponseAPIFeed: Decodable {
      public let active: String
      
      public let allow_curation_rewards: Bool
-     public let author_reputation: Conflicted
      public let author_rewards: Int
      //    beneficiaries =             ();       // ???
      public let body_length: Int64
@@ -78,7 +80,6 @@ public struct ResponseAPIFeed: Decodable {
      public let mode: String
      public let net_rshares: Conflicted
      public let net_votes: Int64
-     public let pending_payout_value: String
      public let percent_steem_dollars: Int64
      public let promoted: String
      //    "reblogged_by" =             ();      // ???
@@ -86,7 +87,6 @@ public struct ResponseAPIFeed: Decodable {
      public let reward_weight: Int64
      public let root_comment: Int64
      public let root_title: String
-     public let total_payout_value: String
      public let total_pending_payout_value: String
      public let total_vote_weight: Conflicted
      public let vote_rshares: Conflicted
