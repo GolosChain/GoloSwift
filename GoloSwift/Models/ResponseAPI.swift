@@ -49,7 +49,7 @@ public struct ResponseAPIFeed: Decodable {
     public let active_votes: [ResponseAPIActiveVote]
     public let parent_permlink: String
     public let parent_author: String?
-    public let url: String
+    public let url: String?
 
     // "2018-04-13T10:19:54"
     public let created: String
