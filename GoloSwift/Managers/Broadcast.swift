@@ -145,10 +145,10 @@ public class Broadcast {
             var jsonString          =   String(data: jsonData, encoding: .utf8)!.replacingOccurrences(of: "]}", with: ",\(jsonParamsString)]}")
             jsonString              =   jsonString
                                             .replacingOccurrences(of: "[[[", with: "[[")
-                                            .replacingOccurrences(of: "]]]", with: "]]")
+//                                            .replacingOccurrences(of: "]]]", with: "]]")
                                             .replacingOccurrences(of: "[\"nil\"]", with: "]")
-                                            .replacingOccurrences(of: "{\"names\":", with: "")      // getAccounts
-                                            .replacingOccurrences(of: "]}]]", with: "]]]")          // getAccounts
+//                                            .replacingOccurrences(of: "{\"names\":", with: "")      // getAccounts
+//                                            .replacingOccurrences(of: "]}]]", with: "]]]")          // getAccounts
             
             Logger.log(message: "\nEncoded JSON -> String:\n\t " + jsonString, event: .debug)
             
