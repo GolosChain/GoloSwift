@@ -74,4 +74,38 @@ extension String {
         
         return convertDict.value(forKey: char.lowercased()) as! String
     }
+    
+    
+    /// Convert 'reputation' -> Int
+    public func convertWithLogarithm10() -> Int {
+        if self == "0" {
+            return 0
+        }
+        
+        let isNegative      =   reputation.hasPrefix("-")
+        let reputationNew   =   isNegative ? String(self[self.index(self.startIndex, offsetBy: 1)...]) : self
+        var result          =   log10(reputationNew)
+        
+        if result.isNaN {
+            return 0
+        }
+        
+        // @ -9, $0.50 earned is approx magnitude 1
+        result      =   max(result - 9, 0)
+        result      *=  (isNegative ? -1 : 1)
+        
+        // 9 points per magnitude. center at 25
+        result      =   result * 9 + 25
+        
+        // base-line 0 to darken and < 0 to auto hide (grep rephide)
+        return Int(result)
+    }
+
+    private func log10(_ str: String) -> Double {
+        let leadingDigits   =   Int(str.dropLast(str.count - 4))!
+        let logarithm       =   log(Double(leadingDigits)) / M_LN10 + 0.00000001
+        let intPart         =   str.count - 1
+        
+        return Double(intPart) + Double(logarithm.truncatingRemainder(dividingBy: 1))
+    }
 }
