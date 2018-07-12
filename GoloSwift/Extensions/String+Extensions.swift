@@ -82,7 +82,7 @@ extension String {
             return 0
         }
         
-        let isNegative      =   reputation.hasPrefix("-")
+        let isNegative      =   self.hasPrefix("-")
         let reputationNew   =   isNegative ? String(self[self.index(self.startIndex, offsetBy: 1)...]) : self
         var result          =   log10(reputationNew)
         
