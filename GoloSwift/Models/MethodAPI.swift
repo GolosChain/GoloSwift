@@ -29,6 +29,9 @@ public enum MethodAPIType {
     /// Displays current user replies
     case getUserReplies(startAuthor: String, startPermlink: String?, limit: UInt, voteLimit: UInt)
     
+    /// Diplays current user follow counts
+    case getUserFollowCounts(name: String)
+
     /// Save `vote` to blockchain
     case verifyAuthorityVote
     
@@ -53,6 +56,11 @@ public enum MethodAPIType {
         case .getDynamicGlobalProperties():                 return (methodAPIType:      self,
                                                                     paramsFirst:        ["database_api", "get_dynamic_global_properties"],
                                                                     paramsSecond:       nil)
+        
+        case getUserFollowCounts(let userName):
+            return  (methodAPIType:      self,
+                     paramsFirst:        ["follow", "get_follow_count"],
+                     paramsSecond:       String(format: "\"%@\"", userName))
             
         case .getUserReplies(let startAuthor, let startPermlink, let limit, let voteLimit):
             var secondParameters: String
@@ -65,9 +73,9 @@ public enum MethodAPIType {
                 secondParameters    =   String(format: "\"%@\",\"\",%i,%i", startAuthor, limit, voteLimit)
             }
             
-            return (methodAPIType:      self,
-                    paramsFirst:        ["social_network", "get_replies_by_last_update"],
-                    paramsSecond:       secondParameters)
+            return  (methodAPIType:      self,
+                     paramsFirst:        ["social_network", "get_replies_by_last_update"],
+                     paramsSecond:       secondParameters)
             
         case .getDiscussions(let type, let discussion):
             // {"id":72,"method":"call","jsonrpc":"2.0","params":["tags","get_discussions_by_hot",[{"limit":20,"truncate_body":1024,"filter_tags":["test","bm-open","bm-ceh23","bm-tasks","bm-taskceh1"]}]]}
