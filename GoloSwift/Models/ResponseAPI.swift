@@ -386,7 +386,7 @@ public struct ResponseAPIUserFollowCounts: Decodable {
     // MARK: - In work
     // swiftlint:disable identifier_name
     public let account: String
-    public let follower_count: Int
-    public let following_count: Int
+    public let follower_count: Int16
+    public let following_count: Int16
     public let limit: Int64
 }
