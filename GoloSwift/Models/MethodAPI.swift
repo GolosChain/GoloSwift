@@ -49,19 +49,18 @@ public enum MethodAPIType {
     func introduced() -> RequestParametersType {
         switch self {
         // GET
-        case .getAccounts(let names):                       return (methodAPIType:      self,
-                                                                    paramsFirst:        ["database_api", "get_accounts"],
-                                                                    paramsSecond:       names)
+        case .getAccounts(let names):                       return  (methodAPIType:      self,
+                                                                     paramsFirst:        ["database_api", "get_accounts"],
+                                                                     paramsSecond:       names)
             
-        case .getDynamicGlobalProperties():                 return (methodAPIType:      self,
-                                                                    paramsFirst:        ["database_api", "get_dynamic_global_properties"],
-                                                                    paramsSecond:       nil)
-        
-        case getUserFollowCounts(let userName):
-            return  (methodAPIType:      self,
-                     paramsFirst:        ["follow", "get_follow_count"],
-                     paramsSecond:       String(format: "\"%@\"", userName))
+        case .getDynamicGlobalProperties():                 return  (methodAPIType:      self,
+                                                                     paramsFirst:        ["database_api", "get_dynamic_global_properties"],
+                                                                     paramsSecond:       nil)
             
+        case .getUserFollowCounts(let userName):            return  (methodAPIType:      self,
+                                                                     paramsFirst:        ["follow", "get_follow_count"],
+                                                                     paramsSecond:       String(format: "\"%@\"", userName))
+
         case .getUserReplies(let startAuthor, let startPermlink, let limit, let voteLimit):
             var secondParameters: String
             
