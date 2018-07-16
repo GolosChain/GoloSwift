@@ -15,6 +15,7 @@ public enum PostsFeedType: String {
     case lenta
     case reply
     case actual
+    case answers
     case popular
     case promoted
 
@@ -24,6 +25,7 @@ public enum PostsFeedType: String {
         case .lenta:        return "Lenta".localized()
         case .reply:        return "Reply".localized()
         case .actual:       return "Actual".localized()
+        case .answers:      return "Answers".localized()
         case .popular:      return "Popular".localized()
         case .promoted:     return "Promoted".localized()
         }
