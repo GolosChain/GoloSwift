@@ -7,6 +7,9 @@
 //
 //  Operation types & codes:
 //  https://github.com/GolosChain/golos/issues/259
+//
+//  This enum use for POST Requests
+//
 
 import Foundation
 
@@ -81,44 +84,45 @@ public indirect enum OperationAPIType {
         switch self {
         case .vote(let voteOperation):
             return  [ "vote", 0,    [
-                "voter":                voteOperation.voter,
-                "author":               voteOperation.author,
-                "permlink":             voteOperation.permlink,
-                "weight":               voteOperation.weight
-                ]
-            ]
+                                        "voter":                voteOperation.voter,
+                                        "author":               voteOperation.author,
+                                        "permlink":             voteOperation.permlink,
+                                        "weight":               voteOperation.weight
+                                    ]
+                    ]
             
         case .comment(let commentOperation):
             return  [ "comment", 1, [
-                "parent_author":        commentOperation.parentAuthor,
-                "parent_permlink":      commentOperation.parentPermlink,
-                "author":               commentOperation.author,
-                "permlink":             commentOperation.permlink,
-                "title":                commentOperation.title,
-                "body":                 commentOperation.body,
-                "json_metadata":        commentOperation.jsonMetadata
-                ]
-            ]
+                                        "parent_author":        commentOperation.parentAuthor,
+                                        "parent_permlink":      commentOperation.parentPermlink,
+                                        "author":               commentOperation.author,
+                                        "permlink":             commentOperation.permlink,
+                                        "title":                commentOperation.title,
+                                        "body":                 commentOperation.body,
+                                        "json_metadata":        commentOperation.jsonMetadata
+                                    ]
+                    ]
             
         case .commentOptions(let commentOptionsOperation):
             return  [ "comment_options", 2, [
-                "author":                       commentOptionsOperation.author,
-                "permlink":                     commentOptionsOperation.permlink,
-                "max_accepted_payout":          commentOptionsOperation.max_accepted_payout,
-                "percent_steem_dollars":        commentOptionsOperation.percent_steem_dollars,
-                "allow_votes":                  commentOptionsOperation.allow_votes,
-                "allow_curation_rewards":       commentOptionsOperation.allow_curation_rewards,
-                "extensions":                   commentOptionsOperation.extensions
-                ]
-            ]
+                                                "author":                       commentOptionsOperation.author,
+                                                "permlink":                     commentOptionsOperation.permlink,
+                                                "max_accepted_payout":          commentOptionsOperation.max_accepted_payout,
+                                                "percent_steem_dollars":        commentOptionsOperation.percent_steem_dollars,
+                                                "allow_votes":                  commentOptionsOperation.allow_votes,
+                                                "allow_curation_rewards":       commentOptionsOperation.allow_curation_rewards,
+                                                "extensions":                   commentOptionsOperation.extensions
+                                            ]
+                    ]
             
         case .createPost(let comment, let commentOptions, let vote):
             return  [ "operations", 3,  [
-                comment, commentOptions, vote
-                ]
-            ]
+                                            comment, commentOptions, vote
+                                        ]
+                    ]
         }
     }
+    
     
     /// This method return sorted array of field key names
     public static func getFieldNames(byTypeID typeID: Int) -> [String] {
