@@ -65,13 +65,13 @@ public struct RequestParameterAPI {
         }
         
         public let jsonMetadata: [CommentMetadata]
-
+        
         public var permlink: String {
             set {
                 if parentAuthor.isEmpty {
                     self.permlink   =   String(format: "%@-%@-%d", author, title.transliterationInLatin(), Int64(Date().timeIntervalSince1970))
                 }
-                
+                    
                 else {
                     self.permlink   =   String(format: "re-%@-%@-%@-%d", parentAuthor, parentPermlink, author, Int64(Date().timeIntervalSince1970))
                 }
@@ -81,7 +81,7 @@ public struct RequestParameterAPI {
                 return self.permlink
             }
         }
-
+        
         // MARK: - Initialization
         public init(parentAuthor: String, parentPermlink: String, author: String, title: String, body: String, jsonMetadata: [CommentMetadata]) {
             self.parentAuthor       =   parentAuthor
@@ -126,6 +126,23 @@ public struct RequestParameterAPI {
             self.allow_votes            =   allowVotes
             self.allow_curation_rewards =   allowCurationRewards
             self.extensions             =   extensions
+        }
+    }
+    
+    public struct Vote: Encodable {
+        // MARK: - Properties
+        public let voter: String
+        public let author: String
+        public let permlink: String
+        public let weight: Int64
+        
+        
+        // MARK: - Initialization
+        public init(voter: String, author: String, permlink: String, weight: Int64) {
+            self.voter                  =   voter
+            self.author                 =   author
+            self.permlink               =   permlink
+            self.weight                 =   weight
         }
     }
 }
