@@ -64,7 +64,7 @@
 		B1D900B420AB3E9B00AECE51 /* Locksmith.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Locksmith.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D900B620AB3E9B00AECE51 /* secp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = secp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D900B920AB504100AECE51 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
-		B1D900C620AC02A600AECE51 /* Base58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base58.swift; sourceTree = "<group>"; };
+		B1D900C620AC02A600AECE51 /* GSBase58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSBase58.swift; sourceTree = "<group>"; };
 		B1F046D320BD301900430FDD /* PostsFeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsFeedType.swift; sourceTree = "<group>"; };
 		C49285FF39FCAFDFBD8C8D68 /* Pods-GoloSwift.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.development.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.development.xcconfig"; sourceTree = "<group>"; };
 		EE3F22598EC38832B26DF26C /* Pods-GoloSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		B1D9007B20AB259E00AECE51 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				B1D900C620AC02A600AECE51 /* Base58.swift */,
+				B1D900C620AC02A600AECE51 /* GSBase58.swift */,
 				B13F360720AEC30A003CA33D /* Broadcast.swift */,
 				B12A576F20B42101000CF8BF /* KeychainManager.swift */,
 				B1D9007C20AB25CB00AECE51 /* Logger.swift */,

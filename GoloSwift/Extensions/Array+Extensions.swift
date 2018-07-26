@@ -12,7 +12,7 @@ extension Array {
     static func add(randomElementsCount count: Int) -> [Byte] {
         return (0..<count).map{ _ in Byte(arc4random_uniform(UInt32(Byte.max))) }
     }
-
+    
     var string: String {
         let data = Data(bytes: self as! [Byte], count: self.count)
         
@@ -24,6 +24,6 @@ extension Array {
 extension Array where Element == Byte {
     public var base58EncodedString: String {
         guard !self.isEmpty else { return "" }
-        return Base58.base58FromBytes(self)
+        return GSBase58.base58FromBytes(self)
     }
 }

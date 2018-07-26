@@ -9,7 +9,7 @@
 
 import Foundation
 
-public struct Base58 {
+public struct GSBase58 {
     static let base58Alphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
     
     /// Encode
@@ -125,14 +125,14 @@ public struct Base58 {
     /// Convert `Posting key` from String to [Byte]
     public func base58Decode(data: String) -> [Byte] {
         Logger.log(message: "\ntx - postingKeyString:\n\t\(data)\n", event: .debug)
-        let s: [Byte] = Base58.bytesFromBase58(data)
+        let s: [Byte] = GSBase58.bytesFromBase58(data)
         let dec = cutLastBytes(source: s, cutCount: 4)
         
         Logger.log(message: "\ntx - postingKeyData:\n\t\(dec.toHexString())\n", event: .debug)
         return cutFirstBytes(source: dec, cutCount: 1)
     }
     
-    /// Service function
+    // Service function
     func cutLastBytes(source: [Byte], cutCount: Int) -> [Byte] {
         var result = source
         result.removeSubrange((source.count - cutCount)..<source.count)
@@ -140,7 +140,7 @@ public struct Base58 {
         return result
     }
     
-    /// Service function
+    // Service function
     func cutFirstBytes(source: [Byte], cutCount: Int) -> [Byte] {
         var result = source
         result.removeSubrange(0..<cutCount)
