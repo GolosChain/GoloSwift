@@ -19,7 +19,7 @@ public indirect enum OperationAPIType {
     case vote(fields: RequestParameterAPI.Vote)
     case comment(fields: RequestParameterAPI.Comment)
     case commentOptions(fields: RequestParameterAPI.CommentOptions)
-    case createPost(comment: OperationAPIType, commentOptions: OperationAPIType, vote: OperationAPIType)
+    case createPost(comment: OperationAPIType, commentOptions: OperationAPIType?, vote: OperationAPIType?)
     
     
     /// In Reserve
@@ -116,6 +116,13 @@ public indirect enum OperationAPIType {
                     ]
             
         case .createPost(let comment, let commentOptions, let vote):
+            if commentOptions == nil && vote == nil {
+                return  [ "operations", 3,  [
+                                                comment
+                                            ]
+                        ]
+            }
+            
             return  [ "operations", 3,  [
                                             comment, commentOptions, vote
                                         ]
