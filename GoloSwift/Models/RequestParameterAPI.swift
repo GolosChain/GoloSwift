@@ -66,6 +66,27 @@ public struct RequestParameterAPI {
         }
     }
     
+    public struct Content: Encodable {
+        // MARK: - Properties
+        public let author: String
+        public let permlink: String
+        public let active_votes: UInt?
+        
+        
+        // MARK: - Initialization
+        public init(author: String, permlink: String, active_votes: UInt? = 0) {
+            self.author             =   author
+            self.permlink           =   permlink
+            self.active_votes       =   active_votes
+        }
+        
+        
+        // MARK: - Custom Functions
+        public func convertToString() -> String {
+            return String(format: "\"%@\",\"%@\",%i", self.author, self.permlink, self.active_votes)
+        }
+    }
+
     public struct Discussion: Encodable {
         // MARK: - Properties
         public let limit: UInt
