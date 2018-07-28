@@ -57,8 +57,8 @@ extension String {
     }
     
     var isCyrillic: Bool {
-        let upper = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЮЯЫ"
-        let lower = "абвгдежзийклмнопрстуфхцчшщьюяы"
+        let upper = "ЙЦУКЕНГШЩЗХЪЁФЫВАПРОЛДЖЭЯЧСМИТЬБЮ"
+        let lower = "йцукенгшщзхъёфывапролджэячсмитьбю"
         
         for char in self.map({ String($0) }) {
             if !upper.contains(char) && !lower.contains(char) {
