@@ -83,7 +83,7 @@ public struct RequestParameterAPI {
         
         // MARK: - Custom Functions
         public func convertToString() -> String {
-            return String(format: "\"%@\",\"%@\",%i", self.author, self.permlink, self.active_votes)
+            return String(format: "\"%@\",\"%@\",%i", self.author, self.permlink, self.active_votes!)
         }
     }
 

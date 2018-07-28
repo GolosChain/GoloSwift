@@ -100,7 +100,7 @@ public class WebSocketManager {
             case .getDynamicGlobalProperties():
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIDynamicGlobalPropertiesResult.self, from: jsonData), errorAPI: nil)
                 
-            case .getDiscussions(_), .getUserReplies(_), getContent(_):
+            case .getDiscussions(_), .getUserReplies(_), .getContent(_):
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIFeedResult.self, from: jsonData), errorAPI: nil)
                 
             case .getUserFollowCounts(_):
