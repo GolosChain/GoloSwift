@@ -83,7 +83,7 @@ extension String {
             newString.append(latinChar)
         }
         
-        return String(format: "ru--%@", newString)
+        return newString
     }
     
     func transliterate(char: String) -> String {
