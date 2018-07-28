@@ -157,14 +157,14 @@ public struct RequestParameterAPI {
         
         public func getProperties() -> [String: Any] {
             return  [
-                "parent_author":        self.parentAuthor,
-                "parent_permlink":      self.parentPermlink,
-                "author":               self.author,
-                "permlink":             self.permlink,
-                "title":                self.title,
-                "body":                 self.body,
-                "json_metadata":        self.jsonMetadata
-            ]
+                        "parent_author":        self.parentAuthor,
+                        "parent_permlink":      self.parentPermlink,
+                        "author":               self.author,
+                        "permlink":             self.permlink,
+                        "title":                self.title,
+                        "body":                 self.body,
+                        "json_metadata":        self.jsonMetadata
+                    ]
         }
         
         func getPropertiesNames() -> [String] {
@@ -203,14 +203,14 @@ public struct RequestParameterAPI {
         
         public func getProperties() -> [String: Any] {
             return  [
-                "author":                       self.author,
-                "permlink":                     self.permlink,
-                "max_accepted_payout":          self.max_accepted_payout,
-                "percent_steem_dollars":        self.percent_steem_dollars,
-                "allow_votes":                  self.allow_votes,
-                "allow_curation_rewards":       self.allow_curation_rewards,
-                "extensions":                   self.extensions
-            ]
+                        "author":                       self.author,
+                        "permlink":                     self.permlink,
+                        "max_accepted_payout":          self.max_accepted_payout,
+                        "percent_steem_dollars":        self.percent_steem_dollars,
+                        "allow_votes":                  self.allow_votes,
+                        "allow_curation_rewards":       self.allow_curation_rewards,
+                        "extensions":                   self.extensions
+                    ]
         }
         
         func getPropertiesNames() -> [String] {
@@ -242,11 +242,11 @@ public struct RequestParameterAPI {
         
         public func getProperties() -> [String: Any] {
             return  [
-                "voter":        self.voter,
-                "author":       self.author,
-                "permlink":     self.permlink,
-                "weight":       self.weight
-            ]
+                        "voter":        self.voter,
+                        "author":       self.author,
+                        "permlink":     self.permlink,
+                        "weight":       self.weight
+                    ]
         }
         
         func getPropertiesNames() -> [String] {
