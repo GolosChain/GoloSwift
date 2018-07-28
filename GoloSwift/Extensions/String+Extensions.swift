@@ -71,21 +71,30 @@ extension String {
     
     /// Cyrillic -> Latin
     public func transliterationInLatin() -> String {
-        guard self.isCyrillic else {
-            return self
-        }
+        let words: [String]     =   self.components(separatedBy: " ")
+        var newWords: [String]  =   [String]()
         
-        var newString: String = ""
-        var latinChar: String
+        words.forEach({ word in
+            if word.isCyrillic {
+                var newString: String = ""
+                var latinChar: String
+                
+                for char in word {
+                    latinChar = transliterate(char: "\(char)")
+                    newString.append(latinChar)
+                }
+                
+                newWords.append(newString)
+            }
+                
+            else {
+                newWords.append(word)
+            }
+        })
         
-        for char in self {
-            latinChar = transliterate(char: "\(char)")
-            newString.append(latinChar)
-        }
-        
-        return newString
+        return newWords.joined(separator: " ")
     }
-    
+
     func transliterate(char: String) -> String {
         let cyrillicChars   =   [ "щ", "ш", "ч", "ц", "й", "ё", "э", "ю", "я", "х", "ж", "а", "б", "в", "г", "д", "е", "з", "и", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "ъ", "ы", "ь", "ґ", "є", "і", "ї" ]
         
