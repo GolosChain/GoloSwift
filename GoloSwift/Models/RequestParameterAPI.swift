@@ -72,7 +72,6 @@ public struct RequestParameterAPI {
         public let permlink: String
         public let active_votes: UInt?
         
-        
         // MARK: - Initialization
         public init(author: String, permlink: String, active_votes: UInt? = 0) {
             self.author             =   author
@@ -129,20 +128,25 @@ public struct RequestParameterAPI {
         public var body: String
         public let jsonMetadata: String
         public var permlink: String
-        
+        public let needTiming: Bool
+
         
         // MARK: - Initialization
-        public init(parentAuthor: String, parentPermlink: String, author: String, title: String, body: String, jsonMetadata: String) {
+        public init(parentAuthor: String, parentPermlink: String, author: String, title: String, body: String, jsonMetadata: String, needTiming: Bool) {
             self.parentAuthor       =   parentAuthor
             self.parentPermlink     =   parentPermlink
             self.author             =   author
             self.title              =   title
             self.body               =   body
             self.jsonMetadata       =   jsonMetadata
-            self.permlink           =   (parentAuthor.isEmpty ? String(format: "%@-%d", title.transliterationInLatin(), Int64(Date().timeIntervalSince1970)) :
-                                                                String(format: "re-%@-%@-%@-%d", parentAuthor, parentPermlink, author, Int64(Date().timeIntervalSince1970)))
-                                            .replacingOccurrences(of: " ", with: "_")
+            self.needTiming         =   needTiming
+            
+            let permlinkTemp        =   (parentAuthor.isEmpty ? String(format: "%@", title.transliterationInLatin()) :
+                                                                String(format: "re-%@-%@-%@", parentAuthor, parentPermlink, author))
+                                            .replacingOccurrences(of: " ", with: "-")
                                             .lowercased()
+            
+            self.permlink           =   needTiming ? permlinkTemp + "-\(Int64(Date().timeIntervalSince1970))" : permlinkTemp
         }
         
         
