@@ -44,16 +44,9 @@ extension String {
     }
     
     var isLatin: Bool {
-        let upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        let lower = "abcdefghijklmnopqrstuvwxyz"
+        let regex = "[a-z]"
         
-        for char in self.map({ String($0) }) {
-            if !upper.contains(char) && !lower.contains(char) {
-                return false
-            }
-        }
-        
-        return true
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: self.lowercased())
     }
     
     var isCyrillic: Bool {
