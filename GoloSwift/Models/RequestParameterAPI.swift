@@ -143,6 +143,7 @@ public struct RequestParameterAPI {
             
             let permlinkTemp        =   (parentAuthor.isEmpty ? String(format: "%@", title.transliterationInLatin()) :
                                                                 String(format: "re-%@-%@-%@", parentAuthor, parentPermlink, author))
+                                            .transliterationInLatin()
                                             .replacingOccurrences(of: " ", with: "-")
                                             .lowercased()
             
