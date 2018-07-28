@@ -44,15 +44,29 @@ extension String {
     }
     
     var isLatin: Bool {
-        let regex = "[a-z]"
+        let upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        let lower = "abcdefghijklmnopqrstuvwxyz"
         
-        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: self.lowercased())
+        for char in self.map({ String($0) }) {
+            if !upper.contains(char) && !lower.contains(char) {
+                return false
+            }
+        }
+        
+        return true
     }
     
     var isCyrillic: Bool {
-        let regex = "[а-я,ґ,є,і,ї]"
+        let upper = "ЙЦУКЕНГШЩЗХЪЁФЫВАПРОЛДЖЭЯЧСМИТЬБЮҐЄІЇ"
+        let lower = "йцукенгшщзхъёфывапролджэячсмитьбюґєії"
         
-        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: self.lowercased())
+        for char in self.map({ String($0) }) {
+            if !upper.contains(char) && !lower.contains(char) {
+                return false
+            }
+        }
+        
+        return true
     }
     
     /// Cyrillic -> Latin
