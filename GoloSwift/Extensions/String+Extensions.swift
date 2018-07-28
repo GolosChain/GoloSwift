@@ -57,8 +57,8 @@ extension String {
     }
     
     var isCyrillic: Bool {
-        let upper = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЮЯ"
-        let lower = "абвгдежзийклмнопрстуфхцчшщьюя"
+        let upper = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЮЯЫ"
+        let lower = "абвгдежзийклмнопрстуфхцчшщьюяы"
         
         for char in self.map({ String($0) }) {
             if !upper.contains(char) && !lower.contains(char) {
@@ -90,7 +90,7 @@ extension String {
         let cyrillicChars   =   [ "щ", "ш", "ч", "ц", "й", "ё", "э", "ю", "я", "х", "ж", "а", "б", "в", "г", "д", "е", "з", "и", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "ъ", "ы", "ь", "ґ", "є", "і", "ї" ]
         
         // https://github.com/GolosChain/tolstoy/blob/master/app/utils/ParsersAndFormatters.js#L117
-        let latinChars      =   [ "shch", "sh", "ch", "cz", "ij", "yo", "ye", "yu", "ya", "kh", "zh", "a", "b", "v", "g", "d", "e", "z", "i", "k", "l", "m", "n", "o", "p", "r", "s",               "t", "u", "f", "xx", "y", "x", "g", "e", "i", "i" ]
+        let latinChars      =   [ "shch", "sh", "ch", "cz", "ij", "yo", "ye", "yu", "ya", "kh", "zh", "a", "b", "v", "g", "d", "e", "z", "i", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "f", "xx", "y", "x", "g", "e", "i", "i" ]
         
         let convertDict     =   NSDictionary.init(objects: latinChars, forKeys: cyrillicChars as [NSCopying])
         

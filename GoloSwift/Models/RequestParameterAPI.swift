@@ -43,13 +43,13 @@ public struct RequestParameterAPI {
                 }
                 
                 result              +=   "\(String(data: jsonData, encoding: .utf8)!)"
-                                            .replacingOccurrences(of: "{", with: "")
-                                            .replacingOccurrences(of: "}", with: propertiesNames.last == propertyName ? "}]]" : ",")
-                
                 Logger.log(message: "\nResult + \"\(propertyName)\":\n\t\(result)", event: .debug)
             }
             
             return result
+                    .replacingOccurrences(of: "{{", with: "{")
+                    .replacingOccurrences(of: "}{", with: ",")
+                    .replacingOccurrences(of: "}\"}", with: "}\"")
         } catch {
             Logger.log(message: "Error: \(error.localizedDescription)", event: .error)
             return nil
@@ -85,7 +85,7 @@ public struct RequestParameterAPI {
             return String(format: "\"%@\",\"%@\",%i", self.author, self.permlink, self.active_votes!)
         }
     }
-
+    
     public struct Discussion: Encodable {
         // MARK: - Properties
         public let limit: UInt
@@ -129,12 +129,12 @@ public struct RequestParameterAPI {
         public let jsonMetadata: String
         public var permlink: String
         public let needTiming: Bool
-
+        
         
         // MARK: - Initialization
         public init(parentAuthor: String, parentPermlink: String, author: String, title: String, body: String, jsonMetadata: String, needTiming: Bool) {
             self.parentAuthor       =   parentAuthor
-            self.parentPermlink     =   parentPermlink
+            self.parentPermlink     =   parentPermlink.transliterationInLatin()
             self.author             =   author
             self.title              =   title
             self.body               =   body
