@@ -57,16 +57,9 @@ extension String {
     }
     
     var isCyrillic: Bool {
-        let upper = "ЙЦУКЕНГШЩЗХЪЁФЫВАПРОЛДЖЭЯЧСМИТЬБЮ"
-        let lower = "йцукенгшщзхъёфывапролджэячсмитьбю"
+        let regex = "[а-я,ґ,є,і,ї]"
         
-        for char in self.map({ String($0) }) {
-            if !upper.contains(char) && !lower.contains(char) {
-                return false
-            }
-        }
-        
-        return true
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: self.lowercased())
     }
     
     /// Cyrillic -> Latin
