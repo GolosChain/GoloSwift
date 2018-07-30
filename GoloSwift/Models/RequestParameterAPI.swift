@@ -132,12 +132,11 @@ public struct RequestParameterAPI {
         
         
         // MARK: - Initialization
-        public init(parentAuthor: String, parentPermlink: String, author: String, title: String, body: String, jsonMetadata: String, needTiming: Bool) {
+        public init(parentAuthor: String, parentPermlink: String, author: String, title: String, body: String, jsonMetadata: String, needTiming: Bool, params: [String: String]? = nil) {
             self.parentAuthor       =   parentAuthor
             self.parentPermlink     =   parentPermlink.transliterationInLatin()
             self.author             =   author
             self.title              =   title
-            self.body               =   body
             self.jsonMetadata       =   jsonMetadata
             self.needTiming         =   needTiming
             
@@ -148,8 +147,23 @@ public struct RequestParameterAPI {
                                             .lowercased()
             
             self.permlink           =   needTiming ? permlinkTemp + "-\(Int64(Date().timeIntervalSince1970))" : permlinkTemp
+            
+            if let parameters = params {
+                var bodyTemp        =   body
+                
+                for parameter in parameters {
+                    bodyTemp        =   bodyTemp.replacingOccurrences(of: parameter.key, with: String(format: "[%@](%@)", parameter.key, parameter.value))
+                    Logger.log(message: "replaced = \n\(bodyTemp)", event: .debug)
+                }
+                
+                self.body           =   bodyTemp
+            }
+                
+            else {
+                self.body           =   body
+            }
         }
-        
+
         
         // MARK: - RequestParameterAPIOperationPropertiesSupport protocol implementation
         // https://github.com/GolosChain/golos-js/blob/master/src/auth/serializer/src/ChainTypes.js
