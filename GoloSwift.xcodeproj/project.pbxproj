@@ -36,6 +36,7 @@
 		B194C05820E79B8F00E09D1B /* SteemEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteemEncoder.swift; sourceTree = "<group>"; };
 		B1953E1B20ADB05E00FE601E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B1B169C520C10DB6005E1171 /* RequestParameterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParameterAPI.swift; sourceTree = "<group>"; };
+		B1BAAA492111994100B2F165 /* SigningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningManager.swift; sourceTree = "<group>"; };
 		B1D2F02020DA5DFC00D18B07 /* PostActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostActionType.swift; sourceTree = "<group>"; };
 		B1D9007020AB250D00AECE51 /* GoloSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoloSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D9007320AB250D00AECE51 /* GoloSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoloSwift.h; sourceTree = "<group>"; };
@@ -151,10 +152,11 @@
 		B1D9007B20AB259E00AECE51 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				B1D900C620AC02A600AECE51 /* GSBase58.swift */,
 				B13F360720AEC30A003CA33D /* Broadcast.swift */,
+				B1D900C620AC02A600AECE51 /* GSBase58.swift */,
 				B12A576F20B42101000CF8BF /* KeychainManager.swift */,
 				B1D9007C20AB25CB00AECE51 /* Logger.swift */,
+				B1BAAA492111994100B2F165 /* SigningManager.swift */,
 				B15FB43720AC3381000245CE /* WebSocketManager.swift */,
 			);
 			path = Managers;
