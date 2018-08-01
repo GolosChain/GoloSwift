@@ -15,8 +15,8 @@ public enum AttachmentType {
 
 public struct Attachment {
     // MARK: - Properties
-    let key: String
-    let range: NSRange
-    let value: String
-    let type: AttachmentType
+    public let key: String
+    public let range: NSRange
+    public let value: String
+    public let type: AttachmentType
 }
