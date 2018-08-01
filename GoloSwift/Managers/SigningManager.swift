@@ -10,7 +10,7 @@ import secp256k1
 import Foundation
 import CryptoSwift
 
-public class Signing {
+public class SigningManager {
     /**
      ECC signing serialized buffer of transaction.
      
@@ -18,8 +18,8 @@ public class Signing {
      - Returns: Return transaction signature.
      
      */
-    public static func signingECC(messageSHA256: [Byte]) -> String {
-        if let privateKeyString = KeychainManager.loadPrivateKey(forUserName: self.userName) {
+    public static func signingECC(messageSHA256: [Byte], userName: String) -> String? {
+        if let privateKeyString = KeychainManager.loadPrivateKey(forUserName: userName) {
             let privateKeyData: [Byte] =  GSBase58().base58Decode(data: privateKeyString)
             
             Logger.log(message: "\nsigningECC - privateKey:\n\t\(privateKeyString)\n", event: .debug)
@@ -55,10 +55,22 @@ public class Signing {
             // 4 - compressed | 27 - compact
             Logger.log(message: "\nsigningECC - output65-1:\n\t\(output65.toHexString())\n", event: .debug)
             output65[0] = Byte(recoveryID + 4 + 27)                             // (byte)(recoveryId + 4 + 27)
-            Logger.log(message: "\nsigningECC - output65-2:\n\t\(output65.toHexString())\n", event: .debug)            
+            Logger.log(message: "\nsigningECC - output65-2:\n\t\(output65.toHexString())\n", event: .debug)
             Logger.log(message: "\ntx - ready:\n\t\(self)\n", event: .debug)
+            
+            return output65.toHexString()
         }
         
-        return output65.toHexString()
+        return nil
+    }
+    
+    /// Service function from Python
+    private static func isCanonical(signature: secp256k1_ecdsa_recoverable_signature) -> Bool {
+        return  !((signature.data.31 & 0x80) > 0)   &&
+                !(signature.data.31 == 0)           &&
+                !((signature.data.30 & 0x80) > 0)   &&
+                !((signature.data.63 & 0x80) > 0)   &&
+                !(signature.data.63 == 0)           &&
+                !((signature.data.62 & 0x80) > 0)
     }
 }
