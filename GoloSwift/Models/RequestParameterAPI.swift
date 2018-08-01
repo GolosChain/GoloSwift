@@ -152,7 +152,8 @@ public struct RequestParameterAPI {
                 var bodyTemp        =   body
                 
                 for parameter in parameters {
-                    bodyTemp        =   bodyTemp.replacingOccurrences(of: parameter.key, with: String(format: "[%@](%@)", parameter.key, parameter.value))
+                    let keyWord     =   (bodyTemp as NSString).substring(with: parameter.range)
+                    bodyTemp        =   bodyTemp.replacingOccurrences(of: keyWord, with: parameter.value)
                     Logger.log(message: "replaced = \n\(bodyTemp)", event: .debug)
                 }
                 

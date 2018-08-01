@@ -17,7 +17,7 @@ public struct Attachment {
     // MARK: - Properties
     public let key: String
     public let range: NSRange
-    public let value: String
+    public var value: String
     public let type: AttachmentType
     
     
