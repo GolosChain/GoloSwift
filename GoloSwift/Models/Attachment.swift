@@ -12,12 +12,13 @@ import CryptoSwift
 
 public struct Attachment {
     // MARK: - Properties
-    public var markdownValue: String
-    
+    public var markdownValue: String?
+    public let origin: Any
     
     // MARK: - Class Initialization
-    public init(markdownValue: String) {
+    public init(markdownValue: String? = nil, origin: Any) {
         self.markdownValue  =   markdownValue
+        self.origin         =   origin
     }
     
     
