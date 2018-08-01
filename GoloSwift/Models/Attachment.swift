@@ -8,9 +8,15 @@
 
 import UIKit
 
-struct Attachment {
+public enum AttachmentType {
+    case link
+    case image
+}
+
+public struct Attachment {
     // MARK: - Properties
     let key: String
     let range: NSRange
     let value: String
+    let type: AttachmentType
 }
