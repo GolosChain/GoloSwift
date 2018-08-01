@@ -23,6 +23,7 @@
 /* Begin PBXFileReference section */
 		07A06354C27890305D67078F /* Pods_GoloSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoloSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF523C6845228D4D791780A /* Pods-GoloSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.release.xcconfig"; sourceTree = "<group>"; };
+		B1269EC12111753300F4D5F5 /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		B12A576F20B42101000CF8BF /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B12F43F320E9F0C1003FFF58 /* PrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
 		B12F440A20EA3AD1003FFF58 /* Secp256k1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secp256k1.swift; sourceTree = "<group>"; };
@@ -162,6 +163,7 @@
 		B1D9008020AB270500AECE51 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B1269EC12111753300F4D5F5 /* Attachment.swift */,
 				B1D9008420AB272400AECE51 /* ErrorAPI.swift */,
 				B1D9008120AB272400AECE51 /* MethodAPI.swift */,
 				B1D9008220AB272400AECE51 /* OperationAPIType.swift */,

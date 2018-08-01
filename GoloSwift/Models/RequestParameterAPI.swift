@@ -132,7 +132,7 @@ public struct RequestParameterAPI {
         
         
         // MARK: - Initialization
-        public init(parentAuthor: String, parentPermlink: String, author: String, title: String, body: String, jsonMetadata: String, needTiming: Bool, params: [String: String]? = nil) {
+        public init(parentAuthor: String, parentPermlink: String, author: String, title: String, body: String, jsonMetadata: String, needTiming: Bool, attachments: [Attachment]? = nil) {
             self.parentAuthor       =   parentAuthor
             self.parentPermlink     =   parentPermlink.transliterationInLatin()
             self.author             =   author
@@ -148,7 +148,7 @@ public struct RequestParameterAPI {
             
             self.permlink           =   needTiming ? permlinkTemp + "-\(Int64(Date().timeIntervalSince1970))" : permlinkTemp
             
-            if let parameters = params {
+            if let parameters = attachments {
                 var bodyTemp        =   body
                 
                 for parameter in parameters {
