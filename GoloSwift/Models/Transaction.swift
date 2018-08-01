@@ -65,7 +65,7 @@ public struct Transaction {
      - Returns: Error or nil.
      
      */
-    public mutating func serialize(byOperationAPIType operationAPIType: OperationAPIType) {
+    public mutating func serialize(byOperationAPIType operationAPIType: OperationAPIType) -> ErrorAPI? {
         /// Create `serializedBuffer` with `chainID`
         self.serializedBuffer = chainID.hexBytes
         Logger.log(message: "\nserializedBuffer + chainID:\n\t\(self.serializedBuffer.toHexString())\n", event: .debug)
@@ -97,10 +97,14 @@ public struct Transaction {
         Logger.log(message: "\nmessageSHA256:\n\t\(messageSHA256.toHexString())\n", event: .debug)
         
         // ECC signing
-        let signature   =   SigningManager.signingECC(messageSHA256: messageSHA256)
+        guard let signature = SigningManager.signingECC(messageSHA256: messageSHA256, userName: self.userName) else {
+            return ErrorAPI.signingECCKeychainPostingKeyFailure(message: "Signing Transaction Failure")
+        }
         
         self.add(signature: signature)
         Logger.log(message: "\nsignature:\n\t\(signature)\n", event: .debug)
+        
+        return nil
     }
     
     
@@ -147,17 +151,6 @@ public struct Transaction {
     
     private mutating func serialize(int64: Int64) {
         self.serializedBuffer   +=  UInt16(int64).bytesReverse
-    }
-    
-    
-    /// Service function from Python
-    private func isCanonical(signature: secp256k1_ecdsa_recoverable_signature) -> Bool {
-        return  !((signature.data.31 & 0x80) > 0)   &&
-                !(signature.data.31 == 0)           &&
-                !((signature.data.30 & 0x80) > 0)   &&
-                !((signature.data.63 & 0x80) > 0)   &&
-                !(signature.data.63 == 0)           &&
-                !((signature.data.62 & 0x80) > 0)
     }
 }
 
