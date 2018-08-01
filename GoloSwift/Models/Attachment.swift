@@ -19,4 +19,13 @@ public struct Attachment {
     public let range: NSRange
     public let value: String
     public let type: AttachmentType
+    
+    
+    // MARK: - Class Initialization
+    public init(key: String, range: NSRange, value: String, type: AttachmentType) {
+        self.key        =   key
+        self.range      =   range
+        self.value      =   value
+        self.type       =   type
+    }
 }
