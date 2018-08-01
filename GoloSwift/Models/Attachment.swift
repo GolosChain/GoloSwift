@@ -10,25 +10,14 @@ import UIKit
 import secp256k1
 import CryptoSwift
 
-public enum AttachmentType {
-    case link
-    case image
-}
-
 public struct Attachment {
     // MARK: - Properties
-    public let key: String
-    public let range: NSRange
-    public var value: String
-    public let type: AttachmentType
+    public var markdownValue: String
     
     
     // MARK: - Class Initialization
-    public init(key: String, range: NSRange, value: String, type: AttachmentType) {
-        self.key        =   key
-        self.range      =   range
-        self.value      =   value
-        self.type       =   type
+    public init(markdownValue: String) {
+        self.markdownValue  =   markdownValue
     }
     
     
