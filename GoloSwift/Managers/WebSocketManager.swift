@@ -176,9 +176,8 @@ extension WebSocketManager: WebSocketDelegate {
                     }
                     
                     responseAPIType     =   isSendedRequestMethodAPI ?
-                                                (try self?.decode(from: jsonData, byMethodAPIType: requestMethodAPIStore!.methodAPIType.methodAPIType))! :
-                                                (try self?.decode(from: jsonData, byOperationAPIType: requestOperationAPIStore!.operationAPIType.operationAPIType))!
-                    
+                                                (try self?.decode(from: jsonData, byMethodAPIType: (requestMethodAPIStore?.methodAPIType.methodAPIType)!))! :
+                                                (try self?.decode(from: jsonData, byOperationAPIType: (requestOperationAPIStore?.operationAPIType.operationAPIType)!))!
                     
                     guard let responseAPIResult = responseAPIType.responseAPI else {
                         self?.errorAPI  =   responseAPIType.errorAPI
