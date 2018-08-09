@@ -30,7 +30,7 @@ public enum PostsFeedType: String {
         case .actual:       return "Actual"
         case .answers:      return "Answers"
         case .popular:      return "Popular"
-        case .comment:      return "Comments"
+        case .comment:      return "Comment"
         }
     }
     
