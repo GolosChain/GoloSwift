@@ -166,7 +166,7 @@ extension WebSocketManager: WebSocketDelegate {
     
     public func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         Logger.log(message: "Success", event: .severe)
-        var responseAPIType: ResponseAPIType
+        var responseAPIType: ResponseAPIType?
         
         if let jsonData = text.data(using: .utf8), let json = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves) as! [String: Any] {
             // Check error
