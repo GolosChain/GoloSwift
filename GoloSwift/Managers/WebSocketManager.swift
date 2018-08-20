@@ -232,7 +232,7 @@ extension WebSocketManager: WebSocketDelegate {
                         }
                     }
                         
-                        // Check websocket timeout: handler completion
+                    // Check websocket timeout: handler completion
                     else {
                         // Clean requestsAPIStore
                         self?.requestMethodsAPIStore[codeID]        =    nil
