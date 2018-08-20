@@ -185,19 +185,18 @@ extension WebSocketManager: WebSocketDelegate {
                         self?.errorAPI                      =   ErrorAPI.requestFailed(message: responseAPIResultError.error.message.components(separatedBy: "second.end(): ").last!)
                     }
                     
-                    responseAPIType     =   isSendedRequestMethodAPI ?
-                        (try self?.decode(from: jsonData, byMethodAPIType: requestMethodAPIStore!.methodAPIType.methodAPIType))! :
-                        (try self?.decode(from: jsonData, byOperationAPIType: requestOperationAPIStore!.operationAPIType.operationAPIType))!
+                    responseAPIType     =   try (isSendedRequestMethodAPI ? self?.decode(from: jsonData, byMethodAPIType: requestMethodAPIStore!.methodAPIType.methodAPIType) :
+                                                                            self?.decode(from: jsonData, byOperationAPIType: requestOperationAPIStore!.operationAPIType.operationAPIType))
                     
-                    guard let responseAPIResult = responseAPIType.responseAPI else {
-                        self?.errorAPI  =   responseAPIType.errorAPI
+                    guard let responseTypeAPI = responseAPIType, let responseAPIResult = responseTypeAPI.responseAPI else {
+                        self?.errorAPI  =   responseAPIType?.errorAPI ?? ErrorAPI.invalidData(message: "Response Unsuccessful")
                         
                         return  isSendedRequestMethodAPI ?  requestMethodAPIStore!.completion((responseAPI: nil, errorAPI: self?.errorAPI)) :
-                                                            requestOperationAPIStore!.completion((responseAPI: nil, errorAPI: self?.errorAPI))
+                            requestOperationAPIStore!.completion((responseAPI: nil, errorAPI: self?.errorAPI))
                     }
                     
 //                    Logger.log(message: "\nresponseAPIResult model:\n\t\(responseAPIResult)", event: .debug)
-                    
+
                     // Check websocket timeout: resend current request message
                     let startTime   =   isSendedRequestMethodAPI ? requestMethodAPIStore!.methodAPIType.startTime : requestOperationAPIStore!.operationAPIType.startTime
                     let timeout     =   Double(Date().timeIntervalSince(startTime))
