@@ -176,7 +176,7 @@ extension WebSocketManager: WebSocketDelegate {
                 let requestOperationAPIStore    =   self?.requestOperationsAPIStore[codeID]
                 
                 let isSendedRequestMethodAPI    =   requestOperationAPIStore == nil
-                
+
                 do {
                     let jsonDecoder = JSONDecoder()
                     
@@ -196,7 +196,7 @@ extension WebSocketManager: WebSocketDelegate {
                                                             requestOperationAPIStore!.completion((responseAPI: nil, errorAPI: self?.errorAPI))
                     }
                     
-                    //                    Logger.log(message: "\nresponseAPIResult model:\n\t\(responseAPIResult)", event: .debug)
+//                    Logger.log(message: "\nresponseAPIResult model:\n\t\(responseAPIResult)", event: .debug)
                     
                     // Check websocket timeout: resend current request message
                     let startTime   =   isSendedRequestMethodAPI ? requestMethodAPIStore!.methodAPIType.startTime : requestOperationAPIStore!.operationAPIType.startTime
