@@ -16,9 +16,8 @@ let cyrillicChars   =   [ "щ", "ш", "ч", "ц", "й", "ё", "э", "ю", "я", 
 let latinChars      =   [ "shch", "sh", "ch", "cz", "ij", "yo", "ye", "yu", "ya", "kh", "zh", "a", "b", "v", "g", "d", "e", "z", "i", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "f", "xx", "y", "x", "g", "e", "i", "i" ]
 
 
-let translateOtherChars             =   "0123456789-,.?"
-let translateLatinChars             =   "abcdefghijklmnopqrstuvwxyz"
-let translateCyrillicChars          =   "йцукенгшщзхъёфывапролджэячсмитьбюґєії"
+let translateLatinChars             =   "abcdefghijklmnopqrstuvwxyz0123456789-,.?"
+let translateCyrillicChars          =   "йцукенгшщзхъёфывапролджэячсмитьбюґєії0123456789-,.?"
 
 
 extension String {
@@ -54,7 +53,7 @@ extension String {
     /// Cyrillic
     var isCyrillic: Bool {
         for char in self.lowercased().map({ String($0) }) {
-            if translateCyrillicChars.contains(char) && !translateLatinChars.contains(char) && translateOtherChars.contains(char) {
+            if translateCyrillicChars.contains(char) && !translateLatinChars.contains(char) {
                 return true
             }
         }
