@@ -21,7 +21,7 @@
 		0E5C14782AF18F8DAA116083F6FD3FE1 /* scalar_low.h in Headers */ = {isa = PBXBuildFile; fileRef = DD19D3861AF3EF3B6BCDDACFF01A530E /* scalar_low.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		0F4452A733EBA0FC69DA3C28A40A4A43 /* SecureBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C92BDF7B5FC23ADB69B41F60B14B915 /* SecureBytes.swift */; };
 		13C5B220A814F4F8625FD3181B6F6696 /* num_gmp_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DB0FEC915170C286E9A97095A0A2022 /* num_gmp_impl.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		16E28A9118FA5F5C96695B00E980AC82 /* GoloCrypto-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 52FE82716388BF384A336097DC4AB446 /* GoloCrypto-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16E28A9118FA5F5C96695B00E980AC82 /* GoloCrypto-umbrella-new.h in Headers */ = {isa = PBXBuildFile; fileRef = 52FE82716388BF384A336097DC4AB446 /* GoloCrypto-umbrella-new.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CEDF357834C412CA9C85B93B3B7A4CA /* Poly1305.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD0CA628F20297D43494B5E835CE88 /* Poly1305.swift */; };
 		1D01889F8A61AF4748636AFBE52B7D83 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB27F65DB3C32C2DBD3809A21F8DCDFB /* Data+Extension.swift */; };
 		2145B9113CDFC8D4431E1C7D4BE1D183 /* memzero.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A95120491D714B3B47F6AE83986EC9C /* memzero.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -305,7 +305,7 @@
 		516696D177F93AE3A65E6975BD3A0ABA /* BeyovaJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BeyovaJSON-prefix.pch"; sourceTree = "<group>"; };
 		517B906EBDED2B370424D8E72FB12147 /* Dictionary_Initializers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Dictionary_Initializers.swift; path = Source/Dictionary_Initializers.swift; sourceTree = "<group>"; };
 		52019CF7E52A768106A4FD930486327A /* Array+Foundation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Foundation.swift"; path = "Sources/CryptoSwift/Foundation/Array+Foundation.swift"; sourceTree = "<group>"; };
-		52FE82716388BF384A336097DC4AB446 /* GoloCrypto-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoloCrypto-umbrella.h"; sourceTree = "<group>"; };
+		52FE82716388BF384A336097DC4AB446 /* GoloCrypto-umbrella-new.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoloCrypto-umbrella-new.h"; sourceTree = "<group>"; };
 		5346825ED4CFB80B44653ACA4747B90F /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Sources/WebSocket.swift; sourceTree = "<group>"; };
 		563A58DAFFAF885DC77756F2BAEF4F19 /* Locksmith-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Locksmith-umbrella.h"; sourceTree = "<group>"; };
 		57E6A1782B25A252E20137822AEEC394 /* eckey_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = eckey_impl.h; path = secp256k1/Classes/secp256k1/src/eckey_impl.h; sourceTree = "<group>"; };
@@ -530,7 +530,7 @@
 				E80005DD3C538C3EAADBCD1C61020450 /* GoloCrypto.xcconfig */,
 				9A8D4C904E428FA270009C8CB19C31B8 /* GoloCrypto-dummy.m */,
 				97C19058F7EBCA8AC492DA7CDB04C02E /* GoloCrypto-prefix.pch */,
-				52FE82716388BF384A336097DC4AB446 /* GoloCrypto-umbrella.h */,
+				52FE82716388BF384A336097DC4AB446 /* GoloCrypto-umbrella-new.h */,
 				66D740E4AFDDF8290327C8385922F5C3 /* Info.plist */,
 			);
 			name = "Support Files";
@@ -930,7 +930,7 @@
 				78D940F685EA5BC58DAE850A1D70B265 /* base58.h in Headers */,
 				5D62FDB471BA75CA8201A77BCB127697 /* crypto.h in Headers */,
 				F89F7741DA4CC78C8782BA19739E75D7 /* GoloCrypto-umbrella.h in Headers */,
-				16E28A9118FA5F5C96695B00E980AC82 /* GoloCrypto-umbrella.h in Headers */,
+				16E28A9118FA5F5C96695B00E980AC82 /* GoloCrypto-umbrella-new.h in Headers */,
 				2FA48D89C05990FC296A5386455F39EC /* hasher.h in Headers */,
 				2145B9113CDFC8D4431E1C7D4BE1D183 /* memzero.h in Headers */,
 				D8FFBCA886EC295CFB98B2D371C6A5C2 /* options.h in Headers */,
@@ -1190,6 +1190,23 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0940;
+				TargetAttributes = {
+					8F3E6573BC60CCDA96B1638F0E5C5C26 = {
+						LastSwiftMigration = 1000;
+					};
+					94297B17C0858FAA7566224ED0A9B705 = {
+						LastSwiftMigration = 1000;
+					};
+					BA2FA1677D37816A8F208A20403EF00B = {
+						LastSwiftMigration = 1000;
+					};
+					C0FD7299DD71941BE933219ABF36B6BF = {
+						LastSwiftMigration = 1000;
+					};
+					D1CD3E0286D336EDC7A4B50466E5EFD3 = {
+						LastSwiftMigration = 1000;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1481,7 +1498,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1577,7 +1594,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1609,7 +1626,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1709,7 +1726,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1742,7 +1759,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1775,7 +1792,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1874,7 +1891,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2002,7 +2019,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2125,7 +2142,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2157,7 +2174,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2250,7 +2267,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2283,7 +2300,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2316,7 +2333,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2348,7 +2365,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2380,7 +2397,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
