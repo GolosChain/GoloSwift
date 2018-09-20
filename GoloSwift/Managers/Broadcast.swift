@@ -129,7 +129,7 @@ public class Broadcast {
                                             .replacingOccurrences(of: "[[[", with: "[[")
                                             .replacingOccurrences(of: "[\"nil\"]", with: "]")
             
-            Logger.log(message: "\nEncoded JSON -> String:\n\t " + jsonString, event: .debug)
+//            Logger.log(message: "\nEncoded JSON -> String:\n\t " + jsonString, event: .debug)
             
             return (id: codeID, requestMessage: jsonString, startTime: Date(), methodAPIType: requestParamsType.methodAPIType, errorAPI: nil)
         } catch {
@@ -298,7 +298,7 @@ public class Broadcast {
                         return
                 }
                 
-                Logger.log(message: "\nglobalProperties:\n\t\(globalProperties)", event: .debug)
+//                Logger.log(message: "\nglobalProperties:\n\t\(globalProperties)", event: .debug)
                 
                 time                =   globalProperties.time.convert(toDateFormat: .expirationDateType).addingTimeInterval(60).convert(toStringFormat: .expirationDateType)
                 headBlockID         =   globalProperties.head_block_id.convert(toIntFromStartByte: 12, toEndByte: 16)
