@@ -69,6 +69,9 @@ extension String {
             if self.hasPrefix("ru--") {
                 return self.transliterationInCyrillic()
             }
+            else if self.hasPrefix("re--") {
+                return self.transliterationInLatin()
+            }
             
         // English
         default:
@@ -85,6 +88,10 @@ extension String {
         
         if self.contains("ru--") {
             stringTemp = self.replacingOccurrences(of: "ru--", with: "")
+        }
+            
+        else if self.contains("re--") {
+            stringTemp = self.replacingOccurrences(of: "re--", with: "")
         }
         
         let words: [String]     =   stringTemp.components(separatedBy: " ")
@@ -108,7 +115,7 @@ extension String {
             }
         })
         
-        return newWords.joined(separator: " ")
+        return "ru--" + newWords.joined(separator: " ")
     }
     
     
