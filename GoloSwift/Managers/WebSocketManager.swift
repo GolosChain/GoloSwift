@@ -243,6 +243,9 @@ extension WebSocketManager: WebSocketDelegate {
                         
                     // Check websocket timeout: handler completion
                     else {
+                        isSendedRequestMethodAPI ?  requestMethodAPIStore!.completion((responseAPI: responseAPIResult, errorAPI: self?.errorAPI)) :
+                                                    requestOperationAPIStore!.completion((responseAPI: responseAPIResult, errorAPI: self?.errorAPI))
+
                         // Clean requestsAPIStore
                         self?.requestMethodsAPIStore[codeID]        =    nil
                         self?.requestOperationsAPIStore[codeID]     =    nil
@@ -251,9 +254,6 @@ extension WebSocketManager: WebSocketDelegate {
                         if let requestID = requestIDs.index(of: codeID) {
                             requestIDs.remove(at: requestID)
                         }
-                        
-                        isSendedRequestMethodAPI ?  requestMethodAPIStore!.completion((responseAPI: responseAPIResult, errorAPI: self?.errorAPI)) :
-                                                    requestOperationAPIStore!.completion((responseAPI: responseAPIResult, errorAPI: self?.errorAPI))
                     }
                 } catch {
                     Logger.log(message: "\nResponse Unsuccessful:\n\t\(error.localizedDescription)", event: .error)

@@ -64,7 +64,7 @@ public struct ResponseAPIPost: Decodable {
     public let total_payout_value: String
     public let reblogged_by: [String]?
     public let children: Int16
-
+    
     // "2018-04-13T10:19:54"
     public let created: String
     public let active: String
@@ -110,13 +110,13 @@ public struct ResponseAPIActiveVote: Decodable {
     public let voter: String
     public let percent: Int16
     public let rshares: Conflicted
+    public let weight: Conflicted
     
-
+    
     // MARK: - In reserve
     /*
      public let time: String
      public let reputation: Conflicted
-     public let weight: Conflicted
      */
 }
 
@@ -322,9 +322,9 @@ public struct ResponseAPIBlockchainPostResult: Decodable {
     public let id: Int64
     public let jsonrpc: String
     public let error: ResponseAPIError?
-
+    
     // API return empty 'result' as {}
-//    public let result: Bool?
+    //    public let result: Bool?
 }
 
 
@@ -355,7 +355,8 @@ public struct ResponseAPIAllContentReply: Decodable {
     public let url: String
     public let reblogged_by: [String]?
     public let children: Int16
-
+    //    public let active_votes: [ResponseAPIActiveVote]
+    
     // "2018-04-13T10:19:54"
     public let created: String
     public let active: String
@@ -390,7 +391,6 @@ public struct ResponseAPIAllContentReply: Decodable {
      public let root_title: String
      public let pending_payout_value: String
      public let total_pending_payout_value: String
-     public let active_votes: [String]?
      public let replies: [String]?
      public let author_reputation: String
      public let promoted: String
