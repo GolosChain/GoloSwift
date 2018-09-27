@@ -41,6 +41,12 @@ public struct RequestParameterAPI {
                 else if propertyValue is Int64 {
                     jsonData = try jsonEncoder.encode(["\(propertyName)": propertyValue as! Int64])
                 }
+                    
+                else if let data = try? JSONSerialization.data(withJSONObject: propertyValue, options: []) {
+                    jsonData = data
+                    result += "\"\(propertyName)\":" + "\(String(data: jsonData, encoding: .utf8)!),"
+                    continue
+                }
                 
                 result += "\(String(data: jsonData, encoding: .utf8)!)"
                 Logger.log(message: "\nResult + \"\(propertyName)\":\n\t\(result)", event: .debug)
@@ -49,6 +55,7 @@ public struct RequestParameterAPI {
             return  result
                         .replacingOccurrences(of: "{{", with: "{")
                         .replacingOccurrences(of: "}{", with: ",")
+                        .replacingOccurrences(of: "],{", with: "],")
                         .replacingOccurrences(of: "}\"}", with: "}\"")
         } catch {
             Logger.log(message: "Error: \(error.localizedDescription)", event: .error)
@@ -86,6 +93,8 @@ public struct RequestParameterAPI {
         }
     }
     
+    
+    // MARK: -
     public struct Discussion: Encodable {
         // MARK: - Properties
         public let limit: UInt
@@ -119,6 +128,8 @@ public struct RequestParameterAPI {
         }
     }
     
+    
+    // MARK: -
     public struct Comment: Encodable, RequestParameterAPIOperationPropertiesSupport {
         // MARK: - Properties
         public let parentAuthor: String
@@ -140,7 +151,7 @@ public struct RequestParameterAPI {
             self.jsonMetadata   =   jsonMetadata
             self.needTiming     =   needTiming
             
-            let permlinkTemp    =   (parentAuthor.isEmpty ? String(format: "%@", title.transliteration()) :
+            let permlinkTemp    =   (parentAuthor.isEmpty ? String(format: "%@", title.transliteration(forPermlink: true)) :
                                                             String(format: "re-%@-%@-%@", parentAuthor, parentPermlink, author))
                                         .replacingOccurrences(of: " ", with: "-")
                                         .replacingOccurrences(of: ".", with: "-")
@@ -181,6 +192,7 @@ public struct RequestParameterAPI {
     }
     
     
+    // MARK: -
     public struct CommentOptions: Encodable, RequestParameterAPIOperationPropertiesSupport {
         // MARK: - Properties
         public let author: String
@@ -226,6 +238,8 @@ public struct RequestParameterAPI {
         }
     }
     
+    
+    // MARK: -
     public struct Vote: Encodable, RequestParameterAPIOperationPropertiesSupport {
         // MARK: - Properties
         public let voter: String
@@ -259,6 +273,43 @@ public struct RequestParameterAPI {
         
         func getPropertiesNames() -> [String] {
             return [ "voter", "author", "permlink", "weight" ]
+        }
+    }
+    
+    
+    // MARK: -
+    public struct Subscription: Encodable, RequestParameterAPIOperationPropertiesSupport {
+        // MARK: - Properties
+        public let what: String?
+        public let follower: String
+        public let userName: [String]
+        public let authorName: String
+        
+        // MARK: - Initialization
+        public init(userName: String, authorName: String, what: String? = nil) {
+            self.what           =   what
+            self.follower       =   userName
+            self.userName       =   [userName]
+            self.authorName     =   authorName
+        }
+        
+        
+        // MARK: - RequestParameterAPIOperationPropertiesSupport protocol implementation
+        // https://github.com/GolosChain/golos-js/blob/master/src/auth/serializer/src/ChainTypes.js
+        var code: Int?      =   18
+        var name: String?   =   "custom_json"
+        
+        public func getProperties() -> [String: Any] {
+            return  [
+                        "required_auths":           [],
+                        "required_posting_auths":   self.userName,
+                        "id":                       "follow",
+                        "json":                     "[\"follow\",{\"follower\":\"\(self.follower)\",\"following\":\"\(self.authorName)\",\"what\":[\"\(self.what ?? "")\"]}]"
+                    ]
+        }
+        
+        func getPropertiesNames() -> [String] {
+            return [ "required_auths", "required_posting_auths", "id", "json" ]
         }
     }
 }
