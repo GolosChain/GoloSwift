@@ -637,7 +637,7 @@
 				B1D9007720AB250D00AECE51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		B1D9007820AB250D00AECE51 /* Build configuration list for PBXNativeTarget "GoloSwift" */ = {
 			isa = XCConfigurationList;
@@ -647,7 +647,7 @@
 				B1D9007A20AB250D00AECE51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
