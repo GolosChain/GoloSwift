@@ -307,10 +307,10 @@ public struct RequestParameterAPI {
                 "required_posting_auths":   self.userNickNames,
                 "id":                       "follow",
                 "json":                     isWhatNil ? "[\"follow\",{\"follower\":\"\(self.follower)\",\"following\":\"\(self.authorNickName)\",\"what\":[]}]" :
-                                                        "[\"follow\",{\"follower\":\"\(self.follower)\",\"following\":\"\(self.authorNickName)\",\"what\":[\"\(self.what!)\"]}]"
+                "[\"follow\",{\"follower\":\"\(self.follower)\",\"following\":\"\(self.authorNickName)\",\"what\":[\"\(self.what!)\"]}]"
             ]
         }
-
+        
         func getPropertiesNames() -> [String] {
             return [ "required_auths", "required_posting_auths", "id", "json" ]
         }

@@ -33,7 +33,7 @@ public indirect enum MethodAPIType {
     
     /// Diplays current user followings list
     case getUserFollowings(userNickName: String, authorNickName: String, pagination: UInt)
-
+    
     /// Diplays current user follow counts
     case getContent(parameters: RequestParameterAPI.Content)
     

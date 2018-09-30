@@ -42,6 +42,7 @@ public struct Transaction {
     public mutating func setUser(nickName: String) {
         self.userNickName = nickName
     }
+
     
     /// Service function to remove `operation code` from transaction
     private mutating func deleteOperationCode() {
