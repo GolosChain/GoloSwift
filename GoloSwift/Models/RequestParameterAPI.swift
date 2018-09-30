@@ -290,7 +290,7 @@ public struct RequestParameterAPI {
             self.what           =   what
             self.follower       =   userNickName
             self.userNickNames  =   [userNickName]
-            self.authorName     =   authorNickName
+            self.authorNickName =   authorNickName
         }
         
         
