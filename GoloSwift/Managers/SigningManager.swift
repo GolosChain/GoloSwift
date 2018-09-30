@@ -18,8 +18,8 @@ public class SigningManager {
      - Returns: Return transaction signature.
      
      */
-    public static func signingECC(messageSHA256: [Byte], userName: String) -> String? {
-        if let privateKeyString = KeychainManager.loadPrivateKey(forUserName: userName) {
+    public static func signingECC(messageSHA256: [Byte], userNickName: String) -> String? {
+        if let privateKeyString = KeychainManager.loadPrivateKey(forUserNickName: userNickName) {
             let privateKeyData: [Byte] =  GSBase58().base58Decode(data: privateKeyString)
             
             Logger.log(message: "\nsigningECC - privateKey:\n\t\(privateKeyString)\n", event: .debug)

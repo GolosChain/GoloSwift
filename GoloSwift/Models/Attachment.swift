@@ -23,7 +23,7 @@ public struct Attachment {
     
     
     // MARK: - Custom Functions
-    public static func createURL(forImage image: UIImage, userName: String) -> String? {
+    public static func createURL(forImage image: UIImage, userNickName: String) -> String? {
         // Create prefix
         let imagePrefix: [Byte]     =   [UInt8]("ImageSigningChallenge".utf8)
         Logger.log(message: "\nimagePrefix:\n\t\(imagePrefix.toHexString())\n", event: .debug)
@@ -38,7 +38,7 @@ public struct Attachment {
         let concatenationSHA256: [Byte]     =   concatenation.sha256()
         
         // ECC signing
-        guard let signature = SigningManager.signingECC(messageSHA256: concatenationSHA256, userName: userName) else {
+        guard let signature = SigningManager.signingECC(messageSHA256: concatenationSHA256, userNickName: userNickName) else {
             return nil
         }
         
