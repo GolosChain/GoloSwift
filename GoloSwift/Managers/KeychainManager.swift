@@ -36,7 +36,7 @@ public class KeychainManager {
     
     
     /// Save login data to Keychain
-    public static func save(_ key: String, forUserNickName userNickName: String) -> Bool {
+    public static func save(key: String, userNickName: String) -> Bool {
         do {
             if loadPrivateKey(forUserNickName: userNickName) == nil {
                 try Locksmith.saveData(data: [ "privateKey": key ], forUserAccount: userNickName)
