@@ -151,11 +151,16 @@ public struct RequestParameterAPI {
             self.jsonMetadata   =   jsonMetadata
             self.needTiming     =   needTiming
             
-            let permlinkTemp    =   (parentAuthor.isEmpty ? String(format: "%@", title.transliteration(forPermlink: true)) :
+            let regex           =   "[^а-я0-9a-z,ґ,є,і,ї,-]"
+            
+            var permlinkTemp    =   (parentAuthor.isEmpty ? String(format: "%@", title.transliteration(forPermlink: true)) :
                                                             String(format: "re-%@-%@-%@", parentAuthor, parentPermlink, author))
                                         .replacingOccurrences(of: " ", with: "-")
                                         .replacingOccurrences(of: ".", with: "-")
                                         .lowercased()
+            
+            permlinkTemp        =   permlinkTemp.replacingOccurrences(of: regex, with: "", options: .regularExpression)
+                                        .replacingOccurrences(of: "-- ", with: "-")
             
             self.permlink   =   needTiming ? (permlinkTemp + "-\(Int64(Date().timeIntervalSince1970))") : permlinkTemp
             
