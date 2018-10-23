@@ -29,8 +29,8 @@ public struct Attachment {
         Logger.log(message: "\nimagePrefix:\n\t\(imagePrefix.toHexString())\n", event: .debug)
         
         // Concatenation bytes
-        guard let imageDatas = image.jpegData(compressionQuality: 1.0) else { return nil }
-//        guard let imageDatas = UIImageJPEGRepresentation(image, 1.0) else { return nil }
+        guard let imageDatas = UIImageJPEGRepresentation(image, 1.0) else { return nil }
+//        guard let imageDatas = image.jpegData(compressionQuality: 1.0) else { return nil }
 
         let imageData: [Byte]       =   getBytes(fromImageData: imageDatas as NSData)
         let concatenation: [Byte]   =   imagePrefix + imageData
