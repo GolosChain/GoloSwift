@@ -23,7 +23,7 @@ extension Date {
     }
     
     // Issue #129
-    public func convertToDaysAgo() -> String {
+    public func convertToTimeAgo() -> String {
         let dateComponents          =   Calendar.current.dateComponents([ .year, .month, .day, .hour, .minute, .second ], from: self, to: Date())
         
         // Date in format '25-02-1972'
