@@ -31,23 +31,23 @@ extension Date {
             return String(format: "%d-%d-%d", days, month, year)
         }
             
-            // Date in format 'N days ago'
+        // Date in format 'N days ago'
         else if let days = dateComponents.day, 1...7 ~= days {
-            return String(format: "%d %@", days, days.convertToLocalized(time: .days))
+            return String(format: "%d %@", days, days.localized(byTimeMode: .days))
         }
         
         // Date in format 'N hours/minutes/seconds ago'
         if let days = dateComponents.day, days == 0, let hours = dateComponents.hour, let minutes = dateComponents.minute, let seconds = dateComponents.second {
             if hours > 0 {
-                return String(format: "%d %@", hours, hours.convertToLocalized(time: .hours))
+                return String(format: "%d %@", hours, hours.localized(byTimeMode: .hours))
             }
                 
             else if minutes > 0 {
-                return String(format: "%d %@", minutes, minutes.convertToLocalized(time: .days))
+                return String(format: "%d %@", minutes, minutes.localized(byTimeMode: .minutes))
             }
                 
             else {
-                return String(format: "%d %@", seconds, seconds.convertToLocalized(time: .days))
+                return String(format: "%d %@", seconds, seconds.localized(byTimeMode: .seconds))
             }
         }
         
