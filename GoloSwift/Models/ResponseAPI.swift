@@ -112,6 +112,16 @@ public struct ResponseAPIPost: Decodable {
 
 
 // MARK: -
+public struct ResponseAPIVoterResult: Decodable {
+    // MARK: - In work
+    public let id: Int64
+    public let jsonrpc: String
+    public let result: [ResponseAPIActiveVote]?
+    public let error: ResponseAPIError?
+}
+
+
+// MARK: -
 public struct ResponseAPIActiveVote: Decodable {
     // MARK: - In work
     public let voter: String
