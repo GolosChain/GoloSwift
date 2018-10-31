@@ -29,7 +29,7 @@ public indirect enum MethodAPIType {
     case getUserReplies(startAuthor: String, startPermlink: String?, limit: UInt, voteLimit: UInt)
     
     /// Diplays current user followers list
-    case getUserFollowers(nickName: String)
+    case getUserFollowers(userNickName: String, authorNickName: String, pagination: UInt)
 
     /// Diplays current user follow counts
     case getUserFollowCounts(nickName: String)
