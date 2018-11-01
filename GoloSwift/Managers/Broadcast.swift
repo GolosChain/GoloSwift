@@ -294,10 +294,9 @@ public class Broadcast {
             webSocketManager.sendGETRequest(withMethodAPIType: requestMethodAPIType, completion: { responseAPIType in
                 Logger.log(message: "\nresponseAPIType:\n\t\(responseAPIType)", event: .debug)
                 
-                guard let responseAPI = responseAPIType.responseAPI,
-                    let responseAPIResult   =   responseAPI as? ResponseAPIDynamicGlobalPropertiesResult,
-                    let globalProperties    =   responseAPIResult.result else {
-                        
+                guard   let responseAPI         =   responseAPIType.responseAPI,
+                        let responseAPIResult   =   responseAPI as? ResponseAPIDynamicGlobalPropertiesResult,
+                        let globalProperties    =   responseAPIResult.result else {
                         Logger.log(message: responseAPIType.errorAPI!.caseInfo.message, event: .error)
                         completion(nil)
                         return
