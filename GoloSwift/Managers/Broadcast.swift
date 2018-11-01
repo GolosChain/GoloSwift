@@ -285,7 +285,7 @@ public class Broadcast {
     
     
     /// API `get_dynamic_global_properties`
-    func getDynamicGlobalProperties(completion: @escaping (ResponseAPIDynamicGlobalProperty?) -> Void) {
+    public func getDynamicGlobalProperties(completion: @escaping (ResponseAPIDynamicGlobalProperty?) -> Void) {
         let requestMethodAPIType  =   self.prepareGET(requestByMethodAPIType: .getDynamicGlobalProperties())
         Logger.log(message: "\nrequestAPIType =\n\t\(requestMethodAPIType)", event: .debug)
         
