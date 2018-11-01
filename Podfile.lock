@@ -1,5 +1,4 @@
 PODS:
-  - Amplitude-iOS (4.0.4)
   - BeyovaJSON (0.0.7)
   - CryptoSwift (0.13.0)
   - GoloCrypto (1.0.6)
@@ -9,7 +8,6 @@ PODS:
   - Starscream (3.0.6)
 
 DEPENDENCIES:
-  - Amplitude-iOS (~> 4.0.4)
   - BeyovaJSON (~> 0.0)
   - CryptoSwift
   - GoloCrypto (from `https://github.com/Monserg/GoloGrypto.git`)
@@ -20,7 +18,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Amplitude-iOS
     - BeyovaJSON
     - CryptoSwift
     - Localize-Swift
@@ -38,7 +35,6 @@ CHECKOUT OPTIONS:
     :git: https://github.com/Monserg/GoloGrypto.git
 
 SPEC CHECKSUMS:
-  Amplitude-iOS: 2ad4d7270c99186236c1272a3a9425463b1ae1a7
   BeyovaJSON: 085c9fa886fa0b13e2964cc8c6965fab5bc7f90f
   CryptoSwift: 16e78bebf567bad1c87b2d58f6547f25b74c31aa
   GoloCrypto: 3f60e824b57ca657be702fb2cf4bd1f7a379257a
@@ -47,6 +43,6 @@ SPEC CHECKSUMS:
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
 
-PODFILE CHECKSUM: 42aeee6180388ba0aaf67280cdb64eb71daec25c
+PODFILE CHECKSUM: 66b81dc3d37fd4abdc34a602bd1f0612009aed0e
 
 COCOAPODS: 1.6.0.beta.2

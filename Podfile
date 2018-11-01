@@ -9,7 +9,6 @@ target 'GoloSwift' do
     pod 'secp256k1.swift'
     pod 'BeyovaJSON', '~> 0.0'
     pod 'Localize-Swift', '~> 2.0'
-    pod 'Amplitude-iOS', '~> 4.0.4'
 
     # Websockets in swift for iOS and OSX
     pod 'Starscream', '~> 3.0'
