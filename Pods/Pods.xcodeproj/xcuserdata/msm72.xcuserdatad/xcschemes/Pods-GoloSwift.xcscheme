@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0940"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "220AB52CE049A828F80806EDCA2A833B"
+               BlueprintIdentifier = "719A272B65C57DE6265B994995D5D487"
                BuildableName = "Pods_GoloSwift.framework"
                BlueprintName = "Pods-GoloSwift"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "220AB52CE049A828F80806EDCA2A833B"
+            BlueprintIdentifier = "719A272B65C57DE6265B994995D5D487"
             BuildableName = "Pods_GoloSwift.framework"
             BlueprintName = "Pods-GoloSwift"
             ReferencedContainer = "container:Pods.xcodeproj">
