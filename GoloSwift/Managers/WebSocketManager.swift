@@ -27,7 +27,10 @@ public class WebSocketManager {
     private var requestOperationsAPIStore           =   [Int: RequestOperationAPIStore]()
     private var requestMicroserviceMethodsAPIStore  =   [Int: RequestMicroserviceMethodAPIStore]()
     
+    // Handlers
+    public var completionIsConnected: (() -> Void)?
     
+
     // MARK: - Class Initialization
     private init() {}
     
@@ -113,12 +116,15 @@ public class WebSocketManager {
      
      */
     private func validate(json: [String: Any], completion: @escaping (_ codeID: Int, _ hasError: Bool) -> Void) {
-        //        Logger.log(message: json.description, event:6 .debug)
+//        Logger.log(message: json.description, event:6 .debug)
         guard let id = json["id"] as? Int else {
-            completion(-777, false)
+            if let method = json["method"] as? String, method == "sign" {
+                self.completionIsConnected!()
+            }
+            
             return
         }
-        
+
         completion(id, json["error"] != nil)
     }
     
@@ -218,10 +224,29 @@ extension WebSocketManager: WebSocketDelegate {
         Logger.log(message: "\nrequestIDs =\n\t\(requestIDs)", event: .debug)
         
         // Send all stored GET & POST Request messages
-        self.requestMethodsAPIStore.forEach({ sendMessage($0.value.methodAPIType.requestMessage!)})
-        self.requestOperationsAPIStore.forEach({ sendMessage($0.value.operationAPIType.requestMessage!)})
+        requestIDs.forEach({ id in
+            switch id {
+            case 0..<100:
+                if let methodRequestAPI = self.requestMethodsAPIStore.first(where: { $0.key == id }) {
+                    self.sendMessage(methodRequestAPI.value.methodAPIType.requestMessage!)
+                }
+                
+            case 100..<200:
+                if let operationRequestAPI = self.requestOperationsAPIStore.first(where: { $0.key == id }) {
+                    self.sendMessage(operationRequestAPI.value.operationAPIType.requestMessage!)
+                }
+                
+            case 200..<300:
+                if let microserviceMethodRequestAPI = self.requestMicroserviceMethodsAPIStore.first(where: { $0.key == id }) {
+                    self.sendMessage(microserviceMethodRequestAPI.value.microserviceMethodAPIType.requestMessage!)
+                }
+                
+            default:
+                break
+            }
+        })
     }
-    
+
     public func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         Logger.log(message: "Success", event: .severe)
         var responseAPIType: ResponseAPIType?
