@@ -9,14 +9,32 @@
 import Foundation
 import Starscream
 
+public enum WebSocketManagerMode {
+    case blockchain
+    case microservices
+}
+
 public class WebSocketManager {
     // MARK: - Properties
+    private var mode: WebSocketManagerMode  =   .blockchain
+    public var webSocket: WebSocket         =   webSocketBlockchain
+    
+    public static let instanceBlockchain    =   WebSocketManager(withMode: .blockchain)
+    public static let instanceMicroservices =   WebSocketManager(withMode: .microservices)
+    
     private var errorAPI: ErrorAPI?
     private var requestMethodsAPIStore      =   [Int: RequestMethodAPIStore]()
     private var requestOperationsAPIStore   =   [Int: RequestOperationAPIStore]()
     
     
     // MARK: - Class Initialization
+    private init() {}
+    
+    init(withMode mode: WebSocketManagerMode = .blockchain) {
+        self.mode       =   mode
+        self.webSocket  =   mode == .blockchain ? webSocketBlockchain : webSocketMicroservices
+    }
+    
     deinit {
         Logger.log(message: "Success", event: .severe)
     }
@@ -26,33 +44,34 @@ public class WebSocketManager {
     public func connect() {
         Logger.log(message: "Success", event: .severe)
         
-        if webSocket.isConnected { return }
-        webSocket.connect()
+        if self.webSocket.isConnected { return }
+        
+        self.webSocket.connect()
     }
     
     public func disconnect() {
         Logger.log(message: "Success", event: .severe)
         
-        guard webSocket.isConnected else { return }
+        guard self.webSocket.isConnected else { return }
         
         let requestMethodAPIStore       =   self.requestMethodsAPIStore.first?.value
         let requestOperationAPIStore    =   self.requestOperationsAPIStore.first?.value
         let isSendedRequestMethodAPI    =   requestOperationAPIStore == nil
         
         isSendedRequestMethodAPI ?  requestMethodAPIStore!.completion((responseAPI: nil, errorAPI: ErrorAPI.responseUnsuccessful(message: "No Internet Connection"))) :
-                                    requestOperationAPIStore!.completion((responseAPI: nil, errorAPI: ErrorAPI.responseUnsuccessful(message: "No Internet Connection")))
+            requestOperationAPIStore!.completion((responseAPI: nil, errorAPI: ErrorAPI.responseUnsuccessful(message: "No Internet Connection")))
         
         // Clean store lists
         requestIDs                      =   [Int]()
         self.requestMethodsAPIStore     =   [Int: RequestMethodAPIStore]()
         self.requestOperationsAPIStore  =   [Int: RequestOperationAPIStore]()
         
-        webSocket.disconnect()
+        self.webSocket.disconnect()
     }
     
     public func sendMessage(_ message: String) {
         Logger.log(message: "\nrequestMessage = \n\t\(message)", event: .debug)
-        webSocket.write(string: message)
+        self.webSocket.write(string: message)
     }
     
     
@@ -61,7 +80,7 @@ public class WebSocketManager {
         let requestMethodAPITypeStore           =   (methodAPIType: type, completion: completion)
         self.requestMethodsAPIStore[type.id]    =   requestMethodAPITypeStore
         
-        webSocket.isConnected ? sendMessage(type.requestMessage!) : webSocket.connect()
+        self.webSocket.isConnected ? sendMessage(type.requestMessage!) : self.webSocket.connect()
     }
     
     
@@ -70,7 +89,7 @@ public class WebSocketManager {
         let requestOperationAPITypeStore        =   (operationAPIType: type, completion: completion)
         self.requestOperationsAPIStore[type.id] =   requestOperationAPITypeStore
         
-        webSocket.isConnected ? sendMessage(type.requestMessage!) : webSocket.connect()
+        self.webSocket.isConnected ? sendMessage(type.requestMessage!) : self.webSocket.connect()
     }
     
     
@@ -85,7 +104,11 @@ public class WebSocketManager {
      */
     private func validate(json: [String: Any], completion: @escaping (_ codeID: Int, _ hasError: Bool) -> Void) {
 //        Logger.log(message: json.description, event:6 .debug)
-        completion(json["id"] as! Int, json["error"] != nil)
+        guard let id = json["id"] as? Int else {
+            return
+        }
+        
+        completion(id, json["error"] != nil)
     }
     
     
@@ -121,7 +144,7 @@ public class WebSocketManager {
                 
             case .getContentAllReplies(_):
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIPostsResult.self, from: jsonData), errorAPI: nil)
-            
+                
             case .getActiveVotes(_):
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIVoterResult.self, from: jsonData), errorAPI: nil)
                 
@@ -149,7 +172,7 @@ public class WebSocketManager {
                 
             case .createPost(_):
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIBlockchainPostResult.self, from: jsonData), errorAPI: nil)
-
+                
             case .subscribe(_):
                 return (responseAPI: try JSONDecoder().decode(ResponseAPIBlockchainPostResult.self, from: jsonData), errorAPI: nil)
             }
@@ -286,10 +309,10 @@ extension WebSocketManager: WebSocketDelegate {
             }
         }
             
-            // Check websocket timeout: handler completion
+        // Check websocket timeout: handler completion
         else {
             byMethodAPI ?   requestMethodAPIStore!.completion((responseAPI: result, errorAPI: self.errorAPI)) :
-                            requestOperationAPIStore!.completion((responseAPI: result, errorAPI: self.errorAPI))
+                requestOperationAPIStore!.completion((responseAPI: result, errorAPI: self.errorAPI))
             
             // Clean requestsAPIStore
             self.requestMethodsAPIStore[codeID] = nil

@@ -76,7 +76,7 @@ public class Broadcast {
         Logger.log(message: "\nrequestAPIType:\n\t\(requestMessage)\n", event: .debug)
         
         // Send GET Request messages to Blockchain
-        webSocketManager.sendGETRequest(withMethodAPIType: requestAPIType, completion: { responseAPIType in
+        WebSocketManager.instanceBlockchain.sendGETRequest(withMethodAPIType: requestAPIType, completion: { responseAPIType in
             if let responseAPI = responseAPIType.responseAPI {
                 onResult(responseAPI)
             }
@@ -186,7 +186,7 @@ public class Broadcast {
             }
             
             // Send POST Request messages to Blockchain
-            webSocketManager.sendPOSTRequest(withOperationAPIType: requestOperationAPIType, completion: { responseAPIType in
+            WebSocketManager.instanceBlockchain.sendPOSTRequest(withOperationAPIType: requestOperationAPIType, completion: { responseAPIType in
                 if let responseAPI = responseAPIType.responseAPI {
                     onResult(responseAPI)
                 }
@@ -294,7 +294,7 @@ public class Broadcast {
         
         // Network Layer (WebSocketManager)
         DispatchQueue.main.async {
-            webSocketManager.sendGETRequest(withMethodAPIType: requestMethodAPIType, completion: { responseAPIType in
+            WebSocketManager.instanceBlockchain.sendGETRequest(withMethodAPIType: requestMethodAPIType, completion: { responseAPIType in
                 Logger.log(message: "\nresponseAPIType:\n\t\(responseAPIType)", event: .debug)
                 
                 guard   let responseAPI         =   responseAPIType.responseAPI,
