@@ -52,7 +52,8 @@
 		B1D900A320AB317E00AECE51 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B1D900B920AB504100AECE51 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		B1D900C620AC02A600AECE51 /* GSBase58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSBase58.swift; sourceTree = "<group>"; };
-		B1E79D3B21B9160E00F84783 /* MicroserviceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicroserviceAPI.swift; sourceTree = "<group>"; };
+		B1E79D3B21B9160E00F84783 /* MicroserviceMethodAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicroserviceMethodAPI.swift; sourceTree = "<group>"; };
+		B1E79D3C21B94B9100F84783 /* MicroserviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroserviceManager.swift; sourceTree = "<group>"; };
 		B1F046D320BD301900430FDD /* PostsFeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsFeedType.swift; sourceTree = "<group>"; };
 		C49285FF39FCAFDFBD8C8D68 /* Pods-GoloSwift.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.development.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.development.xcconfig"; sourceTree = "<group>"; };
 		EE3F22598EC38832B26DF26C /* Pods-GoloSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoloSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoloSwift/Pods-GoloSwift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 				B1D900C620AC02A600AECE51 /* GSBase58.swift */,
 				B12A576F20B42101000CF8BF /* KeychainManager.swift */,
 				B1D9007C20AB25CB00AECE51 /* Logger.swift */,
+				B1E79D3C21B94B9100F84783 /* MicroserviceManager.swift */,
 				B1BAAA492111994100B2F165 /* SigningManager.swift */,
 				B15FB43720AC3381000245CE /* WebSocketManager.swift */,
 			);
@@ -141,7 +143,7 @@
 				B1269EC12111753300F4D5F5 /* Attachment.swift */,
 				B1D9008420AB272400AECE51 /* ErrorAPI.swift */,
 				B1D9008120AB272400AECE51 /* MethodAPI.swift */,
-				B1E79D3B21B9160E00F84783 /* MicroserviceAPI.swift */,
+				B1E79D3B21B9160E00F84783 /* MicroserviceMethodAPI.swift */,
 				B1D9008220AB272400AECE51 /* OperationAPIType.swift */,
 				B1D2F02020DA5DFC00D18B07 /* PostActionType.swift */,
 				B1F046D320BD301900430FDD /* PostsFeedType.swift */,
