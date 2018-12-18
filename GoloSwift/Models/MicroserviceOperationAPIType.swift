@@ -13,6 +13,7 @@ typealias MicroserviceOperationRequestParameters = (operationAPIType: Microservi
 
 /// API POST operations
 public indirect enum MicroserviceOperationAPIType {
+    /*
     // API: POST
     case vote(fields: RequestParameterAPI.Vote)
     
@@ -24,4 +25,5 @@ public indirect enum MicroserviceOperationAPIType {
                                                                      parameters:            [voteValue])
         }
     }
+ */
 }
