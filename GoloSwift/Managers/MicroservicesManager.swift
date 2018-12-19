@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MicroservicesManager {
+public class MicroservicesManager {
     // MARK: - Class Functions
     
     /// Gate-Service: API 'getSecret'
