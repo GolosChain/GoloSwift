@@ -33,7 +33,7 @@ public class MicroservicesManager {
             })
         }
             
-            // Offline mode
+        // Offline mode
         else {
             completion(nil, nil)
         }
@@ -41,39 +41,46 @@ public class MicroservicesManager {
     
     /// Gate-Service: API 'auth'
     public class func auth(voter: String, completion: @escaping (ErrorAPI?) -> Void) {
-        if let secretKey = KeychainManager.loadData(forUserNickName: voter, withKey: keySecret)?.values.first as? String {
-            let vote    =   RequestParameterAPI.Vote(voter:         voter,
-                                                     author:        "test",
-                                                     permlink:      secretKey,
-                                                     weight:        1)
-            
-            let operationAPIType = OperationAPIType.voteAuth(fields: vote)
-            
-            // Run API
-            let postRequestQueue = DispatchQueue.global(qos: .background)
-            
-            // Run queue in Async Thread
-            postRequestQueue.async {
-                Broadcast.shared.executePOST(requestByOperationAPIType:    operationAPIType,
-                                             userNickName:                 voter,
-                                             onResult:                     { responseAPIResult in
-                                                var errorAPI: ErrorAPI?
-                                                
-                                                if let error = (responseAPIResult as! ResponseAPIBlockchainPostResult).error {
-                                                    errorAPI = ErrorAPI.requestFailed(message: error.message)
-                                                }
-                                                
-                                                completion(errorAPI)
-                },
-                                             onError: { errorAPI in
-                                                Logger.log(message: "nresponse API Error = \(errorAPI.caseInfo.message)\n", event: .error)
-                                                completion(errorAPI)
-                })
+        if isNetworkAvailable {
+            if let secretKey = KeychainManager.loadData(forUserNickName: voter, withKey: keySecret)?.values.first as? String {
+                let vote    =   RequestParameterAPI.Vote(voter:         voter,
+                                                         author:        "test",
+                                                         permlink:      secretKey,
+                                                         weight:        1)
+                
+                let operationAPIType = OperationAPIType.voteAuth(fields: vote)
+                
+                // Run API
+                let postRequestQueue = DispatchQueue.global(qos: .background)
+                
+                // Run queue in Async Thread
+                postRequestQueue.async {
+                    Broadcast.shared.executePOST(requestByOperationAPIType:    operationAPIType,
+                                                 userNickName:                 voter,
+                                                 onResult:                     { responseAPIResult in
+                                                    var errorAPI: ErrorAPI?
+                                                    
+                                                    if let error = (responseAPIResult as! ResponseAPIBlockchainPostResult).error {
+                                                        errorAPI = ErrorAPI.requestFailed(message: error.message)
+                                                    }
+                                                    
+                                                    completion(errorAPI)
+                    },
+                                                 onError: { errorAPI in
+                                                    Logger.log(message: "nresponse API Error = \(errorAPI.caseInfo.message)\n", event: .error)
+                                                    completion(errorAPI)
+                    })
+                }
+            }
+                
+            else {
+                completion(ErrorAPI.requestFailed(message: "Secret key not found"))
             }
         }
-            
+        
+        // Offline mode
         else {
-            completion(ErrorAPI.requestFailed(message: "Secret key not found"))
+            completion(nil, nil)
         }
     }
 }
