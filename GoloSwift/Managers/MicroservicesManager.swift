@@ -6,13 +6,11 @@
 //  Copyright © 2018 golos. All rights reserved.
 //
 
-import CoreData
-import GoloSwift
 import Foundation
 
 class MicroservicesManager {
     // MARK: - Class Functions
-
+    
     /// Gate-Service: API 'getSecret'
     class func getSecretKey(completion: @escaping (String?, ErrorAPI?) -> Void) {
         if isNetworkAvailable {
@@ -35,7 +33,7 @@ class MicroservicesManager {
             })
         }
             
-        // Offline mode
+            // Offline mode
         else {
             completion(nil, nil)
         }
@@ -43,8 +41,8 @@ class MicroservicesManager {
     
     /// Gate-Service: API 'auth'
     class func auth(voter: String, completion: @escaping (ErrorAPI?) -> Void) {
-        if let secretKey = KeychainManager.loadData(forUserNickName: User.current!.nickName, withKey: keySecret)?.values.first as? String {
-            let vote    =   RequestParameterAPI.Vote(voter:         User.current!.nickName,
+        if let secretKey = KeychainManager.loadData(forUserNickName: voter, withKey: keySecret)?.values.first as? String {
+            let vote    =   RequestParameterAPI.Vote(voter:         voter,
                                                      author:        "test",
                                                      permlink:      secretKey,
                                                      weight:        1)
@@ -57,7 +55,7 @@ class MicroservicesManager {
             // Run queue in Async Thread
             postRequestQueue.async {
                 Broadcast.shared.executePOST(requestByOperationAPIType:    operationAPIType,
-                                             userNickName:                 User.current!.nickName,
+                                             userNickName:                 voter,
                                              onResult:                     { responseAPIResult in
                                                 var errorAPI: ErrorAPI?
                                                 
