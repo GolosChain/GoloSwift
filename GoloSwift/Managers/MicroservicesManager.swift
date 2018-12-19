@@ -12,7 +12,7 @@ public class MicroservicesManager {
     // MARK: - Class Functions
     
     /// Gate-Service: API 'getSecret'
-    class func getSecretKey(completion: @escaping (String?, ErrorAPI?) -> Void) {
+    public class func getSecretKey(completion: @escaping (String?, ErrorAPI?) -> Void) {
         if isNetworkAvailable {
             let microserviceMethodAPIType = MicroserviceMethodAPIType.getSecretKey()
             
@@ -40,7 +40,7 @@ public class MicroservicesManager {
     }
     
     /// Gate-Service: API 'auth'
-    class func auth(voter: String, completion: @escaping (ErrorAPI?) -> Void) {
+    public class func auth(voter: String, completion: @escaping (ErrorAPI?) -> Void) {
         if let secretKey = KeychainManager.loadData(forUserNickName: voter, withKey: keySecret)?.values.first as? String {
             let vote    =   RequestParameterAPI.Vote(voter:         voter,
                                                      author:        "test",
