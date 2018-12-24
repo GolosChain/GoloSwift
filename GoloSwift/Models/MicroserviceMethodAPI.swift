@@ -6,7 +6,6 @@
 //
 
 import Foundation
-//import BeyovaJSON
 
 /// Type of request parameters
 typealias MicroserviceMethodRequestParameters = (microserviceMethodAPIType: MicroserviceMethodAPIType, nameAPI: String, parameters: [String])
@@ -28,7 +27,7 @@ public indirect enum MicroserviceMethodAPIType {
     /// This method return request parameters from selected enum case.
     func introduced() -> MicroserviceMethodRequestParameters {
         switch self {
-        // Microservices: Gate services
+            // Microservices: Gate services
             
         /// Template: { "id": 11, "method": "getSecret", "jsonrpc": "2.0", "params": [] }
         case .getSecretKey():   return  (microserviceMethodAPIType:     self,
@@ -38,7 +37,7 @@ public indirect enum MicroserviceMethodAPIType {
         /// Template: { "id": 11, "method": "auth", "jsonrpc": "2.0", "params": [ "user": <userNickName>, "sign": <signature> ] }
         case .auth(let userNickname, let sign):         return  (microserviceMethodAPIType:     self,
                                                                  nameAPI:                       "auth",
-                                                                 parameters:                    [String(format: "user: %@, sign: %@", userNickname, sign)])
+                                                                 parameters:                    [String(format: "user\": \"%@\", \"sign\": \"%@", userNickname, sign)])
             
         // Microservices: Facade services
             
