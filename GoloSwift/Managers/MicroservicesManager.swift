@@ -70,7 +70,7 @@ public class MicroservicesManager {
         }
     }
     
-  
+    
     /// Gate-Service: API 'auth'
     public class func auth(voter: String, completion: @escaping (ErrorAPI?) -> Void) {
         if let secretKey = KeychainManager.loadData(forUserNickName: voter, withKey: keySecret)?.values.first as? String {
