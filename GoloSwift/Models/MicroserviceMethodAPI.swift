@@ -17,6 +17,7 @@ public indirect enum MicroserviceMethodAPIType {
     
     /// Get secret key
     case getSecretKey()
+    case auth(user: String, sign: String)
     
     
     // Microservices: Facade services
@@ -27,16 +28,21 @@ public indirect enum MicroserviceMethodAPIType {
     /// This method return request parameters from selected enum case.
     func introduced() -> MicroserviceMethodRequestParameters {
         switch self {
-            // Microservices: Gate services
+        // Microservices: Gate services
             
         /// Template: { "id": 11, "method": "getSecret", "jsonrpc": "2.0", "params": [] }
         case .getSecretKey():   return  (microserviceMethodAPIType:     self,
                                          nameAPI:                       "getSecret",
                                          parameters:                    [])
             
-            // Microservices: Facade services
+        /// Template: { "id": 11, "method": "auth", "jsonrpc": "2.0", "params": [ "user": <userNickName>, "sign": <signature> ] }
+        case .auth(let userNickname, let sign):         return  (microserviceMethodAPIType:     self,
+                                                                 nameAPI:                       "auth",
+                                                                 parameters:                    [String(format: "user: %@, sign: %@", userNickname, sign)])
             
-            ///
+        // Microservices: Facade services
+            
+        ///
             
         } // switch
     }
