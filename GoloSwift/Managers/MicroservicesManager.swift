@@ -10,6 +10,37 @@ import Foundation
 
 public class MicroservicesManager {
     // MARK: - Class Functions
+    public class func startSession(forCurrentUser userNickName: String, completion: @escaping (ErrorAPI?) -> Void) {
+        if !WebSocketManager.instanceMicroservices.webSocket.isConnected {
+            WebSocketManager.instanceMicroservices.webSocket.connect()
+            
+            if WebSocketManager.instanceMicroservices.webSocket.delegate == nil {
+                WebSocketManager.instanceMicroservices.webSocket.delegate = WebSocketManager.instanceMicroservices
+            }
+        }
+        
+        // Handlers
+        WebSocketManager.instanceMicroservices.completionIsConnected    =   {
+            DispatchQueue.main.async(execute: {
+                MicroservicesManager.getSecretKey(completion: { (resultKey, errorAPI) in
+                    guard errorAPI == nil else {
+                        completion(errorAPI)
+                        return
+                    }
+                    
+                    Logger.log(message: "secretKey = \(resultKey!)", event: .debug)
+                    _ = KeychainManager.save(data: [keySecret: resultKey!], userNickName: userNickName)
+                    
+                    // Test API 'auth'
+                    MicroservicesManager.auth(voter: userNickName, completion: { errorAPI in
+                        Logger.log(message: "errorAPI = \(errorAPI?.localizedDescription ?? "XXX")", event: .debug)
+                        completion(errorAPI)
+                    })
+                })
+            })
+        }
+    }
+    
     
     /// Gate-Service: API 'getSecret'
     public class func getSecretKey(completion: @escaping (String?, ErrorAPI?) -> Void) {
@@ -35,52 +66,44 @@ public class MicroservicesManager {
             
         // Offline mode
         else {
-            completion(nil, nil)
+            completion(nil, NSError(domain: "No Internet Connection", code: 599, userInfo: nil) as? ErrorAPI)
         }
     }
     
+  
     /// Gate-Service: API 'auth'
     public class func auth(voter: String, completion: @escaping (ErrorAPI?) -> Void) {
-        if isNetworkAvailable {
-            if let secretKey = KeychainManager.loadData(forUserNickName: voter, withKey: keySecret)?.values.first as? String {
-                let vote    =   RequestParameterAPI.Vote(voter:         voter,
-                                                         author:        "test",
-                                                         permlink:      secretKey,
-                                                         weight:        1)
-                
-                let operationAPIType = OperationAPIType.voteAuth(fields: vote)
-                
-                // Run API
-                let postRequestQueue = DispatchQueue.global(qos: .background)
-                
-                // Run queue in Async Thread
-                postRequestQueue.async {
-                    Broadcast.shared.executePOST(requestByOperationAPIType:    operationAPIType,
+        if let secretKey = KeychainManager.loadData(forUserNickName: voter, withKey: keySecret)?.values.first as? String {
+            let vote    =   RequestParameterAPI.Vote(voter:         voter,
+                                                     author:        "test",
+                                                     permlink:      secretKey,
+                                                     weight:        1)
+            
+            let operationAPIType = OperationAPIType.voteAuth(fields: vote)
+            
+            // Run API
+            let postRequestQueue = DispatchQueue.global(qos: .background)
+            
+            // Run queue in Async Thread
+            postRequestQueue.async {
+                Broadcast.shared.executeFakePOST(requestByOperationAPIType:    operationAPIType,
                                                  userNickName:                 voter,
                                                  onResult:                     { responseAPIResult in
-                                                    var errorAPI: ErrorAPI?
-                                                    
-                                                    if let error = (responseAPIResult as! ResponseAPIBlockchainPostResult).error {
-                                                        errorAPI = ErrorAPI.requestFailed(message: error.message)
+                                                    if let error = (responseAPIResult as! ResponseAPIMicroserviceAuthResult).error {
+                                                        completion(ErrorAPI.blockchain(message: "Error \(error.code)"))
                                                     }
                                                     
-                                                    completion(errorAPI)
-                    },
+                                                    completion(nil)
+                },
                                                  onError: { errorAPI in
                                                     Logger.log(message: "nresponse API Error = \(errorAPI.caseInfo.message)\n", event: .error)
                                                     completion(errorAPI)
-                    })
-                }
-            }
-                
-            else {
-                completion(ErrorAPI.requestFailed(message: "Secret key not found"))
+                })
             }
         }
-        
-        // Offline mode
+            
         else {
-            completion(nil, nil)
+            completion(ErrorAPI.requestFailed(message: "Secret key not found"))
         }
     }
 }
