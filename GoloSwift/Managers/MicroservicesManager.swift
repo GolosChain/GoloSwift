@@ -11,6 +11,8 @@ import Foundation
 public class MicroservicesManager {
     // MARK: - Class Functions
     public class func startSession(forCurrentUser userNickName: String, completion: @escaping (ErrorAPI?) -> Void) {
+        _ = KeychainManager.deleteData(forUserNickName: userNickName, withKey: keySecret)
+        
         if !WebSocketManager.instanceMicroservices.webSocket.isConnected {
             WebSocketManager.instanceMicroservices.webSocket.connect()
             
