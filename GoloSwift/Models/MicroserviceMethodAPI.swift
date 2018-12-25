@@ -24,7 +24,7 @@ public indirect enum MicroserviceMethodAPIType {
     // Microservices: Facade services
     
     /// Set Basic theme options
-    case setBasicOptions(user: String, udid: String, darkTheme: Int)
+    case setBasicOptions(user: String, udid: String, darkTheme: Int, showImages: Int)
     case getBasicOptions(user: String, udid: String)
     
     ///
@@ -33,7 +33,7 @@ public indirect enum MicroserviceMethodAPIType {
     /// This method return request parameters from selected enum case.
     func introduced() -> MicroserviceMethodRequestParameters {
         switch self {
-            // Microservices: Gate services
+        // Microservices: Gate services
             
         /// Template: { "id": 11, "method": "getSecret", "jsonrpc": "2.0", "params": { } }
         case .getSecretKey():   return  (microserviceMethodAPIType:     self,
@@ -48,10 +48,10 @@ public indirect enum MicroserviceMethodAPIType {
         // Microservices: Facade services
             
         /// Template: { "id": 9, "method": "setOptions", "jsonrpc": "2.0", "params": { "profile": <userNickName-deviceUDID>, "basic": { "theme": <Bool> } } }
-        case .setBasicOptions(let userNickName, let deviceUDID, let isDarkTheme):
+        case .setBasicOptions(let userNickName, let deviceUDID, let isDarkTheme, let isFeedShowImages):
             return  (microserviceMethodAPIType:     self,
                      nameAPI:                       "setOptions",
-                     parameters:                    [ String(format: "profile\": \"%@-%@\", \"basic\": [\"theme\": %d]", userNickName, deviceUDID, isDarkTheme) ])
+                     parameters:                    [ String(format: "profile\": \"%@-%@\", \"basic\": [\"theme\": %d, \"feedShowImages\": %d]", userNickName, deviceUDID, isDarkTheme, isFeedShowImages) ])
             
         /// Template { "id":9, "method": "getOptions","jsonrpc": "2.0", "params": { "profile": <userNickName-deviceUDID> } }
         case .getBasicOptions(let userNickName, let deviceUDID):
