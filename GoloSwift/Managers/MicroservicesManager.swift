@@ -108,4 +108,58 @@ public class MicroservicesManager {
             completion(ErrorAPI.requestFailed(message: "Secret key not found"))
         }
     }
+    
+    
+    /// Gate-Facade: API `setOptions`
+    public class func setBasicOptions(userNickName: String, deviceUDID: String, isDarkTheme: Bool, completion: @escaping (ErrorAPI?) -> Void) {
+        if isNetworkAvailable {
+            let microserviceMethodAPIType = MicroserviceMethodAPIType.setBasicOptions(user: userNickName, udid: deviceUDID, darkTheme: isDarkTheme ? 1 : 0)
+            
+            Broadcast.shared.executeGET(byMicroserviceMethodAPIType: microserviceMethodAPIType,
+                                        onResult: { responseAPIResult in
+                                            Logger.log(message: "\nresponse API Result = \(responseAPIResult)\n", event: .debug)
+                                            
+                                            if let error = (responseAPIResult as! ResponseAPIMicroserviceAuthResult).error {
+                                                completion(ErrorAPI.blockchain(message: "Error \(error.code)"))
+                                            }
+                                            
+                                            completion(nil)
+            },
+                                        onError: { errorAPI in
+                                            Logger.log(message: "nresponse API Error = \(errorAPI.caseInfo.message)\n", event: .error)
+                                            completion(errorAPI)
+            })
+        }
+            
+        // Offline mode
+        else {
+            completion(NSError(domain: "No Internet Connection", code: 599, userInfo: nil) as? ErrorAPI)
+        }
+    }
+    
+    
+    /// Gate-Facade: API `getOptions`
+    public class func getBasicOptions(userNickName: String, deviceUDID: String, completion: @escaping (ResponseAPIMicroserviceGetOptionsResult?, ErrorAPI?) -> Void) {
+        if isNetworkAvailable {
+            let microserviceMethodAPIType = MicroserviceMethodAPIType.getBasicOptions(user: userNickName, udid: deviceUDID)
+            
+            Broadcast.shared.executeGET(byMicroserviceMethodAPIType: microserviceMethodAPIType,
+                                        onResult: { responseAPIResult in
+                                            if let error = (responseAPIResult as! ResponseAPIMicroserviceGetOptionsResult).error {
+                                                completion(nil, ErrorAPI.blockchain(message: "Error \(error.code)"))
+                                            }
+                                            
+                                            completion(responseAPIResult as? ResponseAPIMicroserviceGetOptionsResult, nil)
+            },
+                                        onError: { errorAPI in
+                                            Logger.log(message: "nresponse API Error = \(errorAPI.caseInfo.message)\n", event: .error)
+                                            completion(nil, errorAPI)
+            })
+        }
+            
+        // Offline mode
+        else {
+            completion(nil, NSError(domain: "No Internet Connection", code: 599, userInfo: nil) as? ErrorAPI)
+        }
+    }
 }
