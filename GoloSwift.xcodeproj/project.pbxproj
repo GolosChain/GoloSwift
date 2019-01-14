@@ -32,6 +32,7 @@
 		B1953E1B20ADB05E00FE601E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B1B169C520C10DB6005E1171 /* RequestParameterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParameterAPI.swift; sourceTree = "<group>"; };
 		B1BAAA492111994100B2F165 /* SigningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningManager.swift; sourceTree = "<group>"; };
+		B1D1459621EC8899006227D3 /* Bool+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Extensions.swift"; sourceTree = "<group>"; };
 		B1D2F02020DA5DFC00D18B07 /* PostActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostActionType.swift; sourceTree = "<group>"; };
 		B1D9007020AB250D00AECE51 /* GoloSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoloSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D9007320AB250D00AECE51 /* GoloSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoloSwift.h; sourceTree = "<group>"; };
@@ -168,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				B1D9009620AB2D6C00AECE51 /* Array+Extensions.swift */,
+				B1D1459621EC8899006227D3 /* Bool+Extensions.swift */,
 				B1D9009720AB2D6C00AECE51 /* Constants.swift */,
 				B164F04A20E656DB00C5CDD3 /* Data+Extensions.swift */,
 				B1D9009420AB2D6C00AECE51 /* Date+Extensions.swift */,

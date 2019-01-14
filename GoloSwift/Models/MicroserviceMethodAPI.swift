@@ -8,7 +8,7 @@
 import Foundation
 
 /// Type of request parameters
-typealias MicroserviceMethodRequestParameters = (microserviceMethodAPIType: MicroserviceMethodAPIType, nameAPI: String, parameters: [String])
+typealias MicroserviceMethodRequestParameters   =   (microserviceMethodAPIType: MicroserviceMethodAPIType, nameAPI: String, parameters: [String])
 
 public indirect enum MicroserviceOperationsType: String {
     case push   =   "push"
@@ -32,13 +32,14 @@ public indirect enum MicroserviceMethodAPIType {
     /// Set Basic theme options
     case setBasicOptions(user: String, udid: String, darkTheme: Int, showImages: Int)
     
-    ///
+    /// Set Push options
+    case setPushOptions(user: String, udid: String, lang: String, shows: RequestParameterAPI.PushOptions)
     
     
     /// This method return request parameters from selected enum case.
     func introduced() -> MicroserviceMethodRequestParameters {
         switch self {
-            // Microservices: Gate services
+        // Microservices: Gate services
             
         /// Template: { "id": 11, "method": "getSecret", "jsonrpc": "2.0", "params": { } }
         case .getSecretKey():   return  (microserviceMethodAPIType:     self,
@@ -50,7 +51,7 @@ public indirect enum MicroserviceMethodAPIType {
                                                                  nameAPI:                       "auth",
                                                                  parameters:                    [String(format: "user\": \"%@\", \"sign\": \"%@", userNickname, sign)])
             
-            // Microservices: Facade services
+        // Microservices: Facade services
         /// Template { "id":9, "method": "getOptions","jsonrpc": "2.0", "params": { "profile": <typeOptions-userNickName-deviceUDID> } }
         case .getOptions(let typeOptions, let userNickName, let deviceUDID):
             return  (microserviceMethodAPIType:     self,
@@ -62,6 +63,12 @@ public indirect enum MicroserviceMethodAPIType {
             return  (microserviceMethodAPIType:     self,
                      nameAPI:                       "setOptions",
                      parameters:                    [ String(format: "profile\": \"basic-%@-%@\", \"basic\": [\"theme\": %d, \"feedShowImages\": %d]", userNickName, deviceUDID, isDarkTheme, isFeedShowImages) ])
+            
+        /// Template: { "id": 9, "method": "setOptions", "jsonrpc": "2.0", "params": { "profile": <push-userNickName-deviceUDID>, "basic": null, "notify": null, "push": { "lang": <languageValue>, "show": { "vote": <voteValue>, "flag": <flagValue>, "reply": <replyValue>, "transfer": <transferValue>, "subscribe": <subscribeValue>, "unsubscribe": <unsibscribeValue>, "mention": <mentionValue>, "repost": <repostValue>,  "message": <messageValue>, "witnessVote": <witnessVoteValue>, "witnessCancelVote": <witnessCancelVoteValue>, "reward": <rewardValue>, "curatorReward": <curatorRewardValue> }}}}
+        case .setPushOptions(let userNickName, let deviceUDID, let lang, let shows):
+            return  (microserviceMethodAPIType:     self,
+                     nameAPI:                       "setOptions",
+                     parameters:                    [ String(format: "profile\": \"push-%@-%@\", \"basic\": null, \"notify\": null, \"push\": [\"lang\": %@, \"show\": [ %@ ]]", userNickName, deviceUDID, lang, shows.getOptionsValues()) ])
         } // switch
     }
 }
