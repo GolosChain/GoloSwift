@@ -139,9 +139,9 @@ public class MicroservicesManager {
     
     
     /// Gate-Facade: API `getOptions`
-    public class func getBasicOptions(userNickName: String, deviceUDID: String, completion: @escaping (ResponseAPIMicroserviceGetOptionsResult?, ErrorAPI?) -> Void) {
+    public class func getOptions(type: MicroserviceOperationsType, userNickName: String, deviceUDID: String, completion: @escaping (ResponseAPIMicroserviceGetOptionsResult?, ErrorAPI?) -> Void) {
         if isNetworkAvailable {
-            let microserviceMethodAPIType = MicroserviceMethodAPIType.getBasicOptions(user: userNickName, udid: deviceUDID)
+            let microserviceMethodAPIType = MicroserviceMethodAPIType.getOptions(type: type, user: userNickName, udid: deviceUDID)
             
             Broadcast.shared.executeGET(byMicroserviceMethodAPIType: microserviceMethodAPIType,
                                         onResult: { responseAPIResult in
@@ -157,7 +157,7 @@ public class MicroservicesManager {
             })
         }
             
-        // Offline mode
+            // Offline mode
         else {
             completion(nil, NSError(domain: "No Internet Connection", code: 599, userInfo: nil) as? ErrorAPI)
         }
