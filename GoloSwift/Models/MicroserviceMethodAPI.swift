@@ -69,7 +69,7 @@ public indirect enum MicroserviceMethodAPIType {
         case .setPushOptions(let userNickName, let deviceUDID, let options):
             return  (microserviceMethodAPIType:     self,
                      nameAPI:                       "setOptions",
-                     parameters:                    [ String(format: "profile\": \"push-%@-%@\", \"basic\": null, \"notify\": null, \"push\": [\"lang\": %@, \"show\": [ %@ ]]", userNickName, deviceUDID, options.language, options.getOptionsValues()) ])
+                     parameters:                    [ String(format: "profile\": \"push-%@-%@\", \"basic\": null, \"notify\": null, \"push\": [\"lang\": \"%@\", \"show\": [ %@ ]]", userNickName, deviceUDID, options.language, options.getOptionsValues()) ])
         } // switch
     }
 }

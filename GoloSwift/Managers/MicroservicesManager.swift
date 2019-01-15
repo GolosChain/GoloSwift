@@ -33,7 +33,7 @@ public class MicroservicesManager {
                     Logger.log(message: "secretKey = \(resultKey!)", event: .debug)
                     _ = KeychainManager.save(data: [keySecret: resultKey!], userNickName: userNickName)
                     
-                    // Test API 'auth'
+                    // Test API `auth`
                     MicroservicesManager.auth(voter: userNickName, completion: { errorAPI in
                         Logger.log(message: "errorAPI = \(errorAPI?.localizedDescription ?? "XXX")", event: .debug)
                         completion(errorAPI)
@@ -44,7 +44,7 @@ public class MicroservicesManager {
     }
     
     
-    /// Gate-Service: API 'getSecret'
+    /// Gate-Service: API `getSecret`
     public class func getSecretKey(completion: @escaping (String?, ErrorAPI?) -> Void) {
         if isNetworkAvailable {
             let microserviceMethodAPIType = MicroserviceMethodAPIType.getSecretKey()
@@ -73,7 +73,7 @@ public class MicroservicesManager {
     }
     
     
-    /// Gate-Service: API 'auth'
+    /// Gate-Service: API `auth`
     public class func auth(voter: String, completion: @escaping (ErrorAPI?) -> Void) {
         if let secretKey = KeychainManager.loadData(forUserNickName: voter, withKey: keySecret)?.values.first as? String {
             let vote    =   RequestParameterAPI.Vote(voter:         voter,
@@ -110,10 +110,38 @@ public class MicroservicesManager {
     }
     
     
-    /// Gate-Facade: API `setOptions`
+    /// Gate-Facade: API basic `setOptions`
     public class func setBasicOptions(userNickName: String, deviceUDID: String, isDarkTheme: Bool, isFeedShowImages: Bool, completion: @escaping (ErrorAPI?) -> Void) {
         if isNetworkAvailable {
             let microserviceMethodAPIType = MicroserviceMethodAPIType.setBasicOptions(user: userNickName, udid: deviceUDID, darkTheme: isDarkTheme ? 1 : 0, showImages: isFeedShowImages ? 1 : 0)
+            
+            Broadcast.shared.executeGET(byMicroserviceMethodAPIType: microserviceMethodAPIType,
+                                        onResult: { responseAPIResult in
+                                            Logger.log(message: "\nresponse API Result = \(responseAPIResult)\n", event: .debug)
+                                            
+                                            if let error = (responseAPIResult as! ResponseAPIMicroserviceAuthResult).error {
+                                                completion(ErrorAPI.blockchain(message: "Error \(error.code)"))
+                                            }
+                                            
+                                            completion(nil)
+            },
+                                        onError: { errorAPI in
+                                            Logger.log(message: "nresponse API Error = \(errorAPI.caseInfo.message)\n", event: .error)
+                                            completion(errorAPI)
+            })
+        }
+            
+        // Offline mode
+        else {
+            completion(ErrorAPI.disableInternetConnection())
+        }
+    }
+    
+    
+    /// Gate-Facade: API push `setOptions`
+    public class func setPushOptions(userNickName: String, deviceUDID: String, options: RequestParameterAPI.PushOptions, completion: @escaping (ErrorAPI?) -> Void) {
+        if isNetworkAvailable {
+            let microserviceMethodAPIType = MicroserviceMethodAPIType.setPushOptions(user: userNickName, udid: deviceUDID, options: options)
             
             Broadcast.shared.executeGET(byMicroserviceMethodAPIType: microserviceMethodAPIType,
                                         onResult: { responseAPIResult in
