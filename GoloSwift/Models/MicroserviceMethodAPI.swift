@@ -33,7 +33,7 @@ public indirect enum MicroserviceMethodAPIType {
     case setBasicOptions(user: String, udid: String, darkTheme: Int, showImages: Int)
     
     /// Set Push options
-    case setPushOptions(user: String, udid: String, lang: String, shows: RequestParameterAPI.PushOptions)
+    case setPushOptions(user: String, udid: String, options: RequestParameterAPI.PushOptions)
     
     
     /// This method return request parameters from selected enum case.
@@ -52,6 +52,7 @@ public indirect enum MicroserviceMethodAPIType {
                                                                  parameters:                    [String(format: "user\": \"%@\", \"sign\": \"%@", userNickname, sign)])
             
         // Microservices: Facade services
+        
         /// Template { "id":9, "method": "getOptions","jsonrpc": "2.0", "params": { "profile": <typeOptions-userNickName-deviceUDID> } }
         case .getOptions(let typeOptions, let userNickName, let deviceUDID):
             return  (microserviceMethodAPIType:     self,
@@ -65,10 +66,10 @@ public indirect enum MicroserviceMethodAPIType {
                      parameters:                    [ String(format: "profile\": \"basic-%@-%@\", \"basic\": [\"theme\": %d, \"feedShowImages\": %d]", userNickName, deviceUDID, isDarkTheme, isFeedShowImages) ])
             
         /// Template: { "id": 9, "method": "setOptions", "jsonrpc": "2.0", "params": { "profile": <push-userNickName-deviceUDID>, "basic": null, "notify": null, "push": { "lang": <languageValue>, "show": { "vote": <voteValue>, "flag": <flagValue>, "reply": <replyValue>, "transfer": <transferValue>, "subscribe": <subscribeValue>, "unsubscribe": <unsibscribeValue>, "mention": <mentionValue>, "repost": <repostValue>,  "message": <messageValue>, "witnessVote": <witnessVoteValue>, "witnessCancelVote": <witnessCancelVoteValue>, "reward": <rewardValue>, "curatorReward": <curatorRewardValue> }}}}
-        case .setPushOptions(let userNickName, let deviceUDID, let lang, let shows):
+        case .setPushOptions(let userNickName, let deviceUDID, let options):
             return  (microserviceMethodAPIType:     self,
                      nameAPI:                       "setOptions",
-                     parameters:                    [ String(format: "profile\": \"push-%@-%@\", \"basic\": null, \"notify\": null, \"push\": [\"lang\": %@, \"show\": [ %@ ]]", userNickName, deviceUDID, lang, shows.getOptionsValues()) ])
+                     parameters:                    [ String(format: "profile\": \"push-%@-%@\", \"basic\": null, \"notify\": null, \"push\": [\"lang\": %@, \"show\": [ %@ ]]", userNickName, deviceUDID, options.language, options.getOptionsValues()) ])
         } // switch
     }
 }
