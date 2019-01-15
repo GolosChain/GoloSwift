@@ -30,7 +30,7 @@ public indirect enum MicroserviceMethodAPIType {
     case getOptions(type: MicroserviceOperationsType, user: String, udid: String)
     
     /// Set Basic theme options
-    case setBasicOptions(user: String, udid: String, darkTheme: Int, showImages: Int)
+    case setBasicOptions(user: String, udid: String, darkTheme: Int, showImages: Int, soundOn: Int)
     
     /// Set Push options
     case setPushOptions(user: String, udid: String, options: RequestParameterAPI.PushOptions)
