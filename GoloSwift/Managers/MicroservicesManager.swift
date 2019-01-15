@@ -111,9 +111,9 @@ public class MicroservicesManager {
     
     
     /// Gate-Facade: API basic `setOptions`
-    public class func setBasicOptions(userNickName: String, deviceUDID: String, isDarkTheme: Bool, isFeedShowImages: Bool, completion: @escaping (ErrorAPI?) -> Void) {
+    public class func setBasicOptions(userNickName: String, deviceUDID: String, isDarkTheme: Bool, isFeedShowImages: Bool, isSoundOn: Bool = true, completion: @escaping (ErrorAPI?) -> Void) {
         if isNetworkAvailable {
-            let microserviceMethodAPIType = MicroserviceMethodAPIType.setBasicOptions(user: userNickName, udid: deviceUDID, darkTheme: isDarkTheme ? 1 : 0, showImages: isFeedShowImages ? 1 : 0)
+            let microserviceMethodAPIType = MicroserviceMethodAPIType.setBasicOptions(user: userNickName, udid: deviceUDID, darkTheme: isDarkTheme.intValue, showImages: isFeedShowImages.intValue, soundOn: isSoundOn.intValue)
             
             Broadcast.shared.executeGET(byMicroserviceMethodAPIType: microserviceMethodAPIType,
                                         onResult: { responseAPIResult in

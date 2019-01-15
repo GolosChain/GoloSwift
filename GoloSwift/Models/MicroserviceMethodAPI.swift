@@ -60,11 +60,11 @@ public indirect enum MicroserviceMethodAPIType {
                      parameters:                    [ String(format: "profile\": \"%@-%@-%@", typeOptions.rawValue, userNickName, deviceUDID) ])
             
         /// Template: { "id": 9, "method": "setOptions", "jsonrpc": "2.0", "params": { "profile": <basic-userNickName-deviceUDID>, "basic": { "theme": <Bool> } } }
-        case .setBasicOptions(let userNickName, let deviceUDID, let isDarkTheme, let isFeedShowImages):
+        case .setBasicOptions(let userNickName, let deviceUDID, let isDarkTheme, let isFeedShowImages, let isSoundOn):
             return  (microserviceMethodAPIType:     self,
                      nameAPI:                       "setOptions",
-                     parameters:                    [ String(format: "profile\": \"basic-%@-%@\", \"basic\": [\"theme\": %d, \"feedShowImages\": %d]", userNickName, deviceUDID, isDarkTheme, isFeedShowImages) ])
-            
+                     parameters:                    [ String(format: "profile\": \"basic-%@-%@\", \"basic\": [\"theme\": %d, \"feedShowImages\": %d, \"soundOn\": %d]", userNickName, deviceUDID, isDarkTheme, isFeedShowImages, isSoundOn) ])
+
         /// Template: { "id": 9, "method": "setOptions", "jsonrpc": "2.0", "params": { "profile": <push-userNickName-deviceUDID>, "basic": null, "notify": null, "push": { "lang": <languageValue>, "show": { "vote": <voteValue>, "flag": <flagValue>, "reply": <replyValue>, "transfer": <transferValue>, "subscribe": <subscribeValue>, "unsubscribe": <unsibscribeValue>, "mention": <mentionValue>, "repost": <repostValue>,  "message": <messageValue>, "witnessVote": <witnessVoteValue>, "witnessCancelVote": <witnessCancelVoteValue>, "reward": <rewardValue>, "curatorReward": <curatorRewardValue> }}}}
         case .setPushOptions(let userNickName, let deviceUDID, let options):
             return  (microserviceMethodAPIType:     self,
