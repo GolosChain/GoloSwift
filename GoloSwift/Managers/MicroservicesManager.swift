@@ -157,9 +157,9 @@ public class MicroservicesManager {
             })
         }
             
-            // Offline mode
+        // Offline mode
         else {
-            completion(nil, NSError(domain: "No Internet Connection", code: 599, userInfo: nil) as? ErrorAPI)
+            completion(nil, ErrorAPI.disableInternetConnection())
         }
     }
 }
