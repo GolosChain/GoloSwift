@@ -63,7 +63,7 @@ public indirect enum MicroserviceMethodAPIType {
         case .setBasicOptions(let userNickName, let deviceUDID, let isDarkTheme, let isFeedShowImages, let isSoundOn):
             return  (microserviceMethodAPIType:     self,
                      nameAPI:                       "setOptions",
-                     parameters:                    [ String(format: "profile\": \"basic-%@-%@\", \"basic\": [\"theme\": %d, \"feedShowImages\": %d, \"soundOn\": %d]", userNickName, deviceUDID, isDarkTheme, isFeedShowImages, isSoundOn) ])
+                     parameters:                    [ String(format: "profile\": \"basic-%@-%@\", \"basic\": [\"theme\": %d, \"feedShowImages\": %d, \"soundOn\": %d], \"notify\": null, \"push\": null", userNickName, deviceUDID, isDarkTheme, isFeedShowImages, isSoundOn) ])
 
         /// Template: { "id": 9, "method": "setOptions", "jsonrpc": "2.0", "params": { "profile": <push-userNickName-deviceUDID>, "basic": null, "notify": null, "push": { "lang": <languageValue>, "show": { "vote": <voteValue>, "flag": <flagValue>, "reply": <replyValue>, "transfer": <transferValue>, "subscribe": <subscribeValue>, "unsubscribe": <unsibscribeValue>, "mention": <mentionValue>, "repost": <repostValue>,  "message": <messageValue>, "witnessVote": <witnessVoteValue>, "witnessCancelVote": <witnessCancelVoteValue>, "reward": <rewardValue>, "curatorReward": <curatorRewardValue> }}}}
         case .setPushOptions(let userNickName, let deviceUDID, let options):
