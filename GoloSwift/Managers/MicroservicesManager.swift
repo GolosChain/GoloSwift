@@ -111,9 +111,9 @@ public class MicroservicesManager {
     
     
     /// Gate-Facade: API basic `setOptions`
-    public class func setBasicOptions(userNickName: String, deviceUDID: String, isDarkTheme: Bool, isFeedShowImages: Bool, isSoundOn: Bool = true, completion: @escaping (ErrorAPI?) -> Void) {
+    public class func setBasicOptions(userNickName: String, deviceType: String, isDarkTheme: Bool, isFeedShowImages: Bool, isSoundOn: Bool = true, completion: @escaping (ErrorAPI?) -> Void) {
         if isNetworkAvailable {
-            let microserviceMethodAPIType = MicroserviceMethodAPIType.setBasicOptions(user: userNickName, udid: deviceUDID, darkTheme: isDarkTheme.intValue, showImages: isFeedShowImages.intValue, soundOn: isSoundOn.intValue)
+            let microserviceMethodAPIType = MicroserviceMethodAPIType.setBasicOptions(user: userNickName, deviceType: deviceType, darkTheme: isDarkTheme.intValue, showImages: isFeedShowImages.intValue, soundOn: isSoundOn.intValue)
             
             Broadcast.shared.executeGET(byMicroserviceMethodAPIType: microserviceMethodAPIType,
                                         onResult: { responseAPIResult in
@@ -139,9 +139,9 @@ public class MicroservicesManager {
     
     
     /// Gate-Facade: API push `setOptions`
-    public class func setPushOptions(userNickName: String, deviceUDID: String, options: RequestParameterAPI.PushOptions, completion: @escaping (ErrorAPI?) -> Void) {
+    public class func setPushOptions(userNickName: String, deviceType: String, options: RequestParameterAPI.PushOptions, completion: @escaping (ErrorAPI?) -> Void) {
         if isNetworkAvailable {
-            let microserviceMethodAPIType = MicroserviceMethodAPIType.setPushOptions(user: userNickName, udid: deviceUDID, options: options)
+            let microserviceMethodAPIType = MicroserviceMethodAPIType.setPushOptions(user: userNickName, deviceType: deviceType, options: options)
             
             Broadcast.shared.executeGET(byMicroserviceMethodAPIType: microserviceMethodAPIType,
                                         onResult: { responseAPIResult in
@@ -167,9 +167,9 @@ public class MicroservicesManager {
     
     
     /// Gate-Facade: API `getOptions`
-    public class func getOptions(type: MicroserviceOperationsType, userNickName: String, deviceUDID: String, completion: @escaping (ResponseAPIMicroserviceGetOptionsResult?, ErrorAPI?) -> Void) {
+    public class func getOptions(userNickName: String, deviceType: String, completion: @escaping (ResponseAPIMicroserviceGetOptionsResult?, ErrorAPI?) -> Void) {
         if isNetworkAvailable {
-            let microserviceMethodAPIType = MicroserviceMethodAPIType.getOptions(type: type, user: userNickName, udid: deviceUDID)
+            let microserviceMethodAPIType = MicroserviceMethodAPIType.getOptions(user: userNickName, deviceType: deviceType)
             
             Broadcast.shared.executeGET(byMicroserviceMethodAPIType: microserviceMethodAPIType,
                                         onResult: { responseAPIResult in
