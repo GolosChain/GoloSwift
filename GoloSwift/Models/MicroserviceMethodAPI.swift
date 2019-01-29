@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Localize_Swift
 
 /// Type of request parameters
 typealias MicroserviceMethodRequestParameters   =   (microserviceMethodAPIType: MicroserviceMethodAPIType, nameAPI: String, parameters: [String])
@@ -58,8 +59,8 @@ public indirect enum MicroserviceMethodAPIType {
         case .setBasicOptions(let userNickName, let deviceType, let isDarkTheme, let isFeedShowImages, let isSoundOn):
             return  (microserviceMethodAPIType:     self,
                      nameAPI:                       "setOptions",
-                     parameters:                    [ String(format: "profile\": \"%@-%@\", \"notify\": null, \"push\": null, \"basic\": [\"theme\": %d, \"feedShowImages\": %d, \"soundOn\": %d]", userNickName, deviceType, isDarkTheme, isFeedShowImages, isSoundOn) ])
-            
+                     parameters:                    [ String(format: "profile\": \"%@-%@\", \"notify\": null, \"push\": null, \"basic\": [\"lang\": \"%@\", \"theme\": %d, \"feedShowImages\": %d, \"soundOn\": %d]", userNickName, deviceType, Localize.currentLanguage(), isDarkTheme, isFeedShowImages, isSoundOn) ])
+
         /// Template: { "id": 9, "method": "setOptions", "jsonrpc": "2.0", "params": { "profile": <push-userNickName-deviceUDID>, "basic": null, "notify": null, "push": { "lang": <languageValue>, "show": { "vote": <voteValue>, "flag": <flagValue>, "reply": <replyValue>, "transfer": <transferValue>, "subscribe": <subscribeValue>, "unsubscribe": <unsibscribeValue>, "mention": <mentionValue>, "repost": <repostValue>,  "message": <messageValue>, "witnessVote": <witnessVoteValue>, "witnessCancelVote": <witnessCancelVoteValue>, "reward": <rewardValue>, "curatorReward": <curatorRewardValue> }}}}
         case .setPushOptions(let userNickName, let deviceType, let options):
             return  (microserviceMethodAPIType:     self,
